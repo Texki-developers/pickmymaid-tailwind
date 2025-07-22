@@ -1,26 +1,162 @@
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
 @import "tailwindcss";
 
+/* Base tokens */
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --primary-50: #ffebde;
+  --primary-100: #ffc8b0;
+  --primary-200: #ffa67f;
+  --primary-300: #ff7442;
+  --primary-400: #fe5f1c;
+
+  --campaign-200: #ffe4de;
+  --campaign-500: #ff6f51;
+
+  --soft-orange: #ffe1e1;
+  --soft-gray: #f7f7f7;
+
+  --black-200: #c0bfbf;
+  --black-300: #a5a5a5;
+  --black-400: #8b8b8b;
+  --black-500: #727272;
+  --black-600: #595959;
+  --black-700: #354860;
+  --black-800: #292525;
+  --black-900: #150a0d;
+
+  --black-red-100: #3f1010;
+
+  --success: #48bb78;
+  --failure: #e53e3e;
+
+  --font-sans: Arial, Helvetica, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #ffffff;
   }
+}
+
+/* Tailwind theme override inline */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary-50: var(--primary-50);
+  --color-primary-100: var(--primary-100);
+  --color-primary-200: var(--primary-200);
+  --color-primary-300: var(--primary-300);
+  --color-primary-400: var(--primary-400);
+
+  --color-campaign-200: var(--campaign-200);
+  --color-campaign-500: var(--campaign-500);
+
+  --color-soft-orange: var(--soft-orange);
+  --color-soft-gray: var(--soft-gray);
+
+  --color-black-200: var(--black-200);
+  --color-black-300: var(--black-300);
+  --color-black-400: var(--black-400);
+  --color-black-500: var(--black-500);
+  --color-black-600: var(--black-600);
+  --color-black-700: var(--black-700);
+  --color-black-800: var(--black-800);
+  --color-black-900: var(--black-900);
+
+  --color-black-red-100: var(--black-red-100);
+
+  --color-success: var(--success);
+  --color-failure: var(--failure);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono); /* Optional, not used yet */
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* HEADING */
+.heading-section-title {
+  @apply text-black-700 font-extrabold text-center text-[1.4rem] sm:text-[2rem] xl:text-[2.6rem];
+}
+
+.heading-primary {
+  @apply text-white font-medium text-[1.6rem] sm:text-[2.5rem] xl:text-[2.9rem] leading-[33px] sm:leading-[54px];
+}
+
+.heading-secondary {
+  @apply text-black-700 text-[1rem] sm:text-[1.2rem] xl:text-[2rem];
+}
+
+.heading-tertiary {
+  @apply text-black-700 font-bold text-[1.2rem] xl:text-[1.7rem];
+}
+
+.heading-card {
+  @apply text-black-700 font-bold text-[1rem] xl:text-[1.1rem] leading-[1.5];
+}
+
+.heading-smaller {
+  @apply text-black-700 font-semibold text-[0.9rem] xl:text-[1rem];
+}
+
+.heading-footer-title {
+  @apply text-white font-medium text-[0.9rem] xl:text-[1.2rem] border-b-2 border-white pb-2 w-max;
+}
+
+/* TEXT */
+.text-sub-title {
+  @apply text-black-600 text-[1rem] sm:text-[1.2rem] xl:text-[1.4rem];
+}
+
+.text-highlight {
+  @apply text-[0.9rem] sm:text-[1rem] xl:text-[1.2rem];
+}
+
+.text-description {
+  @apply text-black-600 text-[0.8rem] sm:text-[0.9rem] xl:text-[1rem];
+}
+
+.text-fade {
+  @apply text-black-500 text-[0.8rem] sm:text-[1rem];
+}
+
+.text-footer {
+  @apply text-white text-[0.8rem] sm:text-[0.9rem];
+}
+
+/* FORM LABEL */
+.label-primary {
+  @apply text-black-600 text-[0.9rem] sm:text-[1rem];
+}
+
+/* BUTTONS */
+.btn-solid {
+  @apply bg-primary-300 text-white border-2 border-primary-300 px-4 xl:px-8 py-2 xl:py-6 text-sm xl:text-base rounded-lg hover:bg-primary-400 hover:border-primary-400;
+}
+
+.btn-outlined {
+  @apply bg-transparent text-primary-300 border-2 border-primary-300 px-4 xl:px-8 py-2 xl:py-6 text-sm xl:text-base rounded-lg hover:bg-primary-300 hover:text-white;
+}
+
+.btn-normal {
+  @apply border-none rounded-none p-0 m-0 border-l border-r border-[#D0D5DD];
+}
+
+.btn-active {
+  @apply bg-[#F9FAFB] rounded-none p-0 m-0 border-l border-r border-[#D0D5DD];
+}
+
+/* Z INDEX */
+.z-my-custom-layer {
+  z-index: 10;
 }
