@@ -83,6 +83,9 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+.common-padding{
+  @apply px-4 md:px-5 lg:px-8 2xl:px-32;
+}
 
 /* HEADING */
 .heading-section-title {
@@ -90,7 +93,7 @@ body {
 }
 
 .heading-primary {
-  @apply text-white font-medium text-[1.6rem] sm:text-[2.5rem] xl:text-[2.9rem] leading-[33px] sm:leading-[54px];
+  @apply font-medium text-[1.6rem] sm:text-[2.5rem] xl:text-[2.9rem] leading-[33px] sm:leading-[54px];
 }
 
 .heading-secondary {
@@ -102,7 +105,7 @@ body {
 }
 
 .heading-card {
-  @apply text-black-700 font-bold text-[1rem] xl:text-[1.1rem] leading-[1.5];
+  @apply font-bold text-[1rem] xl:text-[1.5rem] leading-[1.5];
 }
 
 .heading-smaller {
