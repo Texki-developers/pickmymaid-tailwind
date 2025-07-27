@@ -4,22 +4,8 @@ import NewsSection from "@/components/molecules/Home/HomeSections/NewsSection/Ne
 import TrustAndSafety from "@/components/molecules/Home/HomeSections/TrustAndSafety/TrustAndSafety";
 import WhyUAETrust from "@/components/molecules/Home/HomeSections/WhyUAETrust/WhyUAETrust";
 import interview from "@/assets/images/interview-maids.png";
-import dynamic from "next/dynamic";
-const TestimonialSlider = dynamic(
-  () =>
-    import(
-      "@/components/molecules/Home/HomeSections/TestimonialsSlider/TestimonialSlider"
-    ),
-  {
-    ssr: false,
-  }
-);
-const ZigZagSection = dynamic(
-  () => import("@/components/atoms/ZigZagSection/ZigZagSection"),
-  {
-    ssr: false,
-  }
-);
+import TestimonialSliderWrapper from "@/components/molecules/Home/HomeSections/Wrappers/TestimonialSliderWrapper";
+import ZigZagWrapper from "@/components/molecules/Home/HomeSections/Wrappers/ZigZagWrapper";
 
 export default function Home() {
   return (
@@ -29,8 +15,8 @@ export default function Home() {
       <TrustAndSafety />
       <WhyUAETrust />
       <HowItWorksHome />
-      <TestimonialSlider />
-      <ZigZagSection
+      <TestimonialSliderWrapper />
+      <ZigZagWrapper
         imagePos="left"
         image={interview}
         data={{
