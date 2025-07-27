@@ -1,6 +1,6 @@
 "use client";
 import VStack from "@/components/ui/VStack";
-import { Star } from "../../Icons/Icons";
+import { Star } from "../../../../../legacy/components/atoms/Icons/Icons";
 import HStack from "@/components/ui/HStack";
 
 export default function ReviewCard({ text, name, image, title }: any) {

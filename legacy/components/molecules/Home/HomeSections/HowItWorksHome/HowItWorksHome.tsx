@@ -1,3 +1,4 @@
+import { commonPadding } from "@/components/atoms/styles";
 import { howItWorksData } from "./howItWorks.data";
 import HomeHowCard from "@/components/atoms/Cards/homeHowCard/HomeHowCard";
 import VStack from "@/components/ui/VStack";
