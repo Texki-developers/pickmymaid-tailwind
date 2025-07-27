@@ -7,12 +7,14 @@ const Image = ({
   parentClass,
   noLazy = false,
   className,
+  priority = false,
 }: {
   src: string;
   alt: string;
   parentClass?: string;
   noLazy?: boolean;
   className?: string;
+  priority?: boolean;
 }) => {
   return (
     <div className={clsx("relative overflow-hidden", parentClass)}>
@@ -23,6 +25,8 @@ const Image = ({
         className={className}
         objectFit="cover"
         loading={noLazy ? "eager" : "lazy"}
+        priority={priority}
+        fetchPriority={priority ? "high" : "auto"}
       />
     </div>
   );

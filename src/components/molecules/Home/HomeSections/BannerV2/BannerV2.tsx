@@ -51,6 +51,7 @@ export default function BannerV2() {
             parentClass="aspect-[741/753] w-full"
             alt="Quality Maids in Pickmymaid"
             noLazy
+            priority
           />
         </span>
       </div>
