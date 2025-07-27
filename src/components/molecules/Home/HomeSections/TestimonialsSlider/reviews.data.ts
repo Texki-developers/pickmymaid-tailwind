@@ -1,9 +1,11 @@
-import nija from '@/assets/images/campaign/reviews/nija.jpeg'
-import jo from '@/assets/images/campaign/reviews/jo.jpeg'
-import riyas from '@/assets/images/campaign/reviews/riyas.jpeg'
-import Rahman from '@/assets/images/campaign/reviews/Rahman.jpeg'
-import savad from '@/assets/images/campaign/reviews/savad.jpeg'
-import malli from '@/assets/images/campaign/reviews/malli.jpeg'
+import nija from '@/assets/images/campaign/reviews/nija.webp'
+import jo from '@/assets/images/campaign/reviews/jo.webp'
+import riyas from '@/assets/images/campaign/reviews/riyas.webp'
+import Rahman from '@/assets/images/campaign/reviews/Rahman.webp'
+import savad from '@/assets/images/campaign/reviews/savad.webp'
+import malli from '@/assets/images/campaign/reviews/malli.webp'
+import ahmed from '@/assets/images/campaign/reviews/admed.webp'
+import nisha from '@/assets/images/campaign/reviews/nisha.webp'
 
 export const reviews = [
     {
@@ -11,7 +13,7 @@ export const reviews = [
         I have hired an amazing maid after 3 interviews with other maids , each days tons of new options added to the list which makes it faster to find the suitable maid. Highly recommended if you don’t want to waste huge amount of money to just find a maid`,
         name: 'Ahmed Mahmoud',
         type: 'Employer',
-        image: 'https://lh3.googleusercontent.com/a-/ALV-UjUQTgXcUjPtNrwbYTM7QyYf42C3-_vOPuJCIEM34ljxowoigp-Y=w60-h60-p-rp-mo-ba2-br100'
+        image: ahmed
     },
     {
         text: 'We used Pickmymaid to hire a live in maid, and it was easy to find a qualified maid within two days. The registration fee is the only cost, and there are no other hidden fees. thank you pickmymaid',
@@ -42,7 +44,7 @@ export const reviews = [
         text: 'Thank you so much..pickmymaid... Great apps and service one time call and job joining very good experience thank you so much👍😍💐',
         name: 'Nisha Soni',
         type: 'Maid',
-        image: 'https://lh3.googleusercontent.com/a-/ALV-UjXpK2zV3fN3wA2slnQCNbWSN_Pw1TqfGdeA_UcBd-0BDAk=w120-h120-p-rp-mo-br100'
+        image: nisha
     },
     {
         text: 'I found my Filipina Nanny from pickmymaid thanks for the easy process🙏🏼😊',

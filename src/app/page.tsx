@@ -1,11 +1,25 @@
-import ZigZagSection from "@/components/atoms/ZigZagSection/ZigZagSection";
 import BannerV2 from "@/components/molecules/Home/HomeSections/BannerV2/BannerV2";
 import HowItWorksHome from "@/components/molecules/Home/HomeSections/HowItWorksHome/HowItWorksHome";
 import NewsSection from "@/components/molecules/Home/HomeSections/NewsSection/NewsSection";
-import TestimonialSlider from "@/components/molecules/Home/HomeSections/TestimonialsSlider/TestimonialSlider";
 import TrustAndSafety from "@/components/molecules/Home/HomeSections/TrustAndSafety/TrustAndSafety";
 import WhyUAETrust from "@/components/molecules/Home/HomeSections/WhyUAETrust/WhyUAETrust";
 import interview from "@/assets/images/interview-maids.png";
+import dynamic from "next/dynamic";
+const TestimonialSlider = dynamic(
+  () =>
+    import(
+      "@/components/molecules/Home/HomeSections/TestimonialsSlider/TestimonialSlider"
+    ),
+  {
+    ssr: false,
+  }
+);
+const ZigZagSection = dynamic(
+  () => import("@/components/atoms/ZigZagSection/ZigZagSection"),
+  {
+    ssr: false,
+  }
+);
 
 export default function Home() {
   return (
