@@ -48,8 +48,7 @@ export default function BannerV2() {
         <span className="none md-block">
           <Image
             src={bannerImg.src}
-            aspectRatio={741 / 753}
-            w="100%"
+            parentClass="aspect-[741/753] w-full"
             alt="Quality Maids in Pickmymaid"
             noLazy
           />

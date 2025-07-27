@@ -83,7 +83,7 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-.common-padding{
+.common-padding {
   @apply px-4 md:px-5 lg:px-8 2xl:px-32;
 }
 
@@ -144,15 +144,15 @@ body {
 
 /* BUTTONS */
 .btn-solid {
-  @apply bg-primary-300 text-white border-2 border-primary-300 px-4 xl:px-8 py-2 xl:py-6 text-sm xl:text-base rounded-lg hover:bg-primary-400 hover:border-primary-400;
+  @apply bg-primary-300 cursor-pointer text-white border-2 border-primary-300 px-4 xl:px-8 py-2 xl:py-3 text-sm xl:text-base rounded-lg hover:bg-primary-400 hover:border-primary-400;
 }
 
 .btn-outlined {
-  @apply bg-transparent text-primary-300 border-2 border-primary-300 px-4 xl:px-8 py-2 xl:py-6 text-sm xl:text-base rounded-lg hover:bg-primary-300 hover:text-white;
+  @apply bg-transparent cursor-pointer text-primary-300 border-2 border-primary-300 px-4 xl:px-8 py-2 xl:py-6 text-sm xl:text-base rounded-lg hover:bg-primary-300 hover:text-white;
 }
 
 .btn-normal {
-  @apply border-none rounded-none p-0 m-0 border-l border-r border-[#D0D5DD];
+  @apply border-none cursor-pointer rounded-none p-0 m-0 border-l border-r border-[#D0D5DD];
 }
 
 .btn-active {
@@ -162,4 +162,11 @@ body {
 /* Z INDEX */
 .z-my-custom-layer {
   z-index: 10;
+}
+
+.swiper-slide {
+  height: auto !important;
+}
+.swiper {
+  padding: 0 0.5rem !important;
 }

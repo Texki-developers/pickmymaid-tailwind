@@ -16,21 +16,21 @@ export const howItWorksData: {
     id: crypto.randomUUID(),
     number: number1,
     vector: vector1,
-    title: 'home.working.search.title',
-    description: 'home.working.search.description'
+    title: 'Search',
+    description: 'Browse through 900+ profiles of nannies and maids in the UAE, complete with detailed information, right here.'
   },
   {
     id: crypto.randomUUID(),
     number: number2,
     vector: vector2,
-    title: 'home.working.register.title',
-    description: 'home.working.register.description'
+    title: 'Register to access details of available maids',
+    description: 'Get started with the interview process by selecting a package that grants you access to detailed information about the available maids.'
   },
   {
     id: crypto.randomUUID(),
     number: number3,
     vector: vector3,
-    title: 'home.working.hire.title',
-    description: 'home.working.hire.description'
+    title: 'Hire',
+    description: 'Communicate your requirements directly with the maid or nanny, come to a mutual agreement, and proceed to hire her for the position.'
   }
 ];

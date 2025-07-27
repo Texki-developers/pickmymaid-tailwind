@@ -5,23 +5,23 @@ import newProfiles from '@/assets/images/Home/newProfiles.webp'
 
 export const trustData: {title: string, desc: string, icon: any}[] = [
     {
-        title: "home.whyUAETrust.happy",
-        desc: "home.whyUAETrust.happyDesc",
+        title: "10k+ Happy Customers",
+        desc: "10k+ customers trust Pickmymaid for reliable maids and nannies in the UAE. We ensure quality, safety, and exceptional service.",
         icon: happy
     },
     {
-        title: "home.whyUAETrust.unlimited",
-        desc: "home.whyUAETrust.unlimitedDesc",
+        title: "Unlimited Maid & Nanny Options",
+        desc: "Get unlimited maid and nanny services tailored to your needs. We provide trusted, qualified candidates with new verified CVs added daily.",
         icon: unlimited
     },
     {
-        title: "home.whyUAETrust.newProfiles",
-        desc: "home.whyUAETrust.newProfilesDesc",
+        title: "20+ New Profiles, Verified by HR Team",
+        desc: "Our HR team interviews 20+ candidates daily, offering maids, nannies, cooks, caregivers, drivers, and nurses. Each profile is verified for authenticity and reliability.",
         icon: newProfiles
     },
     {
-        title: "home.whyUAETrust.trust",
-        desc: "home.whyUAETrust.trustDesc",
+        title: "Years of Trusted Service in UAE",
+        desc: "Proudly serving families across the UAE, we are the trusted choice for maids, nannies, and caregivers. Our commitment to quality builds lasting relationships.",
         icon: trust
     }
 ]

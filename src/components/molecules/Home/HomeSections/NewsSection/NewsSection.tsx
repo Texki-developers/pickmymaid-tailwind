@@ -21,11 +21,9 @@ export default function NewsSection() {
     >
       <h2 className="heading-card text-white px-[0.8rem]">Featured in:</h2>
       <Image
-        style={{ cursor: "pointer" }}
         src={khaleej.src}
         alt="khaleej_times_news"
-        aspectRatio={880 / 166}
-        w={isMobile ? "50%" : "20rem"}
+        parentClass="cursor-pointer aspect-[880/166] w-[50%] sm:w-[20rem]"
       />
     </VStack>
   );

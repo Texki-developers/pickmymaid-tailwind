@@ -1,7 +1,6 @@
-"use client";
-import { Box, HStack, Heading, Text, VStack } from "@chakra-ui/react";
-import { getAlternativeText } from "@/utils/altSelector";
+import VStack from "@/components/ui/VStack";
 import Image from "../../NextImageWrapper/Image";
+import HStack from "@/components/ui/HStack";
 
 export default function HomeHowCard({
   image,
@@ -14,54 +13,28 @@ export default function HomeHowCard({
   heading: string;
   content: string;
 }) {
+  console.log({ image, number, heading, content });
   return (
-    <VStack
-      pos="relative"
-      flex={10}
-      w={{ base: "100%", sm: "10rem", xl: "25rem" }}
-    >
-      <HStack alignItems="flex-start" w="100%">
-        <Text
-          fontSize={{ base: "6rem", lg: "9rem" }}
-          fontWeight={500}
-          color="brand.primary.300"
-          pos="relative"
-          top="0"
-          lineHeight="100px"
-        >
+    <VStack className="relative flex-[10] w-[100%] sm:w-[10rem] xl:w-[25rem]">
+      <HStack className="items-start w-[100%]">
+        <p className="text-primary-300 font-[500] text-[6rem] lg:text-[9rem] leading-[100px] top-0 relative">
           {number}
-        </Text>
+        </p>
         {image && (
-          <Box
-            w={{ base: "12rem", lg: "15rem" }}
-            height="auto"
-            objectFit="contain"
-            flexShrink="10"
-          >
+          <div className="w-[12rem] lg:w-[15rem] h-auto flex-shrink-[10] object-contain">
             <Image
               src={image}
-              h="auto"
-              w="100%"
-              aspectRatio={1.5 / 1}
-              alt={getAlternativeText()}
+              parentClass="w-[100%] h-auto aspect-[1.5/1]"
+              alt="Quality Maids in Pickmymaid"
             />
-          </Box>
+          </div>
         )}
       </HStack>
-      <VStack
-        pl={{ base: "0", lg: "20%" }}
-        flexGrow={10}
-        justifyContent="flex-end"
-        w="100%"
-      >
-        <Heading
-          fontSize={{ base: "1rem", md: "1.4rem" }}
-          textAlign="left"
-          w="100%"
-        >
+      <VStack className="pl-[0] lg:pl-[20%] flex-[10] items-center justify-end w-[100%]">
+        <h3 className="text-black-900 font-[600] text-[1rem] md:text-[1.4rem] text-left w-[100%]">
           {heading}
-        </Heading>
-        <Text>{content}</Text>
+        </h3>
+        <p className="text-black-900 text-[0.8rem] md:text-[1rem]">{content}</p>
       </VStack>
     </VStack>
   );

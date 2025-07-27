@@ -1,55 +1,34 @@
-"use client";
-import {
-  Flex,
-  Heading,
-  Text,
-  VStack,
-  useBreakpointValue,
-} from "@chakra-ui/react";
-import { commonPadding } from "@/components/atoms/styles";
-import { useTranslation } from "@/lib/hooks/useTranslation";
 import { trustData } from "./trust.data";
 import Image from "@/components/atoms/NextImageWrapper/Image";
+import VStack from "@/components/ui/VStack";
 
 export default function TrustAndSafety() {
-  const { t } = useTranslation();
-  const imageWidth = useBreakpointValue({ base: "3rem", md: "5rem" });
+  // const imageWidth = useBreakpointValue({ base: "3rem", md: "5rem" });
+
   return (
-    <VStack sx={commonPadding} bg="#fff" w="100%" gap={{ base: "3rem" }}>
-      <VStack textAlign="center">
-        <Heading as="h1" variant="sectionTitle">
-          {t("home.trustAndSafety.heading")}
-        </Heading>
-        <Text
-          variant="description"
-          fontSize={{ base: "0.9rem", sm: "1.1rem" }}
-          maxW="50rem"
-        >
-          {t("home.trustAndSafety.description")}
-        </Text>
+    <VStack className="common-padding bg-white w-[100%] gap-[3rem]">
+      <VStack className="text-center items-center">
+        <h1 className="heading-section-title">Trust and Safety</h1>
+        <p className="text-description text-[0.9rem] sm:text-[1.1rem] max-w-[50rem]">
+          How our HR team Verifying Maids and Nannies at Pickmymaid, Our
+          dedicated team works behind the scenes every day, uploading only
+          genuine applicants to ensure the highest standards of Trust and Safety
+        </p>
       </VStack>
-      <Flex
-        flexWrap="wrap"
-        justifyContent="center"
-        gap={{ base: "1.5rem", md: "3rem" }}
-      >
+      <div className="flex flex-wrap justify-center gap-[1.5rem] md:gap-[3rem]">
         {trustData.map((data: any) => (
-          <VStack key={data.value}>
+          <VStack className="items-center" key={data.value}>
             <Image
               src={data.image.src as string}
-              aspectRatio={1 / 1}
-              w={imageWidth}
+              // aspectRatio={1 / 1}
+              parentClass="aspect-[1/1] w-[3rem] md:w-[5rem]"
+              // w={imageWidth}
               alt={data.value}
             />
-            <Text
-              variant="subTitle"
-              fontSize={{ base: "0.9rem", sm: "1.2rem" }}
-            >
-              {data.value}
-            </Text>
+            <p className="text-sub-title">{data.value}</p>
           </VStack>
         ))}
-      </Flex>
+      </div>
     </VStack>
   );
 }
