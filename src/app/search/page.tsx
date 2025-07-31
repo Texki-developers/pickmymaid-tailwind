@@ -1,8 +1,12 @@
-
+import { Suspense } from "react";
 import SearchPage from "./_page-container/SearcPage";
 
 const Search = () => {
-    return <SearchPage />;
+    return (
+        <Suspense>
+            <SearchPage />
+        </Suspense>
+    );
 };
 
 export default Search;
