@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.2.6",
+    "@radix-ui/react-dropdown-menu": "^2.1.15",
     "@reduxjs/toolkit": "^2.8.2",
     "axios": "^1.11.0",
     "clsx": "^2.1.1",
@@ -20,6 +21,7 @@
     "react-dom": "19.1.0",
     "react-hook-form": "^7.60.0",
     "react-i18next": "^15.6.1",
+    "react-modern-drawer": "^1.4.0",
     "react-redux": "^9.2.0",
     "sass": "^1.89.2",
     "swiper": "^11.2.10"

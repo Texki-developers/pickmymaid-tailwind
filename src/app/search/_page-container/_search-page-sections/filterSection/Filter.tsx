@@ -268,7 +268,7 @@ const Filter = ({ onClose }: FilterProps) => {
   }, [filteredData]);
 
   return (
-    <div className="pr-5 sticky top-16 left-0 grid gap-2.5 max-h-[calc(100svh-4rem)]">
+    <div className="pr-2 grid gap-2.5 max-h-[calc(100svh-4rem)]">
       <div className="mt-2 flex justify-between items-center pt-4 sm:pt-12">
         <div className="flex items-center gap-2">
           <VscSettings
@@ -277,7 +277,7 @@ const Filter = ({ onClose }: FilterProps) => {
             className="mr-2"
             style={{ transform: "rotate(90deg)" }}
           />
-          <h2 className="text-xl! font-semibold!">{t("searchmaid.filter.filter")}</h2>
+          <h2 className="text-xl! font-semibold!">Filter</h2>
         </div>
         <div className="block md:hidden">
           <button
@@ -369,13 +369,13 @@ const Filter = ({ onClose }: FilterProps) => {
               onClose();
               clearButtonHandler();
             }}
-            className="bg-transparent! text-text-black-800! px-6! py-2! border-2! border-brand-primary-300! rounded-md hover:bg-gray-100! transition-colors">
-            {t("searchmaid.filter.clear")}
+            className="bg-transparent! text-text-black-800! px-6! py-2! border-2! border-primary-300! rounded-md hover:bg-gray-100! transition-colors">
+            Clear
           </button>
           <button
             onClick={applyButtonHandler}
-            className="bg-brand-primary-300! border-2! border-brand-primary-300! text-white! px-6! py-2! rounded-md hover:bg-brand-primary-400! hover:border-brand-primary-400! transition-colors">
-            {t("searchmaid.filter.apply")}
+            className="bg-primary-300! border-2! border-primary-300! text-white! px-6! py-2! rounded-md hover:bg-primary-400! hover:border-primary-400! transition-colors">
+            Apply
           </button>
         </div>
       </div>

@@ -13,23 +13,29 @@ import { filterByCountry, filterByLocationAndService } from "@/lib/features/maid
 import { filterSearchParams } from "@/utils/searchMaidParamsFilter";
 import Pagination from "@/components/atoms/Pagination/Pagination";
 import { useParams, useSearchParams, useRouter } from "next/navigation";
-import { RootState } from "@/lib/store";
+import SortMenu from "./_search-page-sections/sort-menu/SortMenu";
+import Drawer from "react-modern-drawer";
+import "react-modern-drawer/dist/index.css";
+import { FiFilter } from "@/components/atoms/Icons/Icons";
 // import { FiFilter, RiArrowUpDownLinel } from "@/components/atoms/Icons/Icons";
 // import CustomButton from "@/components/atoms/CustomButton/CustomButton";
 
-
 const sorting: { [key: number]: string } = {
-    1: "Salary low to high",
-    2: "Salary high to low",
+    1: "salary low to high",
+    2: "salary high to low",
 };
 
 const SearchMaid = () => {
-    // const { isOpen, onOpen, onClose } = useDisclosure();
     const [sortIndex, setSortIndex] = useState("0");
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleDrawer = () => {
+        setIsOpen(!isOpen);
+    };
 
     const dispatch = useAppDispatch();
-    const { maidsCount } = useAppSelector((state: RootState) => state.maid);
-    const data = useAppSelector((state: RootState) => state.maid.data);
+    const { maidsCount } = useAppSelector((state) => state.maid);
+    const data = useAppSelector((state) => state.maid.data);
     const [_, setSelectedData] = useState("");
 
     const searchParams = useSearchParams();
@@ -52,6 +58,7 @@ const SearchMaid = () => {
                 dispatch(filterByLocationAndService({ location, service }));
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [country, location, service, data]);
 
     const paginationHandler = (page: number) => {
@@ -74,6 +81,7 @@ const SearchMaid = () => {
         if (statusHeading?.current) {
             localStorage.setItem("cardTop", statusHeading?.current?.getBoundingClientRect()?.top.toString());
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [statusHeading?.current]);
 
     useEffect(() => {
@@ -96,139 +104,53 @@ const SearchMaid = () => {
                     </div>
                     <div className="mt-[30px] justify-between gap-[10px] flex flex-col md:flex-row sm:flex-col">
                         <div
-                            className="flex! w-full! md:justify-between! justify-center! z-[10]!"
+                            className="flex w-full md:justify-between justify-center z-[10]"
                             ref={statusHeading}>
-                            <h1 className="font-weight-500! text-text-black-700! text-lg! ">
-                                <span className="text-brand-primary-300!">
-                                    Found <span className="font-[600]!">{maidsCount}</span> result
+                            <h1 className="font-weight-500 text-text-black-700 text-lg ">
+                                <span className="text-brand-primary-300">
+                                    Found <span className="font-[600]">{maidsCount}</span> result
                                 </span>
                                 according to your requirement
                             </h1>
-                            {/* <Menu isOpen={showMenu} setIsOpen={setShowMenu}>
-                <MenuButton onClick={() => setShowMenu(!showMenu)}>
-                  <span className="cursor-pointer! group-hover:text-white!"> Sort <span className="text-brand-primary-200! pl-2! font-[600]!">{t(sorting[sortIndex])}</span></span>
-                  <RiArrowUpDownLinel className="text-brand-primary-400! group-hover:text-white! w-[16px] h-[16px]" />
-                </MenuButton>
-                <MenuList>
-                  <MenuItem onClick={() => sortHandler(1)}>{t(sorting[1])}</MenuItem>
-                  <MenuItem onClick={() => sortHandler(2)}>{t(sorting[2])}</MenuItem>
-                </MenuList>
-              </Menu> */}
                             <div className="md:block hidden">
-                                {/* <Menu>
-                                    <MenuButton
-                                        as={Button}
-                                        color="brand.primary.300"
-                                        fontWeight={500}
-                                        borderColor="brand.primary.300"
-                                        _hover={{ bg: "brand.primary.300", color: "white" }}
-                                        bg="white"
-                                        borderWidth="1px"
-                                        px={2}
-                                        borderLeft={{ base: "none", md: "1px" }}
-                                        borderRadius={{
-                                            base: "0px 0px 10px 0",
-                                            md: "10px 0px 10px 0",
-                                        }}>
-                                        <div className="flex! justify-center! items-center! gap-[0.5rem]">
-                                            Sort <span className="text-brand-primary-200!">{sorting[sortIndex]}</span>
-                                            <RiArrowUpDownLinel />
-                                        </div>
-                                    </MenuButton>
-                                    <MenuList>
-                                        {Object.keys(sorting)?.map((item, i) => (
-                                            <MenuItem
-                                                onClick={() => sortHandler(item)}
-                                                key={i}>
-                                                {sorting[item]}
-                                            </MenuItem>
-                                        ))}
-                                    </MenuList>
-                                </Menu> */}
+                                <SortMenu
+                                    items={sorting}
+                                    onSort={sortHandler}
+                                />
                             </div>
                         </div>
-                        <div className="flex! justify-center! items-center! fixed! bottom-6! z-10! md:left-0! left-1/2! md:transform-none! transform-x-1/2!">
-                            {/* <Flex
-                                justifyContent="center"
-                                alignItems="center"
-                                pos={{ base: "fixed", md: "static" }}
-                                bottom={{ base: "6rem", md: "0" }}
-                                zIndex="100"
-                                left={{ base: "50%", md: "0" }}
-                                transform={{ base: "translateX(-50%)", md: "none" }}>
-                                <Show below="md">
-                            <CustomButton
-                                leftIcon={<FiFilter style={{ width: "16px", height: "16px" }} />}
-                                variant="solid"
-                                onClick={onOpen}
-                                aria-label="Call Segun"
-                                borderRadius={{ base: "10px 0 0 0" }}
-                                bg="white"
-                                border="1px solid"
-                                borderColor="brand.primary.300"
-                                color="brand.primary.300"
-                                py={0}
-                                px={2}>
-                                Filter
-                            </CustomButton>
-                        </Show>
-                        <Menu>
-                            <MenuButton
-                                as={Button}
-                                color="brand.primary.300"
-                                fontWeight={500}
-                                borderColor="brand.primary.300"
-                                _hover={{ bg: "brand.primary.300", color: "white" }}
-                                bg="white"
-                                borderWidth="1px"
-                                px={2}
-                                borderLeft={{ base: "none", md: "1px" }}
-                                borderRadius={{
-                                    base: "0px 0px 10px 0",
-                                    md: "10px 0px 10px 0",
-                                }}>
-                                <Flex
-                                    alignItems="center"
-                                    gap="0.5rem">
-                                    Sort{" "}
-                                    <Text
-                                        color="brand.primary.200"
-                                        as="span">
-                                        {sorting[sortIndex]}
-                                    </Text>
-                                    <RiArrowUpDownLinel />
-                                </Flex>
-                            </MenuButton>
-                            <MenuList>
-                                {Object.keys(sorting)?.map((item, i) => (
-                                    <MenuItem
-                                        onClick={() => sortHandler(item)}
-                                        key={i}>
-                                        {sorting[item]}
-                                    </MenuItem>
-                                ))}
-                            </MenuList>
-                        </Menu>
-                    </Flex> */}
+                        <div className="flex md:hidden text-[12px] justify-center items-center fixed bottom-6 z-10 md:left-0 left-1/2 translate-x-[-50%]">
+                            <div className="flex">
+                                <button
+                                    className="bg-white flex gap-1 items-center hover:bg-primary-300 hover:text-white text-primary-400 rounded-tl-[10px] px-2 py-1 border-[1px] border-primary-400 border-r-0"
+                                    onClick={toggleDrawer}>
+                                    <FiFilter style={{ width: "16px", height: "16px" }} />
+                                    Filter
+                                </button>
+                                <SortMenu
+                                    smallDevice
+                                    items={sorting}
+                                    onSort={sortHandler}
+                                />
+                            </div>
                         </div>
                         <div className="md:hidden block">
-                            {/* <Drawer
-                                isOpen={isOpen}
-                                placement="left"
-                                onClose={onClose}>
-                                <DrawerContent
-                                    pl={4}
-                                    sx={{ zIndex: "999 !important" }}
-                                    layerStyle="myCustomLayerStyle">
-                                    <Filter onClose={onClose} />
-                                </DrawerContent>
-                            </Drawer> */}
+                            <Drawer
+                                open={isOpen}
+                                onClose={toggleDrawer}
+                                direction="left"
+                                className="bg-white p-2 pr-0"
+                                style={{ width: "300px" }}>
+                                <div className="bg-white pt-8">
+                                    <Filter onClose={toggleDrawer} />
+                                </div>
+                            </Drawer>
                         </div>
                     </div>
-                    <div className="grid! pt-1! grid-cols-[1fr]! md:grid-cols-[300px_1fr]!">
+                    <div className="grid pt-1 grid-cols-[1fr] md:grid-cols-[300px_1fr]">
                         <div className="hidden md:block">
-                            <aside>
-                                {/* <Filter onClose={onClose} /> */}
+                            <aside className="sticky top-16">
+                                <Filter onClose={toggleDrawer} />
                             </aside>
                         </div>
                         <Cards />
@@ -244,8 +166,8 @@ const SearchMaid = () => {
                         />
                     </div>
                 </div>
-            </div >
-        </Fragment >
+            </div>
+        </Fragment>
     );
 };
 

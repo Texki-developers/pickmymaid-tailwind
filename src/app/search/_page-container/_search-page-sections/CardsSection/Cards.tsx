@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { useParams, usePathname, useSearchParams } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { fetchMaidForSearch } from "@/lib/features/maid/maidAction";
@@ -18,25 +18,27 @@ const Cards = () => {
 
   const currentPage = Number(searchParams.get("page") || 1);
 
-  useEffect(() => {
-    setQuery(`?${searchParams.toString()}`);
+  useMemo(() => {
+    setQuery(searchParams.toString());
   }, [searchParams]);
 
   useEffect(() => {
-    let newQuery: string = "";
+    let newQuery: string = '';
 
     if (country && keyword) {
-      newQuery += `country=${countries[country]}&service=${services[filterSearchParams(keyword)[0]]}`;
-    } else if (keyword?.includes("available-in-uae")) {
-      const filteredKeyword = filterSearchParams(keyword);
-      newQuery += `service=${services[filteredKeyword[0]]}`;
+      newQuery += `country=${countries[country]}&service=${services[filterSearchParams(keyword as string)[0]]
+        }`;
+    } else if (keyword?.includes('available-in-uae')) {
+      const filteredKeyword = filterSearchParams(keyword as string);
+      newQuery += `service=${services[filteredKeyword?.[0]]}`;
     } else if (keyword) {
-      const filteredKeyword = filterSearchParams(keyword);
-      newQuery += `country=${countries[filteredKeyword[1]]}&service=${services[filteredKeyword[0]]}`;
+      const filteredKeyword = filterSearchParams(keyword as string);
+      newQuery += `country=${countries[filteredKeyword?.[1]]}&service=${services[filteredKeyword?.[0]]
+        }`;
     }
 
-    if (newQuery.length > 1) {
-      if (query !== "") {
+    if (newQuery?.length > 1) {
+      if (query !== '') {
         setQuery((prev) => removeDuplicateQueries(`${prev}&${newQuery}`));
       } else {
         setQuery(`?${newQuery}`);
@@ -48,21 +50,31 @@ const Cards = () => {
     const params = new URLSearchParams(queryString);
     const paramEntries = Array.from(params.entries());
     const paramMap = new Map(paramEntries);
+
     const uniqueParams = Array.from(paramMap.entries());
     const uniqueQueryString = new URLSearchParams(uniqueParams).toString();
+
     return `?${uniqueQueryString}`;
   }
 
   useLayoutEffect(() => {
-    const splittedPath = pathname.split("/");
-    if (splittedPath[3]) {
-      if (query && (query.includes("country") || query.includes("service"))) {
+    const splittedPath = pathname.split('/');
+
+    if (splittedPath?.[2] && splittedPath[2] !== '') {
+      if (
+        query !== '' &&
+        (query.includes('country') || query.includes('service'))
+      ) {
         dispatch(fetchMaidForSearch({ page: currentPage, search: query }));
       }
-    } else {
+    }
+
+    if (!splittedPath[2] || splittedPath[2] === '') {
       dispatch(fetchMaidForSearch({ page: currentPage, search: query }));
     }
   }, [query]);
+
+  console.log({ query });
 
   return (
     <div className="cards-container">

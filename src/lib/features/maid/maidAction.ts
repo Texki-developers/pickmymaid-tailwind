@@ -17,7 +17,7 @@ export const fetchMaidForSearch = createAsyncThunk<
   try {
     const {
       data: { data },
-    } = await axiosInstanceV2.get(`maids/find/${req.page}${req.search}`);
+    } = await axiosInstanceV2.get(`maids/find/${req.page}?${req.search}`);
     const returnFormat: IMaidListItem[] = data?.maids.map((item: any) => ({
       option: item.option,
       id: item._id,
