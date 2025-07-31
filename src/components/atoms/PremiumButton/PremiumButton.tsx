@@ -1,4 +1,3 @@
-import { Button, Icon } from '@chakra-ui/react';
 import { useRouter } from 'next/navigation';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { FaUnlock } from '@/components/atoms/Icons/Icons';
@@ -21,17 +20,13 @@ const PremiumButton = () => {
   };
 
   return (
-    <Button
+    <button
       onClick={handleUnlocking}
-      p='10px 10px'
-      height={{ base: 'max-content', sm: '2rem' }}
-      bg='#2899ff'
-      _hover={{ bg: '#e3ae00' }}
-      rightIcon={<Icon as={FaUnlock} />}
-      border='none'
+      className='p-[24px] rounded-[8px] font-semibold text-white h-[2rem] bg-[#2899ff] hover:bg-[#e3ae00] border-none flex items-center gap-[10px]'
     >
       Unlock Contacts
-    </Button>
+      <FaUnlock width={12} height={12} />
+    </button>
   );
 };
 

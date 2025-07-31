@@ -1,22 +1,23 @@
-import { Box } from '@chakra-ui/react';
+"use client";
+
 import { useRouter } from 'next/navigation';
 
-type Iprops = {
+type IProps = {
   children: React.ReactNode;
   isBlur?: boolean;
 };
 
-const ForPremium = ({ children, isBlur }: Iprops) => {
+const ForPremium = ({ children, isBlur }: IProps) => {
   const router = useRouter();
   return (
-    <Box
+    <div
       onClick={() => {
         if (isBlur) router.push('/pricing');
       }}
-      filter={isBlur ? 'blur(3px)' : ''}
+      style={{ filter: isBlur ? 'blur(3px)' : '' }}
     >
       {children}
-    </Box>
+    </div>
   );
 };
 
