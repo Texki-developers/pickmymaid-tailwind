@@ -1,6 +1,6 @@
 "use client";
 import { Suspense } from "react";
-import SearchPage from "./_page-container/SearchPage";
+import SearchPage from "../_page-container/SearchPage";
 
 const Search = () => {
     return (

@@ -41,6 +41,7 @@ const BannerSection = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const query = searchParams.get("nationality");
+  const searchParamsValue = searchParams.get("searchParams");
   const [search, setSearch] = useState<string>("");
   const [filteredList, setFilteredList] = useState<string[]>(list || []);
   const [isListActive, setListActive] = useState<boolean>(false);
@@ -50,6 +51,12 @@ const BannerSection = () => {
       router.push(`/search?searchParams=${search}`);
     }
   };
+
+  useEffect(() => {
+    if (searchParamsValue) {
+      setSearch(searchParamsValue);
+    }
+  }, [searchParamsValue]);
 
   const handleSuggestionClick = (value: string) => {
     router.push(`/search?searchParams=${value}`);
@@ -98,6 +105,7 @@ const BannerSection = () => {
                 onChange={(event) => setSearch(event.target.value)}
                 placeholder="Search by type eg. Cook Cleaning"
                 onFocus={() => setListActive(true)}
+                value={search}
               />
               {isListActive && filteredList && filteredList.length > 0 && (
                 <ul className="banner__suggestions-list">
