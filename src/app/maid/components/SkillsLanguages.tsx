@@ -1,4 +1,3 @@
-import { AspectRatio, Center, Image } from "@chakra-ui/react";
 import newbornCare from "@/assets/icons/Skills/newborn-care.png";
 import childCare from "@/assets/icons/Skills/childcare.png";
 import cooking from "@/assets/icons/Skills/cook.png";
@@ -13,8 +12,9 @@ import petCare from "@/assets/icons/Skills/pet-care.png";
 import gardening from "@/assets/icons/Skills/gardening.png";
 import carWashing from "@/assets/icons/Skills/car-wash.png";
 import cleaningHousekeeping from "@/assets/icons/Skills/housekeeping-cleaning.png";
+import Image, { StaticImageData } from "next/image";
 
-const skillIcons = {
+const skillIcons: Record<string, StaticImageData> = {
   "Newborn Care": newbornCare,
   "Child Care": childCare,
   Cooking: cooking,
@@ -32,24 +32,18 @@ const skillIcons = {
 };
 
 const SkillsLanguages = ({ text }: { text: string }) => {
-  console.log(skillIcons[text], text);
   return (
-    <Center
-      fontSize="15px"
-      fontWeight="600"
-      gap="5px"
-      bg="white">
-      <AspectRatio
-        ratio={1 / 1}
-        w={{ base: "1.5rem", sm: "2rem" }}>
+    <div className="flex justify-center items-center font-semibold gap-[5px] bg-white">
+      <div className="sm:w-[2rem] relative w-[1.5rem] aspect-square">
         <Image
-          src={skillIcons[text]?.src}
-          w="100%"
-          height="100%"
+          src={skillIcons[text]}
+          alt={text}
+          fill
+          className="object-contain"
         />
-      </AspectRatio>
-      <span>{text}</span>
-    </Center>
+      </div>
+      <span className="text-[15px] font-[600]">{text}</span>
+    </div>
   );
 };
 

@@ -47,11 +47,13 @@ const MaidPage = () => {
                     <div
                         style={{ backgroundImage: `url(${bannerBackground.src})` }}
                         className={`flex bg-cover align-center items-center bg-center px-[2rem] h-[150px] md:h-[120px]`}>
-                        <h1 className="text-primary-400 font-semibold text-4xl">Profile - {data?.jobApplication && data?.jobApplication?.name}</h1>
+                        <div className="max-w-[1200px] mx-auto w-full pl-3">
+                            <h1 className="text-primary-400 font-semibold text-4xl">Profile - {data?.jobApplication && data?.jobApplication?.name}</h1>
+                        </div>
                     </div>
                 </div>
 
-                <div className="grid lg:grid-cols-[2fr_4fr] grid-cols-1 gap-[30px] bg-soft-gray px-[1rem]">
+                <div className="grid lg:grid-cols-[2fr_4fr] max-w-[1200px] mx-auto grid-cols-1 gap-[30px] bg-soft-gray px-[1rem]">
                     <LeftSection
                         setScroll={setScroll}
                         data={data?.jobApplication}

@@ -16,7 +16,7 @@ const RightSection = ({ data, contactRef }: any) => {
   const { user } = useAppSelector((state) => state.auth);
 
   const [flag, setFlag] = useState(false);
-  const languageLevel = {
+  const languageLevel: Record<number, string> = {
     0: "Good",
     1: "Excellent",
     2: "Fair",
@@ -260,58 +260,35 @@ const RightSection = ({ data, contactRef }: any) => {
           </div>
         </div>
 
-        {/* <Hide above="sm">
-          <Box
-            gap="10px"
-            p={{ base: "15px", md: "30px" }}
-            bg="white"
-            borderRadius="15px">
-            <Heading
-              size="md"
-              color="brand.primary.400">
-              About Me
-            </Heading>
-            <Text
-              variant="description"
+        <div className="block sm:block">
+          <div className="gap-[10px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
+            <h2 className="text-[1.2rem] font-bold text-primary-300">About Me</h2>
+            <p
+              className="text-[0.9rem] sm:text-[1rem] text-black-600 xl:text-[1.2rem]"
               dangerouslySetInnerHTML={{ __html: data?.notes }}
             />
-          </Box>
-        </Hide> */}
+          </div>
+        </div>
 
-        {/* <Grid
-          gap="10px"
-          p={{ base: "15px", md: "30px" }}
-          bg="white"
-          borderRadius="15px">
-          <Heading
-            size="md"
-            color="brand.primary.400">
+        <div className="grid gap-[10px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
+          <h2 className="text-[1.2rem] font-bold text-primary-300">
             Visa Details
-          </Heading>
-          <Grid gridTemplateColumns={{ base: "1fr", sm: "2fr 1fr" }}>
-            <Heading size="sm">Visa status</Heading>
-            <Text>{data?.visa_status}</Text>
-          </Grid>
-          {data?.visa_status !== "To Be Cancel" && (
-            <Grid gridTemplateColumns={{ base: "1fr", sm: "2fr 1fr" }}>
-              <Heading size="sm">Visa Expiry</Heading>
-              <Text>{data?.visa_expire?.split("-").reverse().join("-")}</Text>
-            </Grid>
-          )}
-        </Grid> */}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr]">
+            <h2 className="text-[1rem] font-semibold">Visa status</h2>
+            <p>{data?.visa_status}</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr]">
+            <h2 className="text-[1rem] font-semibold">Visa Expiry</h2>
+            <p>{data?.visa_expire?.split("-").reverse().join("-")}</p>
+          </div>
+        </div>
 
-        {/* <Hide above="lg">
-          <Grid
-            borderRadius="15px"
-            gap="15px"
-            p={{ base: "15px", md: "30px" }}
-            bg="white">
-            <Heading
-              size="md"
-              color="brand.primary.400">
-              Employment History
-            </Heading>
-            <Accordion
+
+        <div className="block lg:hidden">
+          <div className="gap-[15px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
+            <h2 className="text-[1.2rem] font-bold text-primary-300">Employment History</h2>
+            {/* <Accordion
               allowToggle
               allowMultiple>
               {data?.employmentHistory?.map((item) => {
@@ -346,101 +323,67 @@ const RightSection = ({ data, contactRef }: any) => {
                   </AccordionItem>
                 );
               })}
-            </Accordion>
-          </Grid>
-        </Hide> */}
+            </Accordion> */}
+          </div>
+        </div>
 
         {/* yoututbe video  */}
-        {/* <Hide below="lg">
+        <div className="hidden lg:block">
           {flag && getEmbedUrl(data?.youtube_link) && (
-            <Grid
-              gap="10px"
-              p={{ base: "15px", md: "30px" }}
-              bg="white"
-              borderRadius="15px">
-              <Heading
-                size="md"
-                color="brand.primary.400">
-                Proposal Video
-              </Heading>
-              <AspectRatio
-                w="100%"
-                ratio={4 / 3}>
+            <div
+              className="gap-[15px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
+              <h2 className="text-[1.2rem] font-bold text-primary-300">Proposal Video</h2>
+              <div className="w-full aspect-[4/3]">
                 <iframe
+                  className="w-full h-full"
                   title="naruto"
                   src={`${getEmbedUrl(data?.youtube_link)}?var=${Math.random()}`}
                   allowFullScreen
                 />
-              </AspectRatio>
-            </Grid>
+              </div>
+            </div>
           )}
-        </Hide> */}
+        </div>
 
         {/* skill */}
-        {/* <Grid
-          gap="10px"
-          p={{ base: "15px", md: "30px" }}
-          bg="white"
-          borderRadius="15px">
-          <Heading
-            size="md"
-            color="brand.primary.400">
-            Skills
-          </Heading>
-          <Flex
-            gap="20px"
-            flexWrap="wrap"
-            justifyContent="space-between">
+        <div className="grid gap-[10px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
+          <h2 className="text-[1.2rem] font-bold text-primary-300">Skills</h2>
+          <div className="flex gap-[15px] flex-wrap justify-between">
             {alternateSort(data.skills).map((item) => (
-              <SkillsLanguages text={item} />
+              <SkillsLanguages key={item} text={item} />
             ))}
-          </Flex>
-        </Grid> */}
+          </div>
+        </div>
 
         {/* language */}
-        {/* <Grid
-          gap="10px"
-          p={{ base: "15px", md: "30px" }}
-          bg="white"
-          borderRadius="15px">
-          <Heading
-            size="md"
-            color="brand.primary.400">
-            Language
-          </Heading>
-          <Flex
-            gap="15px"
-            flexWrap="wrap">
-            {data?.language?.map((item) => (
-              <Grid
-                p="10px"
-                border="1px solid"
-                borderRadius="10px"
-                borderColor="brand.primary.400">
-                <Text as="b">{item?.name}</Text>
-                <HStack>
-                  <Text>Read :</Text>
-                  <Text>{languageLevel[item?.read]}</Text>
-                </HStack>
-                <HStack>
-                  <Text>Write :</Text>
-                  <Text>{languageLevel[item?.write]}</Text>
-                </HStack>
-                <HStack>
-                  <Text>Speak :</Text>
-                  <Text>{languageLevel[item?.speak]}</Text>
-                </HStack>
-              </Grid>
+        <div className="grid gap-[10px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
+          <h2 className="text-[1.2rem] font-bold text-primary-300">Language</h2>
+          <div className="flex gap-[15px] flex-wrap">
+            {data?.language?.map((item: any) => (
+              <div key={item?.name} className="grid p-[10px] border rounded-[10px] border-primary-300">
+                <h2 className="font-semibold text-[1rem]">{item?.name}</h2>
+                <div className="flex gap-[5px] align-center">
+                  <h2 >Read :</h2>
+                  <h2>{languageLevel[item?.read]}</h2>
+                </div>
+                <div className="flex gap-[5px] align-center">
+                  <h2>Write :</h2>
+                  <h2>{languageLevel[item?.write]}</h2>
+                </div>
+                <div className="flex gap-[5px] align-center">
+                  <h2>Speak :</h2>
+                  <h2>{languageLevel[item?.speak]}</h2>
+                </div>
+              </div>
             ))}
-          </Flex>
-        </Grid> */}
-        {/* {paymentDetails?.subscriptionStatus !== 1 && (
-          <Button
-            variant="solid"
+          </div>
+        </div>
+        {paymentDetails?.subscriptionStatus !== 1 && (
+          <button className="w-full bg-primary-300 hover:bg-primary-400 transition-all duration-300 text-[1rem] font-semibold text-white p-[15px] rounded-[10px]"
             onClick={handleHire}>
             Hire Now
-          </Button>
-        )} */}
+          </button>
+        )}
       </div>
     </div>
   );

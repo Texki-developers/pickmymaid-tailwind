@@ -221,7 +221,7 @@ const LeftSection = ({ data, setScroll }: { data: any; setScroll: React.Dispatch
                     {item.key}
                   </h2>
                   <p className="text-[16px] md:text-[18px]">{item.value}</p>
-                </div> 
+                </div>
               ))}
               {data.references && (
                 <div className="bg-[#bee3f8] p-[0.5rem] mt-3 rounded-[8px] flex items-center gap-[0.5rem]">
@@ -241,15 +241,16 @@ const LeftSection = ({ data, setScroll }: { data: any; setScroll: React.Dispatch
             </div>
           </div>
         </div>
-        <div className="hidden lg:block">
+        <div className="lg:hidden block">
           {flag && getEmbedUrl(data?.youtube_link) && (
             <div className="grid md:p-[30px] p-[15px] gap-[10px] rounded-[15px] bg-white">
               <h2
                 className="text-[16px] md:text-[20px]">
                 Proposal Video
               </h2>
-              <div className="aspect-[4/3]">
+              <div className="aspect-[4/3] w-full">
                 <iframe
+                  className="w-full h-full"
                   title="naruto"
                   src={`${getEmbedUrl(data?.youtube_link)}?var=${Math.random()}`}
                   allowFullScreen
@@ -258,11 +259,11 @@ const LeftSection = ({ data, setScroll }: { data: any; setScroll: React.Dispatch
             </div>
           )}
         </div>
-        <div className="block lg:hidden">
+        <div className="hidden lg:block">
           <div
-            className="grid md:p-[30px] p-[15px] gap-[10px] rounded-[15px] bg-white">
+            className="grid p-[30px] md:p-[15px] gap-[10px] rounded-[15px] bg-white">
             <h2
-              className="text-[16px] md:text-[20px]">
+              className="text-[1.2rem] font-semibold text-primary-400">
               Employment History
             </h2>
             {/* <Accordion
