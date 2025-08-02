@@ -174,7 +174,7 @@ export function VscVerifiedFilled(props: SVGProps<SVGSVGElement>) {
 
 export function PiHeartFill(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg width="32" height="32" viewBox="0 0 20 20" {...props}>
+    <svg viewBox="0 0 20 20" {...props}>
       <path
         fill="currentColor"
         fill-rule="evenodd"
@@ -335,7 +335,7 @@ export function AiOutlineEyeInvisible(props: SVGProps<SVGSVGElement>) {
 
 export function PiHeartStraight(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg width="32" height="32" viewBox="0 0 256 256" {...props}>
+    <svg {...props} viewBox="0 0 256 256">
       <path
         fill="currentColor"
         d="M223 57a58.07 58.07 0 0 0-81.92-.1L128 69.05l-13.09-12.19A58 58 0 0 0 33 139l89.35 90.66a8 8 0 0 0 11.4 0L223 139a58 58 0 0 0 0-82m-11.35 70.76L128 212.6l-83.7-84.92a42 42 0 0 1 59.4-59.4l.2.2l18.65 17.35a8 8 0 0 0 10.9 0l18.65-17.35l.2-.2a42 42 0 1 1 59.36 59.44Z"
@@ -357,7 +357,7 @@ export function AiOutlineLogin(props: SVGProps<SVGSVGElement>) {
 
 export function IoCallOutline(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg width="32" height="32" viewBox="0 0 512 512" {...props}>
+    <svg viewBox="0 0 512 512" {...props}>
       <path
         fill="none"
         stroke="currentColor"
@@ -380,7 +380,7 @@ export function RiAccountCircleLine(props: SVGProps<SVGSVGElement>) {
 }
 export function RiHome5Fill(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg {...props} width="32" height="32" viewBox="0 0 24 24">
+    <svg {...props} viewBox="0 0 24 24">
       <path
         fill="currentColor"
         d="M21 20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.49a1 1 0 0 1 .386-.79l8-6.223a1 1 0 0 1 1.228 0l8 6.223a1 1 0 0 1 .386.79zm-10-7v6h2v-6z"
@@ -390,7 +390,7 @@ export function RiHome5Fill(props: SVGProps<SVGSVGElement>) {
 }
 export function RiHome5Line(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg {...props} width="32" height="32" viewBox="0 0 24 24">
+    <svg {...props} viewBox="0 0 24 24">
       <path
         fill="currentColor"
         d="M13 19h6V9.978l-7-5.444l-7 5.444V19h6v-6h2zm8 1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.49a1 1 0 0 1 .386-.79l8-6.223a1 1 0 0 1 1.228 0l8 6.223a1 1 0 0 1 .386.79z"

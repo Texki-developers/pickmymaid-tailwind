@@ -1,8 +1,10 @@
 "use client";
 import dynamic from "next/dynamic";
 import React from "react";
-const PrimaryTopNav = dynamic(() => import("./PrimaryTopNav"), { ssr: false });
+const PrimaryTopNavClient = dynamic(() => import("./PrimaryTopNavClient"), {
+  ssr: false,
+});
 
 export default function PrimaryTopNavWrapper() {
-  return <PrimaryTopNav />;
+  return <PrimaryTopNavClient />;
 }
