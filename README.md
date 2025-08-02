@@ -34,3 +34,25 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
+without search
+Route (app)                                 Size  First Load JS    
+┌ ○ /                                    10.3 kB         110 kB
+└ ○ /_not-found                            992 B         101 kB
++ First Load JS shared by all             100 kB
+  ├ chunks/4bd1b696-cf72ae8a39fa05aa.js  54.1 kB
+  ├ chunks/964-540481dc452dbf61.js       43.5 kB
+  └ other shared chunks (total)          2.47 kB
+
+
+with search
+Route (app)                                 Size  First Load JS    
+┌ ○ /                                    5.24 kB         111 kB
+├ ○ /_not-found                            992 B         101 kB
+└ ○ /search                              25.3 kB         162 kB
++ First Load JS shared by all             100 kB
+  ├ chunks/4bd1b696-cf72ae8a39fa05aa.js  54.1 kB
+  ├ chunks/964-540481dc452dbf61.js       43.5 kB
+  └ other shared chunks (total)          2.66 kB
