@@ -7,6 +7,8 @@ import { fetchMaidDataById } from "@/lib/features/maid/maidAction";
 import bannerBackground from "@/assets/images/About/banner-background.webp";
 import { useParams } from "next/navigation";
 import RightSection from "../components/Right_Section/RightSection";
+import Image from "next/image";
+import verifiedImage from "@/assets/images/verified_image.png";
 
 const MaidPage = () => {
     const params: { maidsId: string } = useParams();
@@ -47,13 +49,13 @@ const MaidPage = () => {
                     <div
                         style={{ backgroundImage: `url(${bannerBackground.src})` }}
                         className={`flex bg-cover align-center items-center bg-center px-[2rem] h-[150px] md:h-[120px]`}>
-                        <div className="max-w-[1200px] mx-auto w-full pl-3">
+                        <div className="max-w-[1240px] mx-auto w-full pl-3">
                             <h1 className="text-primary-400 font-semibold text-4xl">Profile - {data?.jobApplication && data?.jobApplication?.name}</h1>
                         </div>
                     </div>
                 </div>
 
-                <div className="grid lg:grid-cols-[2fr_4fr] max-w-[1200px] mx-auto grid-cols-1 gap-[30px] bg-soft-gray px-[1rem]">
+                <div className="grid lg:grid-cols-[2fr_4fr] max-w-[1240px] mx-auto grid-cols-1 gap-[30px] bg-soft-gray px-[1rem]">
                     <LeftSection
                         setScroll={setScroll}
                         data={data?.jobApplication}
@@ -62,38 +64,24 @@ const MaidPage = () => {
                         contactRef={contactRef}
                         data={data?.jobApplication}
                     />
-                    {/* <Lef`tSection
-                        setScroll={setScroll}
-                        data={data?.jobApplication}
-                    /> */}
-                    {/* <RightSection
-                        contactRef={contactRef}
-                        data={data?.jobApplication}
-                    /> */}
                 </div>
 
-                {/* <Flex
-                    w="100%"
-                    justifyContent="center"
-                    py={{ base: "1rem", sm: "2rem" }}
-                    px="1rem">
-                    <Text
-                        variant="description"
-                        bg="rgba(51,211,153, 0.2)"
-                        p="1rem"
-                        border="1px solid #34D399"
-                        borderRadius="10px"
-                        display="flex"
-                        alignItems="center"
-                        gap="0.5rem">
-                        <AspectRatio
-                            ratio={1 / 1}
-                            w={{ base: "2rem" }}>
-                            <Image src={verifiedImage.src} />
-                        </AspectRatio>
+                <div
+                    className="flex justify-center items-center py-[1rem] sm:py-[2rem] px-[1rem]">
+                    <div
+                        className="text-description flex items-center gap-[5px]"
+                        style={{
+                            backgroundColor: "rgba(51,211,153, 0.2)",
+                            padding: "1rem",
+                            border: "1px solid #34D399",
+                            borderRadius: "10px",
+                        }}>
+                        <div className="w-[2rem] h-[2rem] aspect-square">
+                            <Image src={verifiedImage.src} width={25} height={25} alt="verified" />
+                        </div>
                         This profile has been created and verified by Pickmymaid Team
-                    </Text>
-                </Flex> */}
+                    </div>
+                </div>
             </div>
         </>
     );
