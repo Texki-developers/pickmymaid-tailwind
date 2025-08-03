@@ -1,45 +1,22 @@
-"use client";
-
-import React, { useEffect, useRef, useState } from "react";
 import LeftSection from "@/app/maid/components/Left_Section/LeftSection";
-import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import { fetchMaidDataById } from "@/lib/features/maid/maidAction";
 import bannerBackground from "@/assets/images/About/banner-background.webp";
-import { useParams } from "next/navigation";
 import RightSection from "../components/Right_Section/RightSection";
 import Image from "next/image";
 import verifiedImage from "@/assets/images/verified_image.png";
+import { axiosInstance } from "@/lib/axiosInstance";
+import { notFound } from "next/navigation";
 
-const MaidPage = () => {
-    const params: { maidsId: string } = useParams();
-    const contactRef = useRef<HTMLDivElement>(null);
-    const { data } = useAppSelector((state) => state.maid.singleMaid);
-    const loading = useAppSelector((state) => state.maid.loading);
-    const [scroll, setScroll] = useState(0);
-    const dispatch = useAppDispatch();
-    useEffect(() => {
-        if (params.maidsId) {
-            dispatch(fetchMaidDataById(params.maidsId));
-        }
-    }, [params?.maidsId]);
+const getMaidDataById = async (maidsId: string) => {
+    const response = await axiosInstance.post(`/job/id/`, { id: maidsId });
+    return response.data;
+}
 
-    useEffect(() => {
-        if (contactRef?.current) {
-            const scroll = localStorage.getItem("scroll");
-            if (scroll === "contact") {
-                localStorage.removeItem("scroll");
-                window.scrollTo({
-                    top: contactRef.current!.offsetTop,
-                    behavior: "smooth",
-                });
-            } else {
-                window.scrollTo(0, 0);
-            }
-        }
-    }, [contactRef, scroll]);
-
-    if (!data?.jobApplication) {
-        return null;
+const MaidPage = async ({ params }: any) => {
+    const { maidsId } = await params
+    const response = await getMaidDataById(maidsId[1] ? maidsId[1] : maidsId[0])
+    const data = response?.data
+    if (!data) {
+        notFound()
     }
     return (
         <>
@@ -57,11 +34,9 @@ const MaidPage = () => {
 
                 <div className="grid lg:grid-cols-[2fr_4fr] max-w-[1240px] mx-auto grid-cols-1 gap-[30px] bg-soft-gray px-[1rem]">
                     <LeftSection
-                        setScroll={setScroll}
                         data={data?.jobApplication}
                     />
                     <RightSection
-                        contactRef={contactRef}
                         data={data?.jobApplication}
                     />
                 </div>

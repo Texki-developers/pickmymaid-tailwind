@@ -1,3 +1,4 @@
+'use client'
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
@@ -14,7 +15,7 @@ import Image from "next/image";
 import Accordian from "../accordian/Accordian";
 import ExperienceAccordian from "../experienceAccordian";
 
-const LeftSection = ({ data, setScroll }: { data: any; setScroll: React.Dispatch<React.SetStateAction<number>> }) => {
+const LeftSection = ({ data, setScroll }: { data: any; setScroll?: React.Dispatch<React.SetStateAction<number>> }) => {
   const toast = useCustomToast();
   const router = useRouter();
   const dispatch = useAppDispatch();
@@ -80,7 +81,7 @@ const LeftSection = ({ data, setScroll }: { data: any; setScroll: React.Dispatch
       dispatch(addRedirection("/pricing"));
     } else if (paymentDetails?.subscriptionStatus === 1) {
       localStorage.setItem("scroll", "contact");
-      setScroll((prev) => prev + 1);
+      setScroll?.((prev) => prev + 1);
     } else {
       router.push("/pricing");
     }

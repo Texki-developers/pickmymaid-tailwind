@@ -177,9 +177,9 @@ export function PiHeartFill(props: SVGProps<SVGSVGElement>) {
     <svg width="32" height="32" viewBox="0 0 20 20" {...props}>
       <path
         fill="currentColor"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M10 4.543c-1.25-.98-2.965-1.245-4.432-.895C3.678 4.1 2 5.621 2 8.163c0 3.326 2.88 6.016 7.571 8.24a1 1 0 0 0 .857 0C15.12 14.18 18 11.49 18 8.164c0-2.542-1.678-4.064-3.568-4.515c-1.467-.35-3.183-.084-4.432.895"
-        clip-rule="evenodd"
+        clipRule="evenodd"
       />
     </svg>
   );
@@ -543,7 +543,7 @@ export function MdOutlineVideoCall(props: SVGProps<SVGSVGElement>) {
 
 export function MdPhone(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg  width="32" height="32" viewBox="0 0 24 24" {...props}>
+    <svg width="32" height="32" viewBox="0 0 24 24" {...props}>
       <path
         fill="currentColor"
         d="M19 11.95q0-2.925-2.037-4.962T12 4.95v-2q1.875 0 3.513.713t2.85 1.925t1.925 2.85T21 11.95zm-4 0q0-1.25-.875-2.125T12 8.95v-2q2.075 0 3.538 1.463T17 11.95zM19.95 21q-3.125 0-6.175-1.362t-5.55-3.863t-3.862-5.55T3 4.05q0-.45.3-.75t.75-.3H8.1q.35 0 .625.238t.325.562l.65 3.5q.05.4-.025.675T9.4 8.45L6.975 10.9q.5.925 1.187 1.787t1.513 1.663q.775.775 1.625 1.438T13.1 17l2.35-2.35q.225-.225.588-.337t.712-.063l3.45.7q.35.1.575.363T21 15.9v4.05q0 .45-.3.75t-.75.3"

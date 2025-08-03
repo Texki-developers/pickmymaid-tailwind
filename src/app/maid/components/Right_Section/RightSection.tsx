@@ -1,3 +1,4 @@
+'use client'
 import ForPremium from "@/components/atoms/ForPremiumOnly/ForPremium";
 import { MdLocationOn, MdOutlineMail, MdOutlineVideoCall, MdPhone, RiWhatsappFill } from "@/components/atoms/Icons/Icons";
 import PremiumButton from "@/components/atoms/PremiumButton/PremiumButton";
@@ -124,7 +125,7 @@ const RightSection = ({ data, contactRef }: any) => {
         <div className="hidden lg:block">
           <div className="gap-[10px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
             <h2 className="text-[1.2rem] font-bold text-primary-300">About Me</h2>
-            <p
+            <div
               className="text-[0.9rem] sm:text-[1rem] text-black-600 xl:text-[1.2rem]"
               dangerouslySetInnerHTML={{ __html: data?.notes }}
             />
@@ -266,7 +267,7 @@ const RightSection = ({ data, contactRef }: any) => {
         <div className="block sm:block">
           <div className="gap-[10px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
             <h2 className="text-[1.2rem] font-bold text-primary-300">About Me</h2>
-            <p
+            <div
               className="text-[0.9rem] sm:text-[1rem] text-black-600 xl:text-[1.2rem]"
               dangerouslySetInnerHTML={{ __html: data?.notes }}
             />
@@ -277,14 +278,14 @@ const RightSection = ({ data, contactRef }: any) => {
           <h2 className="text-[1.2rem] font-bold text-primary-300">
             Visa Details
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr]">
+          {data?.visa_status && <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr]">
             <h2 className="text-[1rem] font-semibold">Visa status</h2>
             <p>{data?.visa_status}</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr]">
+          </div>}
+          {data?.visa_expire && <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr]">
             <h2 className="text-[1rem] font-semibold">Visa Expiry</h2>
             <p>{data?.visa_expire?.split("-").reverse().join("-")}</p>
-          </div>
+          </div>}
         </div>
 
 
@@ -331,7 +332,7 @@ const RightSection = ({ data, contactRef }: any) => {
         {/* skill */}
         <div className="grid gap-[10px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
           <h2 className="text-[1.2rem] font-bold text-primary-300">Skills</h2>
-          <div className="flex gap-[15px] flex-wrap justify-between">
+          <div className="flex gap-[25px] flex-wrap">
             {alternateSort(data.skills).map((item) => (
               <SkillsLanguages key={item} text={item} />
             ))}
