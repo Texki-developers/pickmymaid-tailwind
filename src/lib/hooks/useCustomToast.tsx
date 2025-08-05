@@ -2,7 +2,6 @@
 import { useCallback } from "react";
 
 export default function useCustomToast() {
-
   /* The `useCallback` hook is creating a memoized function called `showToast` that takes in four
 optional parameters: `title`, `message`, `status`, and `duration`. This function calls the
 `useToast` hook from the Chakra UI library to display a toast notification with the provided

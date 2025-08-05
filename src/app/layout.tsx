@@ -6,6 +6,7 @@ import BottomNav from "@/components/atoms/Navigations/BottomNav/BottomNav";
 import StoreProvider from "@/components/wrappers/StoreProvider";
 import FooterMain from "@/components/atoms/Footer/FooterMain";
 import AuthModalWrapper from "@/components/molecules/Home/HomeSections/Wrappers/AuthModalWrapper";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,7 +42,9 @@ export default function RootLayout({
           {children}
           <BottomNav />
           <FooterMain />
-          <AuthModalWrapper />
+          <Suspense>
+            <AuthModalWrapper />
+          </Suspense>
         </StoreProvider>
       </body>
     </html>

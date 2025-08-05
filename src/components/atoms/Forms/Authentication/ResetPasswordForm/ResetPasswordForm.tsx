@@ -40,7 +40,7 @@ export default function ResetPasswordForm() {
   }, [status]);
 
   return (
-    <div className="w-[100%]">
+    <div className="w-[100%] sm:w-[50%]">
       <h3 className="heading-tertiary">Reset Password</h3>
       <VStack className="items-center sm:gap-4">
         <PrimaryInput
