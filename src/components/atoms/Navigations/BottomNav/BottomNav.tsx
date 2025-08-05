@@ -18,6 +18,10 @@ import bulb from "@/assets/images/Tips/bulb.webp";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "../../../../../src/components/atoms/NextImageWrapper/Image";
 import bottomNavLinks from "./BottomNav.data";
+import BottomNavButton from "./BottomNavButton";
+import VStack from "@/components/ui/VStack";
+import clsx from "clsx";
+import HStack from "@/components/ui/HStack";
 
 export default function BottomNav() {
   const [navOpened, setNavOpen] = useState(false);
@@ -31,21 +35,103 @@ export default function BottomNav() {
   };
 
   return (
-    <div className="overflow-hidden sm-hidden">
+    <div className="overflow-hidden block sm:hidden">
       <div className="grid border-white grid-cols-5 justify-center p-2 px-1 fixed w-[100%] z-[996] bottom-0 left-0 gap-3 shadow-[0px_-5px_10px_rgba(0,0,0,0.1)] bg-primary-300 text-white h-[4rem]">
-        {bottomNavLinks?.map((item) => (
-          <div
-            key={item.label}
-            className="flex flex-col gap-1 self-center user-select-none outline-none justify-between items-center"
-          >
-            {[item.path, `${item.path}/`].includes(pathname) ? (
-              <item.fillIcon className="w-6" />
+        <BottomNavButton
+          label="Home"
+          path=""
+          OutlineIcon={RiHome5Line}
+          FillIcon={RiHome5Fill}
+          pathname={pathname}
+        />
+        <BottomNavButton
+          label="Favorites"
+          path="/favorites"
+          OutlineIcon={PiHeartStraight}
+          FillIcon={PiHeartFill}
+          pathname={pathname}
+        />
+        <VStack
+          className="gap-1 user-select-none outline-none justify-between items-center"
+          onClick={() => setNavOpen((prev) => !prev)}
+        >
+          <VStack className="aspect-square w-[80%] max-w-[3.5rem] margin-[0_auto] rounded-[50%] border-[2px] border-white justify-center self-center items-center mt-[-1.5rem] bg-primary-300 gap-[1rem]">
+            {navOpened ? (
+              <RiCloseLine className="w-4" />
             ) : (
-              <item.outlineIcon className="w-6" />
+              <RiMenuFill className="w-4" />
             )}
-            <p className="text-[0.85rem] text-white">{item.label}</p>
-          </div>
-        ))}
+          </VStack>
+          <p className="text-[0.85rem] text-white">Menu</p>
+        </VStack>
+        <BottomNavButton
+          label="Call"
+          path="tel:+971566369736"
+          OutlineIcon={IoCallOutline}
+          FillIcon={IoCallOutline}
+        />
+        {/* Auth Button */}
+        {/* <BottomNavButton
+          label="Register"
+          OutlineIcon={AiOutlineLogin}
+          FillIcon={AiOutlineLogin}
+          onClick={() => {}} // Handle Auth
+          iconClass="h-5 w-3"
+        /> */}
+        <BottomNavButton
+          label="Muhsin Neyyathur"
+          OutlineIcon={RiAccountCircleLine}
+          FillIcon={RiAccountCircleLine}
+          labelClass="truncate overflow-hidden whitespace-nowrap w-full"
+          iconClass="h-5"
+          mainClass="overflow-hidden text-overflow-ellipsis"
+        />
+      </div>
+
+      <div
+        className={clsx(
+          "h-[100%] absolute bottom-0 transition-[opacity_0.3s_ease] left-0 w-[100%] bg-[rgba(0,0,0,0.3)] z-[100]",
+          navOpened ? "opacity-100 block" : "opacity-0 pointer-events-none none"
+        )}
+        id="backdrop"
+      >
+        <div
+          className={clsx(
+            "flex justify-center gap-4 fixed left-0 z-[995] bg-white p-6 pb-[3rem] flex-wrap gap-y-6 shadow-[3px_0px_15px_rgba(0,0,0,0.2) transition-[all_0.3s_ease]",
+            navOpened
+              ? "bottom-[3.5rem] opacity-100"
+              : "bottom-[-100%] opacity-0"
+          )}
+        >
+          {PrimaryTopNavigationList.map((navItem: IPrimaryNavigationList) => (
+            <Fragment key={navItem.name}>
+              <p
+                className={clsx(
+                  "font-[500] text-sm xl:text-md border-[1px_solid_#ff8f5f] rounded-[30px] p-1 px-2 shadow-[0px_0px_5px_1px_rgba(0,0,0,0.1)] flex",
+                  pathname === navItem.path || pathname === `${navItem.path}/`
+                    ? "text-primary-300"
+                    : "text-black-700"
+                )}
+              >
+                {navItem.name}
+                <span>
+                  {navItem.name.includes("hiringTips") && (
+                    <Image
+                      src={bulb.src}
+                      className="aspect-sqaure w-[1rem]"
+                      alt="hiring tips pickmymaid"
+                    />
+                  )}
+                </span>
+              </p>
+            </Fragment>
+          ))}
+          <HStack>
+            <button className="btn-solid">Login</button>
+            <button className="btn-solid">Register</button>
+            <button className="btn-solid">Logout</button>
+          </HStack>
+        </div>
       </div>
     </div>
     // <Hide above="sm">

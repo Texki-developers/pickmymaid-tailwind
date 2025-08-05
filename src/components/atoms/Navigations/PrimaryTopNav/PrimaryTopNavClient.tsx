@@ -37,13 +37,13 @@ export default function PrimaryTopNavClient() {
         );
       })}
 
-      {/* {
-    <HStack>
-      <button className="btn-solid">Login</button>
-      <button className="btn-solid">Register</button>
-    </HStack>
-  } */}
-      <Menu>
+      {
+        <HStack>
+          <button className="btn-solid">Login</button>
+          <button className="btn-solid">Register</button>
+        </HStack>
+      }
+      {/* <Menu>
         <MenuButton className="flex flex-col justify-center cursor-pointer items-center gap-2 outline-none border-none">
           <Avatar
             size={40}
@@ -67,7 +67,7 @@ export default function PrimaryTopNavClient() {
             </HStack>
           </MenuItem>
         </MenuItems>
-      </Menu>
+      </Menu> */}
     </div>
   );
 }

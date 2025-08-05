@@ -4,6 +4,7 @@ import "./globals.css";
 import PrimaryTopNav from "@/components/atoms/Navigations/PrimaryTopNav/PrimaryTopNav";
 import BottomNav from "@/components/atoms/Navigations/BottomNav/BottomNav";
 import StoreProvider from "@/components/wrappers/StoreProvider";
+import FooterMain from "@/components/atoms/Footer/FooterMain";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
           <PrimaryTopNav />
           {children}
           <BottomNav />
+          <FooterMain />
         </StoreProvider>
       </body>
     </html>
