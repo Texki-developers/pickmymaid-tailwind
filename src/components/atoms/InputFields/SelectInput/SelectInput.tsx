@@ -1,12 +1,7 @@
-import {
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-  Select,
-} from "@chakra-ui/react";
-import { useTranslation } from "@/lib/hooks/useTranslation";
+"use client";
+
 import { ISelectOption } from "@/types/components/selectInput/selectInput.types";
-import { errorMessageStyle } from "@/components/atoms/styles";
+import clsx from "clsx";
 
 export default function SelectInput({
   label,
@@ -19,21 +14,45 @@ export default function SelectInput({
   list: ISelectOption[];
   register: any;
   required?: boolean;
-  errorMessage?: string | undefined;
+  errorMessage?: string;
 }) {
-  const { t } = useTranslation();
+  const inputId = label.toLowerCase().replace(/\s+/g, "_");
+
   return (
-    <FormControl isInvalid={errorMessage ? true : false} isRequired={required}>
-      <FormLabel variant="primary">{label}</FormLabel>
-      <Select fontSize={["0.9rem", "1rem"]} {...register}>
-        <option value={""}>{t("common.selectOption")}</option>
+    <div className="flex flex-col gap-1 w-full">
+      <label
+        htmlFor={inputId}
+        className={clsx(
+          "text-sm font-medium",
+          required && "after:content-['*'] after:ml-1 after:text-red-500"
+        )}
+      >
+        {label}
+      </label>
+
+      <select
+        id={inputId}
+        {...register}
+        className={clsx(
+          "w-full px-4 py-2 rounded-md border text-sm",
+          "bg-white text-black dark:bg-gray-800 dark:text-white",
+          errorMessage
+            ? "border-red-500 focus:ring-red-500"
+            : "border-gray-300 dark:border-gray-600 focus:ring-blue-500",
+          "focus:outline-none focus:ring-2 transition-all duration-200"
+        )}
+      >
+        <option value="">{/* Select Option */}Select an option</option>
         {list.map((listItem) => (
           <option key={listItem.id} value={listItem.value}>
             {listItem.option}
           </option>
         ))}
-      </Select>
-      <FormErrorMessage sx={errorMessageStyle}>{errorMessage}</FormErrorMessage>
-    </FormControl>
+      </select>
+
+      {errorMessage && (
+        <p className="text-error text-red-500 mt-1">{errorMessage}</p>
+      )}
+    </div>
   );
 }

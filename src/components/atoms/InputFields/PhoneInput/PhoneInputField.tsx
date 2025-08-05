@@ -1,10 +1,8 @@
-import { FormControl, FormErrorMessage, FormLabel } from '@chakra-ui/react';
-import { useTranslation } from '@/lib/hooks/useTranslation';
-import { useController } from 'react-hook-form';
-import PhoneInput from 'react-phone-input-2';
-import { errorMessageStyle } from '../../styles';
-import 'react-phone-input-2/lib/style.css';
-import './PhoneInputField.css';
+"use client";
+import { useController } from "react-hook-form";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import "./PhoneInputField.css";
 
 export default function PhoneInputField({
   name,
@@ -27,7 +25,6 @@ export default function PhoneInputField({
     rules,
     name,
   });
-  const { t } = useTranslation();
 
   /**
    * The function formats a phone number and extracts the country code and number, then passes them to
@@ -42,18 +39,22 @@ export default function PhoneInputField({
   };
 
   return (
-    <FormControl isInvalid={invalid} isRequired={required} w='100%'>
-      <FormLabel variant='primary'>{t('common.form.phone')}</FormLabel>
-      <PhoneInput
-        inputClass='telephone-input'
-        onChange={handlePhoneChange}
-        onlyCountries={isUAEOnly ? [] : []}
-        country='ae'
-        value={value}
-      />
-      <FormErrorMessage sx={errorMessageStyle}>
-        {error?.message}
-      </FormErrorMessage>
-    </FormControl>
+    <div className="flex gap-2 flex-col items-start w-[100%]">
+      <label className="label-primary">
+        Phone {required && <span className="text-[red]">*</span>}{" "}
+      </label>
+      <div className="relative w-[100%]">
+        <PhoneInput
+          inputClass="telephone-input"
+          onChange={handlePhoneChange}
+          onlyCountries={isUAEOnly ? [] : []}
+          country="ae"
+          value={value}
+        />
+      </div>
+      {error?.message && (
+        <p className="text-error text-[red]">{error?.message}</p>
+      )}
+    </div>
   );
 }

@@ -142,6 +142,12 @@ html {
 .text-footer {
   @apply text-white text-[0.8rem] sm:text-[0.9rem];
 }
+.text-input {
+  @apply text-[16px] p-[8] w-[100%] border border-[rgba(0,0,0,0.1)] outline-none rounded-sm;
+}
+.text-error {
+  @apply text-sm text-red-500 first:capitalize;
+}
 
 /* FORM LABEL */
 .label-primary {

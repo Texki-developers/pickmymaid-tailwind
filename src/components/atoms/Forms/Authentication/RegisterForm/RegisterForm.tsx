@@ -1,9 +1,7 @@
-import { Button, HStack, Heading, Icon, Link, Text, VStack } from "@chakra-ui/react";
+"use client";
 import { useForm } from "react-hook-form";
 import { useMemo, useState } from "react";
-import { useTranslation } from "@/lib/hooks/useTranslation";
 import PrimaryInput from "../../../InputFields/PrimaryInput/PrimaryInput";
-import { regularFont } from "../../../styles";
 import PhoneInputField from "../../../InputFields/PhoneInput/PhoneInputField";
 import OAuth from "../OAuth/OAuth";
 import { MdArrowBackIos } from "../../../Icons/Icons";
@@ -18,8 +16,16 @@ import { generatePaymentLink } from "@/lib/features/payment/paymentAction";
 import { resetAuthState, setAuthModal } from "@/lib/features/auth/authSlice";
 import { resetRedirection } from "@/lib/features/utilSlice/utileSlice";
 import regularExpressions from "@/lib/regularExpressions";
+import HStack from "@/components/ui/HStack";
+import VStack from "@/components/ui/VStack";
+import Button from "@/components/ui/Button";
 
-export default function RegisterForm({ isPopup }: { isPopup?: boolean; onClose?: any }) {
+export default function RegisterForm({
+  isPopup,
+}: {
+  isPopup?: boolean;
+  onClose?: any;
+}) {
   const {
     register,
     handleSubmit,
@@ -27,7 +33,6 @@ export default function RegisterForm({ isPopup }: { isPopup?: boolean; onClose?:
     formState: { errors },
   } = useForm<IRegisterForm>({ mode: "onChange" });
 
-  const { t } = useTranslation();
   const pathname = usePathname();
   const router = useRouter();
   const dispatch = useAppDispatch();
@@ -54,11 +59,12 @@ export default function RegisterForm({ isPopup }: { isPopup?: boolean; onClose?:
   };
 
   useMemo(() => {
-    console.log({ redirection, status });
-
     if (!paymentDetails?.subscribedPlan && redirection) {
       if (status === "success") {
-        if (redirection === "payment" && (paymentType === 1 || paymentType === 0 || paymentType === 2)) {
+        if (
+          redirection === "payment" &&
+          (paymentType === 1 || paymentType === 0 || paymentType === 2)
+        ) {
           dispatch(setPaymentTypeSelected(paymentType));
           dispatch(generatePaymentLink(paymentType));
           dispatch(resetAuthState());
@@ -80,31 +86,28 @@ export default function RegisterForm({ isPopup }: { isPopup?: boolean; onClose?:
   }, [status, redirection]);
 
   return (
-    <VStack
-      w="100%"
-      gap="1rem"
-      alignItems="flex-start">
-      <HStack>
+    <div className="flex flex-col w-[100%] items-start gap-4">
+      <HStack className="items-center">
         {isCustom === "email" && (
-          <Icon
-            as={MdArrowBackIos}
-            fontSize="1.5rem"
-            cursor="pointer"
+          <MdArrowBackIos
+            className="w-6 cursor-pointer"
             onClick={() => setCustom(null)}
           />
         )}
-        <Heading variant="tertiary">{t("auth.registerTitle")}</Heading>
+        <h2 className="heading-tertiary">Register your account</h2>
       </HStack>
-      <Text variant="fade">After Registration, Select a Payment Plan to Access Maids Contacts</Text>
+
+      <p className="text-fade">
+        After Registration, Select a Payment Plan to Access Maids Contacts
+      </p>
+
       {isCustom === "email" ? (
-        <VStack
-          gap={{ base: 0, sm: isPopup ? 0 : 4 }}
-          w="100%">
+        <VStack className="gap-2 sm:gap-4 items-center pt-[1rem] w-[100%]">
           <PrimaryInput
             register={register("firstName", {
-              required: "Full Name is required!",
+              required: "Fullname is required!",
             })}
-            label={t("common.form.fullname")}
+            label="Fullname"
             required
             errorMessage={errors?.firstName?.message}
             placeholder="John"
@@ -118,7 +121,7 @@ export default function RegisterForm({ isPopup }: { isPopup?: boolean; onClose?:
               },
             })}
             type="email"
-            label={t("common.email")}
+            label="Email"
             required
             errorMessage={errors?.email?.message}
             placeholder="johndoe@gmail.com"
@@ -140,28 +143,110 @@ export default function RegisterForm({ isPopup }: { isPopup?: boolean; onClose?:
               },
             })}
             type="password"
-            label={t("common.form.password")}
+            label="Password"
             required
             errorMessage={errors?.password?.message}
           />
           <Button
-            variant="solid"
-            w="100%"
-            my={2}
+            className="btn-solid w-[100%] my-2"
             onClick={handleSubmit(onFormSubmission)}
-            isLoading={loading}>
-            {t("common.register")}
+            isLoading={loading}
+          >
+            Register
           </Button>
-          <Link
+          <p
+            className="text-fade cursor-pointer hover:underline"
             onClick={() => dispatch(setAuthModal("login"))}
-            sx={regularFont}
-            color="text.black.500">
-            {t("auth.alreadyHave")}
-          </Link>
+          >
+            Already have an account?
+          </p>
         </VStack>
       ) : (
         <OAuth setCustom={setCustom} />
       )}
-    </VStack>
+    </div>
+    // <VStack
+    //   w="100%"
+    //   gap="1rem"
+    //   alignItems="flex-start">
+    //   <HStack>
+    //     {isCustom === "email" && (
+    //       <Icon
+    //         as={MdArrowBackIos}
+    //         fontSize="1.5rem"
+    //         cursor="pointer"
+    //         onClick={() => setCustom(null)}
+    //       />
+    //     )}
+    //     <Heading variant="tertiary">{t("auth.registerTitle")}</Heading>
+    //   </HStack>
+    //   <Text variant="fade">After Registration, Select a Payment Plan to Access Maids Contacts</Text>
+    //   {isCustom === "email" ? (
+    //     <VStack
+    //       gap={{ base: 0, sm: isPopup ? 0 : 4 }}
+    //       w="100%">
+    //       <PrimaryInput
+    //         register={register("firstName", {
+    //           required: "Full Name is required!",
+    //         })}
+    //         label={t("common.form.fullname")}
+    //         required
+    //         errorMessage={errors?.firstName?.message}
+    //         placeholder="John"
+    //       />
+    //       <PrimaryInput
+    //         register={register("email", {
+    //           required: "Email is required!",
+    //           pattern: {
+    //             value: regularExpressions.isEmail,
+    //             message: "Invalid Email ID",
+    //           },
+    //         })}
+    //         type="email"
+    //         label={t("common.email")}
+    //         required
+    //         errorMessage={errors?.email?.message}
+    //         placeholder="johndoe@gmail.com"
+    //       />
+
+    //       <PhoneInputField
+    //         control={control}
+    //         name="phone"
+    //         rules={{ required: "This field is required" }}
+    //         required
+    //       />
+
+    //       <PrimaryInput
+    //         register={register("password", {
+    //           required: "Password is required!",
+    //           min: {
+    //             value: 6,
+    //             message: "Password should be 6 or more characters",
+    //           },
+    //         })}
+    //         type="password"
+    //         label={t("common.form.password")}
+    //         required
+    //         errorMessage={errors?.password?.message}
+    //       />
+    //       <Button
+    //         variant="solid"
+    //         w="100%"
+    //         my={2}
+    //         onClick={handleSubmit(onFormSubmission)}
+    //         isLoading={loading}>
+    //         {t("common.register")}
+    //       </Button>
+    //       <Link
+    //         onClick={() => dispatch(setAuthModal("login"))}
+    //         sx={regularFont}
+    //         color="text.black.500">
+    //         {t("auth.alreadyHave")}
+    //       </Link>
+    //     </VStack>
+    //   ) : (
+    //     <OAuth setCustom={setCustom} />
+    //   )}
+    // </VStack>
   );
 }

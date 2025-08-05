@@ -1,16 +1,19 @@
 "use client";
 
 import React, { useEffect } from "react";
-import AuthModal from "../../AuthModal/AuthModal";
-import LoginForm from "./LoginForm/LoginForm";
-import RegisterForm from "./RegisterForm/RegisterForm";
-import ForgotPasswordForm from "./ForgotPasswordForm/ForgotPasswordForm";
+// import LoginForm from "./LoginForm/LoginForm";
+// import RegisterForm from "./RegisterForm/RegisterForm";
+// import ForgotPasswordForm from "./ForgotPasswordForm/ForgotPasswordForm";
 import { setAuthModal } from "@/lib/features/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { usePathname, useSearchParams } from "next/navigation";
 import { getUserPaymentDetails } from "@/lib/features/payment/paymentAction";
 import { useRouter } from "next/navigation";
 import useCustomToast from "@/lib/hooks/useCustomToast";
+import AuthModal from "@/components/atoms/AuthModal/AuthModal";
+import LoginForm from "@/components/atoms/Forms/Authentication/LoginForm/LoginForm";
+import RegisterForm from "@/components/atoms/Forms/Authentication/RegisterForm/RegisterForm";
+import ForgotPasswordForm from "@/components/atoms/Forms/Authentication/ForgotPasswordForm/ForgotPasswordForm";
 
 const AuthModalWrapper = () => {
   const dispatch = useAppDispatch();
@@ -18,7 +21,7 @@ const AuthModalWrapper = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  // const { isOpen, onOpen, onClose } = useDisclosure();
   const authModal = useAppSelector((state) => state.auth.authModal);
   const user = useAppSelector((state) => state?.auth?.user);
   const { redirection } = useAppSelector((state) => state.utils);
@@ -26,13 +29,13 @@ const AuthModalWrapper = () => {
     (state) => state.payment.paymentDetails
   );
   const handleModalClose = () => {
-    onClose();
+    // onClose();
     dispatch(setAuthModal(null));
   };
 
   useEffect(() => {
     if (authModal) {
-      onOpen();
+      // onOpen();
     }
   }, [authModal]);
 
@@ -77,14 +80,15 @@ const AuthModalWrapper = () => {
   }, [user]);
 
   return (
-    <AuthModal isOpen={isOpen} onClose={handleModalClose}>
+    <AuthModal isOpen={authModal !== null} onClose={handleModalClose}>
       {authModal === "login" || authModal === "login-form" ? (
         <LoginForm />
       ) : authModal === "signup" ? (
         <RegisterForm />
       ) : authModal === "forget" ? (
         <ForgotPasswordForm />
-      ) : null}
+      ) : 
+      null}
     </AuthModal>
   );
 };

@@ -46,98 +46,58 @@ export default function PrimaryInput({
   }, []);
 
   return (
-    <div className="flex gap-2 flex-col items-start">
-      {label && <label className="label-primary">{label}</label>}
-      <input
-        type={type === "password" && showPassword ? "text" : type}
-        disabled={isDisabled}
-        placeholder={placeholder}
-        className={clsx(`${isList ? "search-input" : ""}`, inputStyles)}
-        {...register}
-        list={`form_${label}_list`}
-        onFocus={() => setListActive(true)}
-      />
-    </div>
-    // <FormControl
-    //   isInvalid={errorMessage ? true : false}
-    //   isRequired={required}
-    //   zIndex={10}
-    // >
-    //   {label && <FormLabel variant="primary">{label}</FormLabel>}
-    //   {type === "textarea" ? (
-    //     <Textarea
-    //       isDisabled={isDisabled}
-    //       placeholder={placeholder}
-    //       sx={inputFontSize}
-    //       {...register}
-    //     />
-    //   ) : (
-    //     <InputGroup pos="relative">
-    //       <Input
-    //         type={type === "password" && showPassword ? "text" : type}
-    //         isDisabled={isDisabled}
-    //         placeholder={placeholder}
-    //         className={isList ? "search-input" : ""}
-    //         sx={inputFontSize}
-    //         bg={bg}
-    //         {...inputStyles}
-    //         {...register}
-    //         list={`form_${label}_list`}
-    //         onFocus={() => setListActive(true)}
-    //       />
-    //       {isListActive && isList && isList?.length > 0 && (
-    //         <UnorderedList
-    //           pos="absolute"
-    //           bottom={0}
-    //           left={0}
-    //           transform="translateY(calc(100% + 0.5rem))"
-    //           bg="white"
-    //           styleType="none"
-    //           boxShadow="0px 0px 10px rgba(0,0,0,0.1)"
-    //           m={0}
-    //           minW="80%"
-    //           overflow="hidden"
-    //           borderRadius="8px"
-    //           maxH="10rem"
-    //           overflowY="scroll"
-    //         >
-    //           {isList?.map((item, index) => (
-    //             <ListItem
-    //               className="list-item"
-    //               p="0.5rem"
-    //               py="0.3rem"
-    //               _hover={{
-    //                 bg: "rgba(189, 224, 254, 0.3)",
-    //               }}
-    //               key={index}
-    //               cursor="pointer"
-    //               onClick={() => {
-    //                 handleSuggestionClick(item);
-    //                 setListActive(false);
-    //               }}
-    //             >
-    //               <Text variant="description">{item}</Text>
-    //             </ListItem>
-    //           ))}
-    //         </UnorderedList>
-    //       )}
-    //       {type === "password" && (
-    //         <InputRightElement>
-    //           <IconButton
-    //             border="none"
-    //             variant="outline"
-    //             aria-label="password-btn"
-    //             onClick={() => setShowPassword(!showPassword)}
-    //             icon={
-    //               showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />
-    //             }
-    //           />
-    //         </InputRightElement>
-    //       )}
-    //     </InputGroup>
-    //   )}
+    <div className="flex gap-2 flex-col items-start w-[100%]">
+      {label && (
+        <label className="label-primary">
+          {label} {required && <span className="text-[red]">*</span>}{" "}
+        </label>
+      )}
+      {type === "textarea" ? (
+        <textarea
+          disabled={isDisabled}
+          placeholder={placeholder}
+          className={clsx("text-input", inputStyles)}
+          {...register}
+        />
+      ) : (
+        <div className="relative w-[100%]">
+          <input
+            type={type === "password" && showPassword ? "text" : type}
+            disabled={isDisabled}
+            placeholder={placeholder}
+            className={clsx("text-input", inputStyles)}
+            {...register}
+            list={`form_${label}_list`}
+            onFocus={() => setListActive(true)}
+          />
+          {isListActive && isList && isList?.length > 0 && (
+            <ul className="list absolute bottom-0 left-0 bg-white translate-y-[calc(100%+0.5rem)] list-none shadow-[0px_0px_10px_rgba(0,0,0,0.1)] m-0 min-w-[80%] overflow-hidden rounded-[8px] max-h-[10rem] overflow-y-scroll">
+              {isList.map((item) => (
+                <li
+                  key={item}
+                  onClick={() => {
+                    handleSuggestionClick(item);
+                  }}
+                  className="text-description list-item p-[0.5rem] py-[0.3rem] hover:bg-[rgba(189,224,254,0.3)] cursor-pointer"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          )}
 
-    //   <FormErrorMessage sx={errorMessageStyle}>{errorMessage}</FormErrorMessage>
-    // </FormControl>
+          {type === "password" && (
+            <span
+              className="absolute right-2 top-1/2 transform-[translateY(-50%)] cursor-pointer"
+              onClick={() => setShowPassword((prev) => !prev)}
+            >
+              {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+            </span>
+          )}
+        </div>
+      )}
+
+      {errorMessage && <p className="text-error text-[red]">{errorMessage}</p>}
+    </div>
   );
 }

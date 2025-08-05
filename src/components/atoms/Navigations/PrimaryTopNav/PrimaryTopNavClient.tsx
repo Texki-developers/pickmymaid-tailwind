@@ -10,9 +10,12 @@ import { IPrimaryNavigationList } from "@/types/components/primaryTopNav/primary
 import { Fragment } from "react";
 import { PrimaryTopNavigationList } from "./PrimaryTopNav.data";
 import Link from "next/link";
+import { useAppDispatch } from "@/lib/hooks";
+import { setAuthModal } from "@/lib/features/auth/authSlice";
 
 export default function PrimaryTopNavClient() {
   const pathname = usePathname();
+  const dispatch = useAppDispatch();
   return (
     <div className="items-center gap-4 hidden lg:flex">
       {PrimaryTopNavigationList.map((item: IPrimaryNavigationList, index) => {
@@ -39,8 +42,18 @@ export default function PrimaryTopNavClient() {
 
       {
         <HStack>
-          <button className="btn-solid">Login</button>
-          <button className="btn-solid">Register</button>
+          <button
+            className="btn-solid"
+            onClick={() => dispatch(setAuthModal("login"))}
+          >
+            Login
+          </button>
+          <button
+            className="btn-solid"
+            onClick={() => dispatch(setAuthModal("signup"))}
+          >
+            Register
+          </button>
         </HStack>
       }
       {/* <Menu>

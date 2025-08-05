@@ -1,4 +1,4 @@
-import { Box, Button, Heading, VStack } from "@chakra-ui/react";
+"use client";
 import { useForm } from "react-hook-form";
 import { useRouter, useParams } from "next/navigation";
 import { useEffect } from "react";
@@ -8,6 +8,8 @@ import { useAppSelector, useAppDispatch } from "@/lib/hooks";
 import { IResetPasswordBody } from "@/types/features/auth/auth.types";
 import { resetPassword } from "@/lib/features/auth/authAction";
 import { setAuthModal } from "@/lib/features/auth/authSlice";
+import VStack from "@/components/ui/VStack";
+import Button from "@/components/ui/Button";
 
 export default function ResetPasswordForm() {
   const {
@@ -38,11 +40,9 @@ export default function ResetPasswordForm() {
   }, [status]);
 
   return (
-    <Box w="100%">
-      <Heading variant="tertiary" mb={4}>
-        Reset Password
-      </Heading>
-      <VStack gap={{ base: 0, sm: 4 }}>
+    <div className="w-[100%]">
+      <h3 className="heading-tertiary">Reset Password</h3>
+      <VStack className="items-center sm:gap-4">
         <PrimaryInput
           register={register("password", {
             required: "Password is required!",
@@ -62,15 +62,47 @@ export default function ResetPasswordForm() {
           errorMessage={errors?.confirmPassword?.message}
         />
         <Button
-          variant="solid"
-          w="100%"
-          my={2}
+          className="btn-solid w-[100%] my-2"
           onClick={handleSubmit(onFormSubmission)}
           isLoading={loading}
         >
           Submit
         </Button>
       </VStack>
-    </Box>
+    </div>
+    // <Box w="100%">
+    //   <Heading variant="tertiary" mb={4}>
+    //     Reset Password
+    //   </Heading>
+    //   <VStack gap={{ base: 0, sm: 4 }}>
+    //     <PrimaryInput
+    //       register={register("password", {
+    //         required: "Password is required!",
+    //       })}
+    //       type="password"
+    //       label="Password"
+    //       required
+    //       errorMessage={errors?.password?.message}
+    //     />
+    //     <PrimaryInput
+    //       register={register("confirmPassword", {
+    //         required: "This field is required!",
+    //       })}
+    //       type="password"
+    //       label="Confirm Password"
+    //       required
+    //       errorMessage={errors?.confirmPassword?.message}
+    //     />
+    //     <Button
+    //       variant="solid"
+    //       w="100%"
+    //       my={2}
+    //       onClick={handleSubmit(onFormSubmission)}
+    //       isLoading={loading}
+    //     >
+    //       Submit
+    //     </Button>
+    //   </VStack>
+    // </Box>
   );
 }

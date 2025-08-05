@@ -1,46 +1,40 @@
-import { Button, Icon, Text, VStack } from "@chakra-ui/react";
+"use client";
+import { JSX } from "react";
 import { BaselineApple, FcGoogle, MdOutlineMail } from "../../../Icons/Icons";
+import VStack from "@/components/ui/VStack";
+import { option } from "framer-motion/client";
 
-const authOptions: { title: string; icon: JSX.Element; type: string; link?: string }[] = [
+const authOptions: {
+  title: string;
+  icon: JSX.Element;
+  type: string;
+  link?: string;
+}[] = [
   {
     title: "Continue with Google",
-    icon: (
-      <Icon
-        as={FcGoogle}
-        fontSize="1.5rem"
-      />
-    ),
+    icon: <FcGoogle className="w-6" />,
     type: "google",
     link: "auth/google",
   },
   {
     title: "Continue with Apple",
-    icon: (
-      <Icon
-        as={BaselineApple}
-        fontSize="1.6rem"
-      />
-    ),
+    icon: <BaselineApple className="w-7" />,
     type: "apple",
     link: "auth/apple",
   },
   {
     title: "Continue with Email",
-    icon: (
-      <Icon
-        as={MdOutlineMail}
-        color="red"
-        fontSize="1.5rem"
-      />
-    ),
+    icon: <MdOutlineMail className="w-6 text-[red]" />,
     type: "email",
   },
 ];
 
-export default function OAuth({ setCustom }) {
+export default function OAuth({ setCustom }: any) {
   const handleOAuth = (type: string, link: string) => {
     const baseURL: string =
-      process.env.NEXT_PUBLIC_CUSTOM_MODE === "PROD" ? (process.env.NEXT_PUBLIC_API_URL_PROD as string) : (process.env.NEXT_PUBLIC_API_URL as string);
+      process.env.NEXT_PUBLIC_CUSTOM_MODE === "PROD"
+        ? (process.env.NEXT_PUBLIC_API_URL_PROD as string)
+        : (process.env.NEXT_PUBLIC_API_URL as string);
 
     if (type === "email") {
       setCustom(type);
@@ -48,54 +42,24 @@ export default function OAuth({ setCustom }) {
     }
 
     setCustom(type);
-    window.location.href = `${baseURL}v2/${link}?redirect=${encodeURIComponent(location.href)}`;
+    window.location.href = `${baseURL}v2/${link}?redirect=${encodeURIComponent(
+      location.href
+    )}`;
   };
   return (
-    <VStack
-      gap={{ base: 4 }}
-      w="100%">
+    <VStack className="items-center gap-6 w-full">
       {authOptions.map((option, index) => (
-        <Button
+        <button
           key={index}
-          leftIcon={option?.icon}
-          bg="#f2f3f5"
-          _hover={{
-            bg: "#d4d7de",
-          }}
-          justifyContent="center"
-          // gap='20%'
-          border="1px solid #f2f3f5"
-          color="#2e2e2e"
-          w="100%"
-          fontWeight={700}
-          onClick={() => handleOAuth(option?.type as string, option?.link as string)}>
-          <Text flexGrow={10}>{option?.title}</Text>
-        </Button>
+          onClick={() =>
+            handleOAuth(option?.type as string, option?.link as string)
+          }
+          className="flex cursor-pointer gap-4 rounded-md items-center bg-[#f2f3f5] hover:bg-[#d4d7de] border-[1px] border-[#f2f3f5] w-[100%] font-[700] justify-center w-full p-[6] px-[2rem]"
+        >
+          {option?.icon}
+          <p className=" grow-[10] text-center">{option?.title}</p>
+        </button>
       ))}
-
-      {/* <Text
-        variant='description'
-        display='flex'
-        alignItems='center'
-        gap='1rem'
-        w='100%'
-        _before={{
-          content: "''",
-          display: 'block',
-          flex: 1,
-          height: '1px',
-          background: '#2e2e2e',
-        }}
-        _after={{
-          content: "''",
-          display: 'block',
-          flex: 1,
-          height: '1px',
-          background: '#2e2e2e',
-        }}
-      >
-        OR
-      </Text> */}
     </VStack>
   );
 }
