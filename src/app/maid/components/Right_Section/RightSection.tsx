@@ -1,3 +1,4 @@
+'use client'
 import ForPremium from "@/components/atoms/ForPremiumOnly/ForPremium";
 import { MdLocationOn, MdOutlineMail, MdOutlineVideoCall, MdPhone, RiWhatsappFill } from "@/components/atoms/Icons/Icons";
 import PremiumButton from "@/components/atoms/PremiumButton/PremiumButton";
@@ -9,6 +10,9 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import SkillsLanguages from "../SkillsLanguages";
+import Accordian from "../accordian/Accordian";
+import ExperienceAccordian from "../experienceAccordian";
+import { IEmploymentHistory } from "../Left_Section/LeftSection";
 
 const RightSection = ({ data, contactRef }: any) => {
   const dispatch = useAppDispatch();
@@ -121,7 +125,7 @@ const RightSection = ({ data, contactRef }: any) => {
         <div className="hidden lg:block">
           <div className="gap-[10px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
             <h2 className="text-[1.2rem] font-bold text-primary-300">About Me</h2>
-            <p
+            <div
               className="text-[0.9rem] sm:text-[1rem] text-black-600 xl:text-[1.2rem]"
               dangerouslySetInnerHTML={{ __html: data?.notes }}
             />
@@ -263,7 +267,7 @@ const RightSection = ({ data, contactRef }: any) => {
         <div className="block sm:block">
           <div className="gap-[10px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
             <h2 className="text-[1.2rem] font-bold text-primary-300">About Me</h2>
-            <p
+            <div
               className="text-[0.9rem] sm:text-[1rem] text-black-600 xl:text-[1.2rem]"
               dangerouslySetInnerHTML={{ __html: data?.notes }}
             />
@@ -274,56 +278,36 @@ const RightSection = ({ data, contactRef }: any) => {
           <h2 className="text-[1.2rem] font-bold text-primary-300">
             Visa Details
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr]">
+          {data?.visa_status && <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr]">
             <h2 className="text-[1rem] font-semibold">Visa status</h2>
             <p>{data?.visa_status}</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr]">
+          </div>}
+          {data?.visa_expire && <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr]">
             <h2 className="text-[1rem] font-semibold">Visa Expiry</h2>
             <p>{data?.visa_expire?.split("-").reverse().join("-")}</p>
-          </div>
+          </div>}
         </div>
 
 
         <div className="block lg:hidden">
           <div className="gap-[15px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
-            <h2 className="text-[1.2rem] font-bold text-primary-300">Employment History</h2>
-            {/* <Accordion
-              allowToggle
-              allowMultiple>
-              {data?.employmentHistory?.map((item) => {
-                return (
-                  <AccordionItem>
-                    <h2>
-                      <AccordionButton>
-                        <Box
-                          as="span"
-                          flex="1"
-                          textAlign="left">
-                          {item.title}
-                        </Box>
-                        <AccordionIcon />
-                      </AccordionButton>
-                    </h2>
-                    <AccordionPanel pb={4}>
-                      <Heading size="sm">Location</Heading>
-                      <Text>{item?.location}</Text>
-                      <Heading size="sm">Duration</Heading>
-                      <Text>{item?.experiance} yr</Text>
-                      <Heading size="sm">Reason for Leaving</Heading>
-                      <Text>{item?.reason_leaving}</Text>
-                      <Heading size="sm">Description</Heading>
-                      <Text
-                        variant="description"
-                        dangerouslySetInnerHTML={{
-                          __html: item?.job_description,
-                        }}
-                      />
-                    </AccordionPanel>
-                  </AccordionItem>
-                );
-              })}
-            </Accordion> */}
+            <h2 className="text-[1.2rem] font-bold text-primary-300 pb-2">Employment History</h2>
+            {data?.employmentHistory?.map((item: IEmploymentHistory, index: number) => {
+              return (
+                <Accordian
+                  key={index + item?.title}
+                  title={item.title}
+                  description={
+                    <ExperienceAccordian
+                      location={item.location}
+                      experiance={item.experiance}
+                      reason_leaving={item.reason_leaving}
+                      job_description={item.job_description}
+                    />
+                  }
+                />
+              );
+            })}
           </div>
         </div>
 
@@ -348,7 +332,7 @@ const RightSection = ({ data, contactRef }: any) => {
         {/* skill */}
         <div className="grid gap-[10px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
           <h2 className="text-[1.2rem] font-bold text-primary-300">Skills</h2>
-          <div className="flex gap-[15px] flex-wrap justify-between">
+          <div className="flex gap-[25px] flex-wrap">
             {alternateSort(data.skills).map((item) => (
               <SkillsLanguages key={item} text={item} />
             ))}
