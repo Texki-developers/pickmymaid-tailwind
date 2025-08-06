@@ -7,6 +7,7 @@ import StoreProvider from "@/components/wrappers/StoreProvider";
 import FooterMain from "@/components/atoms/Footer/FooterMain";
 import AuthModalWrapper from "@/components/molecules/Home/HomeSections/Wrappers/AuthModalWrapper";
 import { Suspense } from "react";
+import ToastContainerComponent from "@/components/atoms/toast-container/ToastContainer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,6 +46,7 @@ export default function RootLayout({
           <Suspense>
             <AuthModalWrapper />
           </Suspense>
+          <ToastContainerComponent />
         </StoreProvider>
       </body>
     </html>

@@ -8,15 +8,7 @@ import { resetAuthState, setAuthModal } from "@/lib/features/auth/authSlice";
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import Image from "../NextImageWrapper/Image";
 
-export default function AuthModal({
-  isOpen,
-  onClose,
-  children,
-}: {
-  isOpen: boolean;
-  onClose: any;
-  children: ReactNode;
-}) {
+export default function AuthModal({ isOpen, onClose, children }: { isOpen: boolean; onClose: any; children: ReactNode }) {
   const { status, message } = useAppSelector((state) => state.auth);
   const customToast = useCustomToast();
   const dispatch = useAppDispatch();
@@ -34,7 +26,10 @@ export default function AuthModal({
     }
   }, [status, message]);
   return (
-    <Dialog open={isOpen} onClose={onClose} className="relative z-1600">
+    <Dialog
+      open={isOpen}
+      onClose={onClose}
+      className="relative z-1600">
       <DialogBackdrop className="fixed inset-0 bg-black/30 backdrop-blur-xs" />
       <div className="fixed inset-0 flex w-screen items-center justify-center">
         <DialogPanel className="max-w-[60rem] w-[100%]">
@@ -42,14 +37,11 @@ export default function AuthModal({
             <button
               onClick={onClose}
               className="absolute aspect-square rounded-[50%] bg-[rgba(0,0,0,0.5)] right-0 lg:right-[-0.5rem] cursor-pointer top-[-0.5rem] lg:top-0 p-1
-           [transform:translateY(-100%)] lg:[transform:translateX(100%)]"
-            >
+           [transform:translateY(-100%)] lg:[transform:translateX(100%)]">
               <RiCloseLine className="w-6 text-white" />
             </button>
             <div className="grid grid-cols-1 md:grid-cols-2 w-full bg-white rounded-[15px]">
-              <div className="flex flex-col p-[1.5rem] gap-[1rem] md:gap-[2rem] py-[2rem]">
-                {children}
-              </div>
+              <div className="flex flex-col p-[1.5rem] gap-[1rem] md:gap-[2rem] py-[2rem]">{children}</div>
               <Image
                 src={registerBanner.src}
                 alt="Quality Maids in Pickmymaid"
