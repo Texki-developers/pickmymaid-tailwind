@@ -187,7 +187,7 @@ export function PiHeartFill(props: SVGProps<SVGSVGElement>) {
 
 export function RiCloseFill(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg width="32" height="32" viewBox="0 0 24 24" {...props}>
+    <svg viewBox="0 0 24 24" {...props}>
       <path
         fill="currentColor"
         d="m12 10.587l4.95-4.95l1.414 1.414l-4.95 4.95l4.95 4.95l-1.415 1.414l-4.95-4.95l-4.949 4.95l-1.414-1.415l4.95-4.95l-4.95-4.95L7.05 5.638z"
@@ -198,7 +198,7 @@ export function RiCloseFill(props: SVGProps<SVGSVGElement>) {
 
 export function TiTick(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg width="32" height="32" viewBox="0 0 24 24" {...props}>
+    <svg viewBox="0 0 24 24" {...props}>
       <path
         fill="currentColor"
         d="M16.972 6.251a1.999 1.999 0 0 0-2.72.777l-3.713 6.682l-2.125-2.125a2 2 0 1 0-2.828 2.828l4 4c.378.379.888.587 1.414.587l.277-.02a2 2 0 0 0 1.471-1.009l5-9a2 2 0 0 0-.776-2.72"

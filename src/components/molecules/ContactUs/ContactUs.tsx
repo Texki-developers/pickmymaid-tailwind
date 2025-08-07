@@ -8,7 +8,7 @@ import ContactForm from "@/components/atoms/Forms/ContactForm/ContactForm";
 
 export default function ContactUs({ hideImage }: { hideImage?: boolean }) {
   return (
-    <div className="grid grid-cols-1 grid-cols-[1.5fr_1fr] gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-4">
       <VStack className="gap-4 sm:gap-8 items-center">
         <Image
           src={contactSupportImg.src}
@@ -45,7 +45,7 @@ export default function ContactUs({ hideImage }: { hideImage?: boolean }) {
           />
         </div>
       </VStack>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center p-4">
         <ContactForm />
       </div>
     </div>
