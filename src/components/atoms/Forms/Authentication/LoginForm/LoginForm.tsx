@@ -96,7 +96,7 @@ export default function LoginForm() {
           </p>
           <p
             className="text-fade cursor-pointer hover:underline"
-            onClick={() => dispatch(setAuthModal("forget"))}
+            onClick={() => dispatch(setAuthModal("signup"))}
           >
             Don&apos;t have an account?
           </p>

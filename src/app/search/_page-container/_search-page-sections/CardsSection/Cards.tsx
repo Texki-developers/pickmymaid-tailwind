@@ -74,7 +74,6 @@ const Cards = () => {
     }
   }, [query]);
 
-  console.log({ query });
 
   return (
     <div className="cards-container">

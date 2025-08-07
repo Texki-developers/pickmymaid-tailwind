@@ -1,25 +1,30 @@
 // import react
+import { div } from "framer-motion/client";
 import { useCallback } from "react";
-
+import { toast } from "react-toastify";
+const config: Record<string, { color: string }> = {
+  success: {
+    color: "#10b981",
+  },
+  error: {
+    color: "#ef4444",
+  },
+  warning: {
+    color: "#f59e0b",
+  },
+  info: {
+    color: "#3b82f6",
+  },
+};
 export default function useCustomToast() {
-  /* The `useCallback` hook is creating a memoized function called `showToast` that takes in four
-optional parameters: `title`, `message`, `status`, and `duration`. This function calls the
-`useToast` hook from the Chakra UI library to display a toast notification with the provided
-parameters. The `useCallback` hook is also passing in the `toast` function as a dependency, which
-ensures that the `showToast` function is only recreated if the `toast` function changes. This helps
-to optimize performance by preventing unnecessary re-renders. The `useCustomToast` function returns
-the `showToast` function. */
-  const showToast = useCallback(
-    (
-      title?: string,
-      message?: string,
-      status?: "success" | "error" | "warning" | "info",
-      duration?: number
-    ) => {
-      console.log(title, message, status, duration);
-    },
-    []
-  );
+  const showToast = useCallback((title?: string, message?: string, status?: "success" | "error" | "warning" | "info", duration?: number) => {
+    toast(
+      <div style={{ backgroundColor: config[status as string].color }} className={`w-full h-full p-2 text-white`}>
+        <h2 className="font-bold">{title}</h2>
+        <p >{message}</p>
+      </div>
+    );
+  }, []);
 
   return showToast;
 }
