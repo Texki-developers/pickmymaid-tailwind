@@ -23,6 +23,7 @@ const eslintConfig = [
       "@typescript-eslint/no-unsafe-call": "off",
       "@typescript-eslint/no-unsafe-return": "off",
       "@typescript-eslint/no-unsafe-argument": "off",
+      "react/no-unescaped-entities": "off",
     },
   },
 ];

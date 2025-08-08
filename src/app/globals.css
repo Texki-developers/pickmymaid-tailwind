@@ -89,6 +89,47 @@ html {
   padding: 0 !important;
 }
 
+.header-line-right,
+.header-line-left {
+  position: relative;
+}
+
+.header-line-right::after,
+.header-line-left::after {
+  content: "";
+  position: absolute;
+  width: 10rem;
+  background-image: url("../assets/images/line-mark.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+  height: 5rem;
+}
+
+.header-line-left::after {
+  left: 0;
+  bottom: 0;
+  transform: translate(10%, 60%);
+}
+
+.header-line-right::after {
+  right: 0;
+  top: 0;
+  transform: translate(10%, 20%);
+}
+
+@media only screen and (max-width: 600px) {
+  .header-line-right::after {
+    width: 6rem;
+    transform: translate(5%, 15%);
+  }
+
+  .header-line-left::after {
+    width: 6rem;
+    transform: translate(10%, 70%);
+  }
+}
+
 .common-padding {
   @apply px-4 md:px-5 lg:px-8 2xl:px-32;
 }

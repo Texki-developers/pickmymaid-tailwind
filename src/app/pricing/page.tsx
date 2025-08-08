@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import React from "react";
 import securedPayment from "@/assets/images/secure_payment.png";
 import { pricingData } from "./pricingData";
-import RevampedPricingCard from "@/components/atoms/Cards/RevampedPricingCard/RevampedPricingCard";
 import PriceCardWrapper from "@/components/atoms/Cards/RevampedPricingCard/PriceCardWrapper";
 import Image from "@/components/atoms/NextImageWrapper/Image";
 
@@ -24,7 +23,7 @@ export default function page() {
           </p>
           <Image
             src={securedPayment.src}
-            className="aspect-[4/1] w-[20rem] sm:w-[30rem]"
+            parentClass="aspect-[4/1] w-[20rem] sm:w-[30rem]"
             alt="accepted payments"
           />
         </div>
