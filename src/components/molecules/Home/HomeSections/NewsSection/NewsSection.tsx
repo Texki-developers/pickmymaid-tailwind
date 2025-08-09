@@ -19,7 +19,7 @@ export default function NewsSection() {
       className="bg-[#34A0E1] items-center justify-start p-[1rem] z-[10] relative py-[0.5rem] cursor-pointer w-[100%]"
       onClick={handleNavigate}
     >
-      <h2 className="heading-card text-white px-[0.8rem]">Featured in:</h2>
+      <h2 className="text-white px-[0.8rem]">Featured in:</h2>
       <Image
         src={khaleej.src}
         alt="khaleej_times_news"

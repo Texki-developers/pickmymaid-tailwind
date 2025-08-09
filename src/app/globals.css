@@ -140,7 +140,7 @@ html {
 }
 
 .heading-primary {
-  @apply font-medium text-[1.6rem] sm:text-[2.5rem] xl:text-[2.9rem] leading-[33px] sm:leading-[54px];
+  @apply font-[800] text-[1.6rem] sm:text-[2.5rem] xl:text-[2.9rem] leading-[33px] sm:leading-[54px];
 }
 
 .heading-secondary {
@@ -201,7 +201,7 @@ html {
 }
 
 .btn-outlined {
-  @apply bg-transparent cursor-pointer text-primary-300 border-2 border-primary-300 px-4 xl:px-8 py-2 xl:py-6 text-sm xl:text-base rounded-lg hover:bg-primary-300 hover:text-white;
+  @apply bg-transparent cursor-pointer text-primary-300 border-2 border-primary-300 px-4 xl:px-8 py-2 xl:py-3 text-sm xl:text-base rounded-lg hover:bg-primary-300 hover:text-white;
 }
 
 .btn-normal {

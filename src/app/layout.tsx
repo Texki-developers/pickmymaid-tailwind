@@ -1,21 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Noto_Sans_New_Tai_Lue } from "next/font/google";
 import "./globals.css";
 import PrimaryTopNav from "@/components/atoms/Navigations/PrimaryTopNav/PrimaryTopNav";
 import BottomNav from "@/components/atoms/Navigations/BottomNav/BottomNav";
 import StoreProvider from "@/components/wrappers/StoreProvider";
-import FooterMain from "@/components/atoms/Footer/FooterMain";
 import AuthModalWrapper from "@/components/molecules/Home/HomeSections/Wrappers/AuthModalWrapper";
 import { Suspense } from "react";
 import ToastContainerComponent from "@/components/atoms/toast-container/ToastContainer";
+import FooterWrapper from "@/components/atoms/Footer/FooterWrapper";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const notoSansNewTaiLue = Noto_Sans_New_Tai_Lue({
+  variable: "--font-noto-sans-new-tai-lue",
   subsets: ["latin"],
 });
 
@@ -35,14 +30,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${notoSansNewTaiLue.variable} antalized`}>
         <StoreProvider>
           <PrimaryTopNav />
           {children}
           <BottomNav />
-          <FooterMain />
+          <FooterWrapper />
           <Suspense>
             <AuthModalWrapper />
           </Suspense>

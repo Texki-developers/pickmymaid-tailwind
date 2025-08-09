@@ -53,7 +53,7 @@ export default function SwiperSlider<T>({
         breakpoints={breakpoints}
         {...swiperProps}
       >
-        {items.map((item, index) => (
+        {items?.map((item, index) => (
           <SwiperSlide key={index}>{renderItem(item, index)}</SwiperSlide>
         ))}
       </Swiper>

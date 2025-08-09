@@ -6,12 +6,16 @@ import WhyUAETrust from "@/components/molecules/Home/HomeSections/WhyUAETrust/Wh
 import interview from "@/assets/images/interview-maids.png";
 import TestimonialSliderWrapper from "@/components/molecules/Home/HomeSections/Wrappers/TestimonialSliderWrapper";
 import ZigZagWrapper from "@/components/molecules/Home/HomeSections/Wrappers/ZigZagWrapper";
+import FeaturedMaidsWrapper from "@/components/molecules/Home/HomeSections/Featured Maids/FeaturedMaidsWrapper";
 
 export default function Home() {
   return (
-    <div>
-      <BannerV2 />
-      <NewsSection />
+    <div className="flex flex-col items-center gap-[50px] sm:gap-[80px] md:gap-[100px]">
+      <div className="w-[100%]">
+        <BannerV2 />
+        <NewsSection />
+      </div>
+      <FeaturedMaidsWrapper />
       <TrustAndSafety />
       <WhyUAETrust />
       <HowItWorksHome />
