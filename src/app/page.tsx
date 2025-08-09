@@ -7,15 +7,20 @@ import interview from "@/assets/images/interview-maids.png";
 import TestimonialSliderWrapper from "@/components/molecules/Home/HomeSections/Wrappers/TestimonialSliderWrapper";
 import ZigZagWrapper from "@/components/molecules/Home/HomeSections/Wrappers/ZigZagWrapper";
 import FeaturedMaidsWrapper from "@/components/molecules/Home/HomeSections/Featured Maids/FeaturedMaidsWrapper";
+import { axiosInstance } from "@/lib/axiosInstance";
 
-export default function Home() {
+export default async function Home() {
+  const countsResponse = await axiosInstance.get("job/counts");
+  const featuredMaidResponse = await axiosInstance.get(`job/featured?from=${null}`);
+  const counts: ICounts[] = countsResponse?.data?.message;
+  const featuredMaids: IFeaturedMaidCard[] = featuredMaidResponse?.data?.data
   return (
     <div className="flex flex-col items-center gap-[50px] sm:gap-[80px] md:gap-[100px]">
       <div className="w-[100%]">
         <BannerV2 />
         <NewsSection />
       </div>
-      <FeaturedMaidsWrapper />
+      <FeaturedMaidsWrapper counts={counts[0]} featuredMaids={featuredMaids} />
       <TrustAndSafety />
       <WhyUAETrust />
       <HowItWorksHome />
@@ -30,4 +35,37 @@ export default function Home() {
       />
     </div>
   );
+}
+
+
+export interface ICounts {
+  nationalityCounts: NationalityCount[];
+  serviceCounts: NationalityCount[];
+  totalCounts: number;
+}
+interface NationalityCount {
+  count: number;
+  id: null | string;
+}
+
+export interface IFeaturedMaidCard {
+  id: string;
+  refNumber: string;
+  name: string;
+  experience: number;
+  profile: string;
+  salary: Salary;
+  nationality: string;
+  option: string;
+  reference: boolean;
+  hired: boolean;
+  youtubeLink: string;
+  service: string;
+  postedDate: string;
+  isInWishlist: boolean;
+}
+
+interface Salary {
+  from: number;
+  to: number;
 }

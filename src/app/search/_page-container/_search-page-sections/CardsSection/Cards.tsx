@@ -74,7 +74,6 @@ const Cards = () => {
     }
   }, [query]);
 
-
   return (
     <div className="cards-container">
       <div className="cards-grid">

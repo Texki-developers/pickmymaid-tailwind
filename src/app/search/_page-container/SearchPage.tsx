@@ -17,6 +17,7 @@ import SortMenu from "./_search-page-sections/sort-menu/SortMenu";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import { FiFilter } from "@/components/atoms/Icons/Icons";
+import { fetchMaidCounts } from "@/lib/features/maid/maidAction";
 // import { FiFilter, RiArrowUpDownLinel } from "@/components/atoms/Icons/Icons";
 // import CustomButton from "@/components/atoms/CustomButton/CustomButton";
 
@@ -36,6 +37,7 @@ const SearchMaid = () => {
     const dispatch = useAppDispatch();
     const { maidsCount } = useAppSelector((state) => state.maid);
     const data = useAppSelector((state) => state.maid.data);
+    const counts = useAppSelector((state) => state.maid.counts);
     const [_, setSelectedData] = useState("");
 
     const searchParams = useSearchParams();
@@ -49,6 +51,12 @@ const SearchMaid = () => {
     const service = searchParams.get("service");
     const statusHeading = useRef<HTMLDivElement | null>(null);
     const { addQueries } = useQueries();
+
+    useEffect(() => {
+        if (!counts) {
+            dispatch(fetchMaidCounts())
+        }
+    }, [dispatch, counts])
 
     useEffect(() => {
         if (data) {
@@ -100,7 +108,7 @@ const SearchMaid = () => {
                 <BannerSection />
                 <div className="px-4 md:px-14 lg:px-16">
                     <div className="mt-3">
-                        <CountryButtonWrapper grayBg />
+                        {counts && <CountryButtonWrapper count={counts} grayBg />}
                     </div>
                     <div className="mt-[30px] justify-between gap-[10px] flex flex-col md:flex-row sm:flex-col">
                         <div
