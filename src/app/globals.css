@@ -45,6 +45,13 @@
 
 /* Tailwind theme override inline */
 @theme inline {
+  /* Breakpoints (from Chakra theme) */
+  --breakpoint-sm: 576px;   /* sm */
+  --breakpoint-md: 769px;   /* md */
+  --breakpoint-lg: 992px;   /* lg */
+  --breakpoint-xl: 1200px;  /* xl */
+  --breakpoint-2xl: 1445px; /* 2xl */
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
@@ -118,6 +125,7 @@ html {
   transform: translate(10%, 20%);
 }
 
+
 @media only screen and (max-width: 600px) {
   .header-line-right::after {
     width: 6rem;
@@ -138,6 +146,11 @@ html {
 .heading-section-title {
   @apply text-black-700 font-extrabold text-center text-[1.4rem] sm:text-[2rem] xl:text-[2.6rem];
 }
+
+.heading-primary-small {
+  @apply font-[800] text-[1.2rem] sm:text-[2rem] xl:text-[2.25rem] leading-[33px] sm:leading-[54px];
+}
+
 
 .heading-primary {
   @apply font-[800] text-[1.6rem] sm:text-[2.5rem] xl:text-[2.9rem] leading-[33px] sm:leading-[54px];
