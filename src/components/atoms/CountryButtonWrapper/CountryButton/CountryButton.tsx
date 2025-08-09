@@ -74,7 +74,7 @@ export default function CountryButton({
         <div className="country-button__text-container">
           <div className={countryClasses}>{country}</div>
           <div className={countClasses}>
-            {count} Professionals hello
+            {count} Professional
           </div>
         </div>
       </div>

@@ -14,6 +14,12 @@ const nextConfig: NextConfig = {
         hostname: "api.pickmymaid.com",
         pathname: "/**",
       },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '8080',
+        pathname: '/api/images/**',
+      },
     ],
   },
 };
