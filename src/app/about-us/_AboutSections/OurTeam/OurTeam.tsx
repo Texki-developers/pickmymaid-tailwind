@@ -8,7 +8,7 @@ const OurTeam = () => {
       <h1
         className="
           text-left 
-          text-[#FF7442] 
+          text-primary-300
           mb-[10px] 
           font-extrabold 
           text-[1.4rem] 
