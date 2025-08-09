@@ -1,7 +1,6 @@
 "use client";
 import { reviews } from "@/components/molecules/Home/HomeSections/TestimonialsSlider/reviews.data";
 import ReviewCard from "@/components/atoms/Cards/ReviewCard/ReviewCard";
-import googleImage from "@/assets/images/4 star review.png";
 import "./TestimonialSlider.css";
 import Image from "@/components/atoms/NextImageWrapper/Image";
 import VStack from "@/components/ui/VStack";
@@ -17,7 +16,7 @@ export default function TestimonialSlider() {
         </p>
         <div className="aspect-[1300/415] w-[8rem] md:w-[9rem] relative">
           <Image
-            src={googleImage.src}
+            src={'/assets/images/4 star review.png'}
             alt="5 Star review of pickmymaid"
             parentClass="aspect-[3/1] w-[100%] h-[100%]"
           />
