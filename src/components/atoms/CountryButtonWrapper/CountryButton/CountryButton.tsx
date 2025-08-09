@@ -1,10 +1,8 @@
-"use client";
-
 import Image from "next/image";
 
 import { getAlternativeText } from "@/utils/altSelector";
-import { useRouter } from "next/navigation";
 import "./CountryButton.scss";
+import Link from "next/link";
 
 interface CountryButtonProps {
   flag: string;
@@ -25,8 +23,6 @@ export default function CountryButton({
   borderVisible = false,
   isDull = false,
 }: CountryButtonProps) {
-
-  const router = useRouter();
 
   const buttonClasses = [
     "country-button",
@@ -59,10 +55,11 @@ export default function CountryButton({
     .join(" ");
 
   return (
-    <button
-      className={buttonClasses}
-      onClick={() => router.push(`/search?nationality=${query}`)}
-    >
+    // <button
+
+    //   onClick={() => router.push(`/search?nationality=${query}`)}
+    // >
+    <Link href={`/search?nationality=${query}`} className={buttonClasses}>
       <div className="country-button__content">
         <div className={flagClasses}>
           <Image
@@ -77,10 +74,10 @@ export default function CountryButton({
         <div className="country-button__text-container">
           <div className={countryClasses}>{country}</div>
           <div className={countClasses}>
-            {count} Professionals
+            {count} Professional
           </div>
         </div>
       </div>
-    </button>
+    </Link>
   );
 }

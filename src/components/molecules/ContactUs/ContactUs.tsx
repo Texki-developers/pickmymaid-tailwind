@@ -5,6 +5,7 @@ import contactSupportImg from "@/assets/images/contact us/support.jpg";
 import clsx from "clsx";
 import ContactDetailsCard from "@/components/atoms/Cards/ContactDetailsCard/ContactDetailsCard";
 import ContactForm from "@/components/atoms/Forms/ContactForm/ContactForm";
+import ContactFormWrapper from "@/components/atoms/Forms/ContactForm/ContactFormWrapper";
 
 export default function ContactUs({ hideImage }: { hideImage?: boolean }) {
   return (
@@ -46,7 +47,7 @@ export default function ContactUs({ hideImage }: { hideImage?: boolean }) {
         </div>
       </VStack>
       <div className="flex justify-center items-center p-4">
-        <ContactForm />
+        <ContactFormWrapper />
       </div>
     </div>
   );
