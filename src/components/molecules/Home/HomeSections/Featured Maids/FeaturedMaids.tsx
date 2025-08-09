@@ -9,7 +9,6 @@ import FeaturedCards from "./components/featuredCards";
 import FeaturedCardButton from "./components/featuredCardButton";
 
 export default function FeaturedMaids({ counts, featuredMaids }: { counts: ICounts; featuredMaids: IFeaturedMaidCard[] }) {
-  console.log({ counts });
   return (
     <VStack className="items-center w-[100%] gap-2 sm:gap-10 bg-white common-padding">
       <VStack className="items-center">
