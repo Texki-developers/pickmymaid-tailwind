@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
-import bannerBackground from "@/assets/images/About/banner-background.png";
 import findmyjob from "@/assets/images/findmyjob.png";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
@@ -60,7 +59,7 @@ export default function FindJob() {
       <div
         className="relative grid justify-items-center content-center gap-6 bg-cover bg-center z-[-1]"
         style={{
-          backgroundImage: `url('${bannerBackground.src}')`,
+          backgroundImage: `url('/assets/images/About/banner-background.png')`,
           height: "clamp(180px, 30vw, 350px)",
         }}
       >
