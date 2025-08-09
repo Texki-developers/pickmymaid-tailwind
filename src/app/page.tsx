@@ -22,8 +22,8 @@ export default async function Home() {
         <BannerV2 />
         <NewsSection />
       </div>
-      {/* <FeaturedMaidsWrapper counts={counts[0]} featuredMaids={featuredMaids} /> */}
       <TrustAndSafety />
+      <FeaturedMaidsWrapper counts={counts[0]} featuredMaids={featuredMaids} />
       <WhyUAETrust />
       <HowItWorksHome />
       <TestimonialSliderWrapper />
