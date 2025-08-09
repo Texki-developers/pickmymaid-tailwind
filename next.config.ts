@@ -1,12 +1,12 @@
 // next.config.ts
 import type { NextConfig } from "next";
-import bundleAnalyzer from "@next/bundle-analyzer";
-
-const withBundleAnalyzer = bundleAnalyzer({
-  enabled: process.env.ANALYZE === "true", // run `ANALYZE=true next build`
-});
 
 const nextConfig: NextConfig = {
+  experimental: {
+    optimizeCss: true,
+    optimizeServerReact: true,
+    optimizeRouterScrolling: true,
+  },
   images: {
     remotePatterns: [
       {
@@ -25,4 +25,4 @@ const nextConfig: NextConfig = {
 };
 
 // Wrap and export
-export default withBundleAnalyzer(nextConfig);
+export default nextConfig;
