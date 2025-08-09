@@ -58,14 +58,7 @@ export default function MeetTheTeam() {
       {/* Action Buttons */}
       <div className="flex flex-row gap-4 justify-center z-10">
         <CustomButton
-          bg="white"
-          color="#000"
-          fontSize="12px"
-          fontWeight={500}
-          padding="2px 18px"
-          borderRadius="50px"
-          border="1px solid rgba(0,0,0,1)"
-          w="max-content"
+          containerClassName="!bg-white !text-black !text-[12px] !font-medium !px-[20px] !py-[0.5rem] !rounded-[50px] !border !border-black"
           _hover={{
             bg: "white",
             borderColor: "brand.primary.400",
@@ -77,14 +70,7 @@ export default function MeetTheTeam() {
           Book a call
         </CustomButton>
         <CustomButton
-          bg="white"
-          color="#000"
-          fontSize="12px"
-          fontWeight={500}
-          padding="2px 18px"
-          borderRadius="50px"
-          border="1px solid rgba(0,0,0,1)"
-          w="max-content"
+          containerClassName="!bg-white !text-black !text-[12px] !font-medium !px-[18px] !py-[2px] !rounded-[50px] !border !border-black"
           onClick={() => router.push(`/${locale ?? "en"}/contact-us`)}
           _hover={{
             bg: "white",
