@@ -1,3 +1,4 @@
+import bannerImg from "@/assets/images/Home/banner-v2.png";
 import Image from "@/components/atoms/NextImageWrapper/Image";
 import VStack from "@/components/ui/VStack";
 
@@ -46,7 +47,7 @@ export default function BannerV2() {
         </VStack>
         <span className="hidden md:block">
           <Image
-            src={"/assets/images/Home/banner-v2.png"}
+            src={bannerImg.src}
             parentClass="aspect-[741/753] w-full"
             alt="Quality Maids in Pickmymaid"
             noLazy

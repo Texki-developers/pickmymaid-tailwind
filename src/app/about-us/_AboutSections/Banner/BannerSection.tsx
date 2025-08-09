@@ -1,3 +1,4 @@
+import bannerBackground from "@/assets/images/About/banner-background.webp";
 import bannerImg from "@/assets/images/About/AboutUsImg.webp";
 import Image from "next/image";
 import { getAlternativeText } from "@/utils/altSelector";
@@ -7,7 +8,7 @@ const BannerSection = () => {
   return (
     <div
       className="common-padding grid grid-cols-1 md:grid-cols-[auto_1fr] gap-[30px] bg-cover bg-center h-[400px]"
-      style={{ backgroundImage: `url('/assets/images/About/banner-background.webp')` }}
+      style={{ backgroundImage: `url('${bannerBackground.src}')` }}
     >
       <div className="hidden md:block self-end">
         <Image
