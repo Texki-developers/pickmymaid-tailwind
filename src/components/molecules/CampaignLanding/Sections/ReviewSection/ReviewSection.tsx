@@ -1,3 +1,5 @@
+import reviewBg from '@/assets/images/campaign/reviewBg.svg';
+import googleImage from '@/assets/images/4 star review.png';
 import { reviews } from './reviews.data';
 import ReviewCard from '@/components/atoms/Cards/ReviewCard/ReviewCard';
 
@@ -12,7 +14,7 @@ export default function ReviewSection() {
         relative
       "
       style={{
-        backgroundImage: `url('/assets/images/campaign/reviewBg.svg')`,
+        backgroundImage: `url('${reviewBg?.src}')`,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
@@ -52,7 +54,7 @@ export default function ReviewSection() {
       >
         <img
           loading="lazy"
-          src={'/assets/images/4 star review.png'}
+          src={googleImage.src}
           alt="Google rating"
           className="w-full h-full object-contain"
         />

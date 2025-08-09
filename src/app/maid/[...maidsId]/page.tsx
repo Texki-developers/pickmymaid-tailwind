@@ -1,4 +1,5 @@
 import LeftSection from "@/app/maid/components/Left_Section/LeftSection";
+import bannerBackground from "@/assets/images/About/banner-background.webp";
 import RightSection from "../components/Right_Section/RightSection";
 import Image from "next/image";
 import verifiedImage from "@/assets/images/verified_image.png";
@@ -23,7 +24,7 @@ const MaidPage = async ({ params }: any) => {
                 {/* {loading && <Loading />} */}
                 <div className="hidden lg:block">
                     <div
-                        style={{ backgroundImage: `url('/assets/images/About/banner-background.webp')` }}
+                        style={{ backgroundImage: `url(${bannerBackground.src})` }}
                         className={`flex bg-cover align-center items-center bg-center px-[2rem] h-[150px] md:h-[120px]`}>
                         <div className="max-w-[1240px] mx-auto w-full pl-3">
                             <h1 className="text-primary-400 font-semibold text-4xl">Profile - {data?.jobApplication && data?.jobApplication?.name}</h1>

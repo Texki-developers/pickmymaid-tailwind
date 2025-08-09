@@ -3,6 +3,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import Banner from "@/assets/images/About/banner-background.webp";
 import "./BannerSection.scss";
 import { BiSearch } from "@/components/atoms/Icons/Icons";
 
@@ -85,7 +86,7 @@ const BannerSection = () => {
     <div
       className="banner"
       style={{
-        backgroundImage: `url('${availableNationalities.includes(query as string) ? "/assets/images/About/banner-background.webp" : "/assets/images/About/banner-background.webp"}')`,
+        backgroundImage: `url('${availableNationalities.includes(query as string) ? Banner?.src : Banner?.src}')`,
       }}>
       <div className="banner__content">
         <div className="banner__title">
