@@ -28,11 +28,11 @@ export default function ContactForm() {
 
   // Handle the submission of the form
   const onFormSubmission = async (data: IContactForm) => {
-    console.log({ data });
     await dispatch(saveContact({ body: data }));
   };
 
   useMemo(() => {
+    console.log(status, "statuss");
     if (status !== "idle" && message) {
       if (status === "success") {
         toast("Great!", message, "success");
