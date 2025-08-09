@@ -11,16 +11,18 @@ import { axiosInstance } from "@/lib/axiosInstance";
 
 export default async function Home() {
   const countsResponse = await axiosInstance.get("job/counts");
-  const featuredMaidResponse = await axiosInstance.get(`job/featured?from=${null}`);
+  const featuredMaidResponse = await axiosInstance.get(
+    `job/featured?from=${null}`
+  );
   const counts: ICounts[] = countsResponse?.data?.message;
-  const featuredMaids: IFeaturedMaidCard[] = featuredMaidResponse?.data?.data
+  const featuredMaids: IFeaturedMaidCard[] = featuredMaidResponse?.data?.data;
   return (
     <div className="flex flex-col items-center gap-[50px] sm:gap-[80px] md:gap-[100px]">
       <div className="w-[100%]">
         <BannerV2 />
         <NewsSection />
       </div>
-      <FeaturedMaidsWrapper counts={counts[0]} featuredMaids={featuredMaids} />
+      {/* <FeaturedMaidsWrapper counts={counts[0]} featuredMaids={featuredMaids} /> */}
       <TrustAndSafety />
       <WhyUAETrust />
       <HowItWorksHome />
@@ -36,7 +38,6 @@ export default async function Home() {
     </div>
   );
 }
-
 
 export interface ICounts {
   nationalityCounts: NationalityCount[];
