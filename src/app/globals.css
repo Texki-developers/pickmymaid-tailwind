@@ -279,3 +279,35 @@ html {
   min-height: 0 !important;
   overflow: hidden;
 }
+
+.my-grid {
+  display: grid;
+  grid-template-areas:
+    "row"
+    "row"
+    "row"
+    "row"
+    "row";
+  width: 90%; /* sm */
+  margin: auto; /* sm */
+  row-gap: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+@media (min-width: 768px) { /* md */
+  .my-grid {
+    padding: 3rem;
+  }
+}
+
+@media (min-width: 1024px) { /* lg */
+  .my-grid {
+    grid-template-areas:
+      "h1 h2 h3 h4 h5"
+      "row row row row row";
+    width: 100%;
+    margin: 0;
+    row-gap: 2rem;
+  }
+}
