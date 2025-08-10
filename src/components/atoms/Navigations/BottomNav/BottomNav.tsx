@@ -69,14 +69,9 @@ export default function BottomNav() {
         />
         <VStack
           className="gap-1 user-select-none outline-none justify-between items-center"
-          onClick={() => setNavOpen((prev) => !prev)}
-        >
+          onClick={() => setNavOpen((prev) => !prev)}>
           <VStack className="aspect-square w-[80%] max-w-[3.5rem] margin-[0_auto] rounded-[50%] border-[2px] border-white justify-center self-center items-center mt-[-1.5rem] bg-primary-300 gap-[1rem]">
-            {navOpened ? (
-              <RiCloseLine className="w-4" />
-            ) : (
-              <RiMenuFill className="w-4" />
-            )}
+            {navOpened ? <RiCloseLine className="w-4" /> : <RiMenuFill className="w-4" />}
           </VStack>
           <p className="text-[0.85rem] text-white">Menu</p>
         </VStack>
@@ -112,30 +107,23 @@ export default function BottomNav() {
           "h-[100%] fixed bottom-0 transition-[opacity_0.3s_ease] z-[1000] left-0 w-[100%] bg-[rgba(0,0,0,0.3)] z-[100]",
           navOpened ? "opacity-100 block" : "opacity-0 pointer-events-none none"
         )}
-        id="backdrop"
-      >
+        id="backdrop">
         <div
           className={clsx(
             "flex justify-center gap-4 fixed left-0 z-[995] bg-white p-6 pb-[3rem] flex-wrap gap-y-6 shadow-[3px_0px_15px_rgba(0,0,0,0.2) transition-[all_0.3s_ease]",
-            navOpened
-              ? "bottom-[3.5rem] opacity-100"
-              : "bottom-[-100%] opacity-0"
-          )}
-        >
+            navOpened ? "bottom-[3.5rem] opacity-100" : "bottom-[-100%] opacity-0"
+          )}>
           {PrimaryTopNavigationList.map((navItem: IPrimaryNavigationList) => (
             <Fragment key={navItem.name}>
               <p
                 className={clsx(
                   "font-[500] text-sm xl:text-md border-[1px_solid_#ff8f5f] rounded-[30px] p-1 px-2 shadow-[0px_0px_5px_1px_rgba(0,0,0,0.1)] flex",
-                  pathname === navItem.path || pathname === `${navItem.path}/`
-                    ? "text-primary-300"
-                    : "text-black-700"
+                  pathname === navItem.path || pathname === `${navItem.path}/` ? "text-primary-300" : "text-black-700"
                 )}
                 onClick={() => {
                   router.push(navItem.path);
                   setNavOpen(false);
-                }}
-              >
+                }}>
                 {navItem.name}
                 <span>
                   {navItem.name.includes("hiringTips") && (
@@ -151,7 +139,11 @@ export default function BottomNav() {
           ))}
           <HStack className="w-[100%] justify-center">
             {user?.first_name ? (
-              <button className="btn-solid">Logout</button>
+              <button
+                onClick={handleLogout}
+                className="btn-solid">
+                Logout
+              </button>
             ) : (
               <>
                 <button className="btn-solid">Login</button>
