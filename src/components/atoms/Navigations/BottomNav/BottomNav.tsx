@@ -49,6 +49,7 @@ export default function BottomNav() {
     await dispatch(logoutUser());
     setNavOpen(false);
     setLogoutProcess(false);
+    window.location.reload();
   };
   return (
     <div className="overflow-hidden block sm:hidden">

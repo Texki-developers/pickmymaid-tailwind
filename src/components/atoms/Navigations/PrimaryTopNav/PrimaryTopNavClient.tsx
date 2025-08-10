@@ -24,6 +24,7 @@ export default function PrimaryTopNavClient({ name }: IPrimaryTopNavClient) {
   const dispatch = useAppDispatch();
   const handleLogout = async () => {
     await dispatch(logoutUser());
+    window.location.reload();
   };
   return (
     <div className="items-center gap-4 hidden lg:flex">

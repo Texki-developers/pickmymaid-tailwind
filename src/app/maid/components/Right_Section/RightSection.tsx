@@ -165,7 +165,7 @@ const RightSection = ({ data, contactRef }: any) => {
             <ForPremium isBlur={paymentDetails?.subscriptionStatus !== 1}>
               <p>
                 {paymentDetails?.subscriptionStatus === 1 ? (
-                  data?.uae_no === "+" || !data.uae_no || data.uae_no === "" ? (
+                  data?.uae_no === "+" || !data?.uae_no || data?.uae_no === "" ? (
                     "---"
                   ) : (
                     <span
@@ -174,7 +174,7 @@ const RightSection = ({ data, contactRef }: any) => {
                         textDecoration: "underline",
                         cursor: "pointer",
                       }}
-                      onClick={() => handleContactRedirect("uae_no", data.uae_no)}>
+                      onClick={() => handleContactRedirect("uae_no", data?.uae_no)}>
                       {data?.uae_no}
                     </span>
                   )
@@ -197,7 +197,7 @@ const RightSection = ({ data, contactRef }: any) => {
             <ForPremium isBlur={paymentDetails?.subscriptionStatus !== 1}>
               <p>
                 {paymentDetails?.subscriptionStatus === 1 ? (
-                  data?.whatsapp_no === "+" || !data.whatsapp_no || data.whatsapp_no === "" ? (
+                  data?.whatsapp_no === "+" || !data?.whatsapp_no || data?.whatsapp_no === "" ? (
                     "---"
                   ) : (
                     <span
@@ -206,7 +206,7 @@ const RightSection = ({ data, contactRef }: any) => {
                         textDecoration: "underline",
                         cursor: "pointer",
                       }}
-                      onClick={() => handleContactRedirect("whatsapp", data.whatsapp_no)}>
+                      onClick={() => handleContactRedirect("whatsapp", data?.whatsapp_no)}>
                       {data?.whatsapp_no}
                     </span>
                   )
@@ -229,7 +229,7 @@ const RightSection = ({ data, contactRef }: any) => {
             <ForPremium isBlur={paymentDetails?.subscriptionStatus !== 1}>
               <p>
                 {paymentDetails?.subscriptionStatus === 1 ? (
-                  data?.botim_number === "+" || !data.botim_number || data.botim_number === "" ? (
+                  data?.botim_number === "+" || !data?.botim_number || data?.botim_number === "" ? (
                     "---"
                   ) : (
                     <span
@@ -238,7 +238,7 @@ const RightSection = ({ data, contactRef }: any) => {
                         textDecoration: "underline",
                         cursor: "pointer",
                       }}
-                      onClick={() => handleContactRedirect("botim", data.botim_number)}>
+                      onClick={() => handleContactRedirect("botim", data?.botim_number)}>
                       {data?.botim_number}
                     </span>
                   )
@@ -296,13 +296,13 @@ const RightSection = ({ data, contactRef }: any) => {
               return (
                 <Accordian
                   key={index + item?.title}
-                  title={item.title}
+                  title={item?.title}
                   description={
                     <ExperienceAccordian
-                      location={item.location}
-                      experiance={item.experiance}
-                      reason_leaving={item.reason_leaving}
-                      job_description={item.job_description}
+                      location={item?.location}
+                      experiance={item?.experiance}
+                      reason_leaving={item?.reason_leaving}
+                      job_description={item?.job_description}
                     />
                   }
                 />

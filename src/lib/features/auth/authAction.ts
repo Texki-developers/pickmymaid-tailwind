@@ -28,7 +28,7 @@ export const loginUser = createAsyncThunk<IRegisterReturn, { body: ILoginBodySta
   try {
     const { data: response } = await axiosInstanceV2.post("auth/local", req.body);
     console.log({ response });
-
+    window.location.reload();
     return {
       message: response?.message,
       name: {
