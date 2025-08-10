@@ -32,7 +32,7 @@ export default function FeaturedMaids({ counts, featuredMaids }: { counts: ICoun
       </VStack>
       <div className="w-[100%] bg-soft-gray py-2 px-2 sm:py-8 sm:px-6 md:px-10 rounded-[10px]">
         <CountryButtonWrapper count={counts} />
-        <div className="flex py-[1rem] flex-col items-center p-[0.5rem]">
+        {/* <div className="flex py-[1rem] flex-col items-center p-[0.5rem]">
           <p className="text-sub-title text-primary-300 font-[600]">New Profiles</p>
           <p className="mx-auto text-description font-[500] text-center">
             Updated on{" "}
@@ -42,8 +42,8 @@ export default function FeaturedMaids({ counts, featuredMaids }: { counts: ICoun
               year: "numeric",
             })}
           </p>
-        </div>
-        <FeaturedCards featuredMaids={featuredMaids} />
+        </div> */}
+        {/* <FeaturedCards featuredMaids={featuredMaids} /> */}
         <HStack className="items-center justify-center mt-8">
           <FeaturedCardButton />
         </HStack>

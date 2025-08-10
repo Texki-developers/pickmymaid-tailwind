@@ -23,7 +23,7 @@ export default async function Home() {
         <NewsSection />
       </div>
       <TrustAndSafety />
-      {/* <FeaturedMaidsWrapper counts={counts[0]} featuredMaids={featuredMaids} /> */}
+      <FeaturedMaidsWrapper counts={counts[0]} featuredMaids={featuredMaids} />
       <WhyUAETrust />
       <HowItWorksHome />
       <TestimonialSliderWrapper />
