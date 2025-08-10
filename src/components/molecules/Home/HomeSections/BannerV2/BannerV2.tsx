@@ -1,6 +1,7 @@
 import bannerImg from "@/assets/images/Home/banner-v2.png";
 import Image from "@/components/atoms/NextImageWrapper/Image";
 import VStack from "@/components/ui/VStack";
+import Link from "next/link";
 
 const list: string[] = [
   "Muslim",
@@ -43,6 +44,9 @@ export default function BannerV2() {
               agencies. <br />
               <br />
             </p>
+            <Link href="/search" className="btn-solid">
+              Search All Maids / Nannies
+            </Link>
           </VStack>
         </VStack>
         <span className="hidden md:block">

@@ -163,7 +163,7 @@ function MaidCard({
       </div>
       <div className="w-full h-full grid gap-2 pt-4!">
         <div className="flex justify-between items-center">
-          {postedDate && <span className="text-sm max-w-[50%] font-medium">{`Posted on ${moment(postedDate).format("DD-MM-yyyy")}`}</span>}
+          {postedDate && <span className="text-xs max-w-[50%] font-medium">{`Posted on ${moment(postedDate).format("DD-MM-yyyy")}`}</span>}
           <div className="flex ">
             {nationality && (
               <div className="flex gap-2 items-center">
@@ -177,13 +177,13 @@ function MaidCard({
             )}
           </div>
         </div>
-        {name && <h2 className="text-xs font-bold!">{name}</h2>}
-        <div className="flex gap-2 items-center">
-          <div className="text-sm px-2! py-1! rounded-md bg-red-100">
+        {name && <h2 className="text-sm font-bold!">{name}</h2>}
+        <div className="flex gap-2 items-center justify-between">
+          <div className="text-xs px-2! py-1! rounded-md bg-red-100">
             {experience && experience > 1 ? `${experience} Years+ experience` : "1 Year experience"}
           </div>
           <div className="flex gap-1 items-center">
-            <p className="text-sm  font-medium">verified</p>
+            <p className="text-sm  font-medium">Verified</p>
             <div className="verifiedIcon">
               <VscVerifiedFilled />
             </div>
@@ -192,7 +192,7 @@ function MaidCard({
         <div className="border border-b-1 border-t-1 border-l-0 border-r-0 py-2 border-text-black-600">
           <div className="flex gap-4 items-center">
             <div className="grid gap-1">
-              <p className=" font-medium text-description text-sm">Desired monthly salary</p>
+              <p className=" font-medium text-description text-xs">Desired monthly salary</p>
               <p className="text-md font-semibold text-text-black-600">
                 {salary?.from === 0 && salary.to === 0 ? "Negotiable" : `${salary?.from || "0"}-${salary?.to || "0"} AED`}
               </p>

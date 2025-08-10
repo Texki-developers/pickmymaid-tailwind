@@ -17,7 +17,7 @@ export default function HomeHowCard({
   return (
     <VStack className="relative flex-[10] w-[100%] sm:w-[10rem] xl:w-[25rem]">
       <HStack className="items-start w-[100%]">
-        <p className="hidden sm:block text-primary-300 font-[500] text-[3rem] sm:text-[6rem] lg:text-[9rem] sm:leading-[100px] top-0 relative">
+        <p className="hidden sm:block text-primary-300 font-[500] text-[2rem] sm:text-[6rem] lg:text-[9rem] sm:leading-[100px] top-0 relative">
           {number}
         </p>
         {image && (

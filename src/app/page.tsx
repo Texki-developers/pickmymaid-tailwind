@@ -4,11 +4,10 @@ import NewsSection from "@/components/molecules/Home/HomeSections/NewsSection/Ne
 import TrustAndSafety from "@/components/molecules/Home/HomeSections/TrustAndSafety/TrustAndSafety";
 import WhyUAETrust from "@/components/molecules/Home/HomeSections/WhyUAETrust/WhyUAETrust";
 import interview from "@/assets/images/interview-maids.png";
-import TestimonialSliderWrapper from "@/components/molecules/Home/HomeSections/Wrappers/TestimonialSliderWrapper";
 import ZigZagWrapper from "@/components/molecules/Home/HomeSections/Wrappers/ZigZagWrapper";
 import { axiosInstance } from "@/lib/axiosInstance";
 import FeaturedMaidsWrapper from "@/components/molecules/Home/HomeSections/Featured Maids/FeaturedMaidsWrapper";
-
+import FAQWrapper from "@/components/molecules/Home/HomeSections/FAQs/FAQWrapper";
 
 export default async function Home() {
   const countsResponse = await axiosInstance.get("job/counts");
@@ -27,7 +26,6 @@ export default async function Home() {
       <FeaturedMaidsWrapper counts={counts[0]} featuredMaids={featuredMaids} />
       <TrustAndSafety />
       <WhyUAETrust />
-      {/* <TestimonialSliderWrapper /> */}
       <ZigZagWrapper
         imagePos="left"
         image={interview}
@@ -36,6 +34,7 @@ export default async function Home() {
           desc: "Explore our easy resources, including interview questions and tips, to help you find the perfect maid or nanny for your family. We've created a simple, step-by-step guide that covers everything from identifying your specific needs to checking references and qualifications. You'll find helpful advice on how to assess their experience, personality, and reliability. With our expert tips, you can confidently ask the right questions during interviews, ensuring you hire someone trustworthy and capable. Whether you need help with cleaning, childcare, or both, we'll help you make an informed decision and find the best fit for your home and family.",
         }}
       />
+      <FAQWrapper />
     </div>
   );
 }
