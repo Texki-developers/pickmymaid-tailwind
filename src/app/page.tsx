@@ -26,7 +26,7 @@ export default async function Home() {
       <TrustAndSafety />
       {/* <FeaturedMaidsWrapper counts={counts[0]} featuredMaids={featuredMaids} /> */}
       <WhyUAETrust />
-      <MeetTheTeamWrapper />
+      {/* <MeetTheTeamWrapper /> */}
       <HowItWorksHome />
       <TestimonialSliderWrapper />
       <ZigZagWrapper
