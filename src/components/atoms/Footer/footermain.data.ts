@@ -21,11 +21,11 @@ export const quickLink: IFooterLink[] = [
     title: 'Hiring Tips',
     path: '/hiring-tips'
   },
-  {
-    id: crypto.randomUUID(),
-    title: 'Blogs',
-    path: '/blogs'
-  },
+  // {
+  //   id: crypto.randomUUID(),
+  //   title: 'Blogs',
+  //   path: '/blogs'
+  // },
   {
     id: crypto.randomUUID(),
     title: 'Find Workers',

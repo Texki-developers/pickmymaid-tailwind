@@ -39,7 +39,7 @@ export default function FooterMain() {
             <RiLinkedinBoxFill className="text-footer cursor-pointer text-[#424141] hover:text-black-900 transition-all duration-300 ease" />
             <RiTwitterXFill className="text-footer cursor-pointer text-[#424141] hover:text-black-900 transition-all duration-300 ease" />
             <RiYoutubeFill className="text-footer cursor-pointer text-[#424141] hover:text-black-900 transition-all duration-300 ease" />
-            <RiWhatsappFill className="text-footer cursor-pointer text-[#424141] hover:text-black-900 transition-all duration-300 ease" />
+            {/* <RiWhatsappFill className="text-footer cursor-pointer text-[#424141] hover:text-black-900 transition-all duration-300 ease" /> */}
           </HStack>
         </VStack>
 
@@ -123,12 +123,12 @@ export default function FooterMain() {
         <div className="hidden sm:block">
           <h3 className="heading-footer-title mb-4">Support</h3>
           <VStack>
-            <p className="text-footer font-[500] text-white">
+            {/* <p className="text-footer font-[500] text-white">
               Whatsapp:{" "}
               <Link href="tel:+971566369736" className="text-footer text-white">
                 +971 566369736
               </Link>
-            </p>
+            </p> */}
             <p className="text-footer text-white">
               Email:{" "}
               <Link

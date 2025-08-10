@@ -4,6 +4,8 @@ import securedPayment from "@/assets/images/secure_payment.png";
 import { pricingData } from "./pricingData";
 import PriceCardWrapper from "@/components/atoms/Cards/RevampedPricingCard/PriceCardWrapper";
 import Image from "@/components/atoms/NextImageWrapper/Image";
+import MeetTheTeam from "@/components/atoms/MeetTheTeam/MeetTheTeam";
+import TestimonialSliderWrapper from "@/components/molecules/Home/HomeSections/Wrappers/TestimonialSliderWrapper";
 
 export const metadata: Metadata = {
   title: "Explore Our Subscription Plans | Choose the Right One for You",
@@ -12,7 +14,7 @@ export const metadata: Metadata = {
 };
 export default function page() {
   return (
-    <div className="bg-[#dfdddd75] py-[1rem]">
+    <div className="bg-[#dfdddd75] py-[1rem] flex flex-col gap-[4rem]">
       <div className="relative">
         <div className="flex common-padding flex-col justify-center items-center min-h-[10rem] md:min-h-[15rem] lg:min-h-[40vh]">
           <h1 className="heading-section-title max-w-[35rem] text-center">
@@ -35,6 +37,8 @@ export default function page() {
           ))}
         </div>
       </div>
+      <MeetTheTeam />
+      <TestimonialSliderWrapper />
     </div>
   );
 }

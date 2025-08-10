@@ -4,7 +4,7 @@ import VStack from "@/components/ui/VStack";
 
 export default function HowItWorksHome() {
   return (
-    <VStack className="common-padding gap-14 w-[100%]">
+    <VStack className="common-padding gap-2 sm:gap-14 w-[100%]">
       <h2 className="heading-section-title">How it works</h2>
       <div className="flex flex-col sm:flex-row flex-nowrap sm:flex-wrap items-center md:items-start gap-2 sm:gap-8 2xl:gap-16 w-[100%]">
         {howItWorksData.map((item, index) => (

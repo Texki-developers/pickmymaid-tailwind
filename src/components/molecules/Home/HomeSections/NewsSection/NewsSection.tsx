@@ -1,9 +1,10 @@
 "use client";
 import Image from "@/components/atoms/NextImageWrapper/Image";
 import React from "react";
-import khaleej from "@/assets/images/Home/khaleej.webp";
+import khaleej from "@/assets/images/Home/Khaleej_latest.webp";
 import { useRouter } from "next/navigation";
 import VStack from "@/components/ui/VStack";
+import Link from "next/link";
 
 export default function NewsSection() {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 500;
@@ -15,16 +16,18 @@ export default function NewsSection() {
     );
   };
   return (
-    <VStack
-      className="bg-[#34A0E1] items-center justify-start p-[1rem] z-[10] relative py-[0.5rem] cursor-pointer w-[100%]"
-      onClick={handleNavigate}
+    <Link
+      className="flex bg-soft-gray flex-col gap-[2rem] items-center justify-start p-[1rem] z-[10] relative py-[0.5rem] cursor-pointer w-[100%]"
+      href="https://www.khaleejtimes.com/kt-network/5900-maids-find-employment-through-pickmymaid"
     >
-      <h2 className="text-white px-[0.8rem]">Featured in:</h2>
+      <h2 className="text-[1.2rem] font-[500] italic text-center px-[0.8rem]">
+        "5,900 maids find employment through Pickmymaid"
+      </h2>
       <Image
         src={khaleej.src}
         alt="khaleej_times_news"
-        parentClass="cursor-pointer aspect-[880/166] w-[50%] sm:w-[20rem]"
+        parentClass="cursor-pointer aspect-[171/52] w-[50%] sm:w-[20rem]"
       />
-    </VStack>
+    </Link>
   );
 }
