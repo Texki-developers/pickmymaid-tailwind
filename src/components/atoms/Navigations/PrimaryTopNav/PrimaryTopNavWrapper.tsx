@@ -4,8 +4,9 @@ import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { verifyAuthentication } from "@/lib/features/auth/authAction";
 import { usePathname } from "next/navigation";
+import Loading from "@/app/loading";
 const PrimaryTopNavClient = dynamic(() => import("./PrimaryTopNavClient"), {
-  ssr: false,
+  ssr: false
 });
 
 export default function PrimaryTopNavWrapper() {
@@ -13,7 +14,7 @@ export default function PrimaryTopNavWrapper() {
   const status = useAppSelector((state) => state.auth.status);
   const redirection = useAppSelector((state) => state?.utils?.redirection);
   const pathname = usePathname();
-  const name = useAppSelector((state) => state?.auth?.name)
+  const name = useAppSelector((state) => state?.auth?.name);
 
   useEffect(() => {
     dispatch(verifyAuthentication());
