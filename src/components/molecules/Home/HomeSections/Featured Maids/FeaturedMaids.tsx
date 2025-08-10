@@ -20,7 +20,7 @@ export default function FeaturedMaids({
         <h2 className="heading-section-title">
           Available Maids / Nannies in UAE
         </h2>
-        <HStack className="items-center">
+        {/* <HStack className="items-center">
           {counts?.totalCounts
             ?.toString()
             ?.split("")
@@ -37,9 +37,9 @@ export default function FeaturedMaids({
                 </h3>
               </div>
             ))}
-        </HStack>
+        </HStack> */}
       </VStack>
-      <div className="w-[100%] bg-soft-gray py-2 px-2 sm:py-8 sm:px-6 md:px-10 rounded-[10px]">
+      {/* <div className="w-[100%] bg-soft-gray py-2 px-2 sm:py-8 sm:px-6 md:px-10 rounded-[10px]">
         <CountryButtonWrapper count={counts} />
         <div className="flex py-[1rem] flex-col items-center p-[0.5rem]">
           <p className="text-sub-title text-primary-300 font-[600]">
@@ -58,7 +58,7 @@ export default function FeaturedMaids({
         <HStack className="items-center justify-center mt-8">
           <FeaturedCardButton />
         </HStack>
-      </div>
+      </div> */}
     </VStack>
   );
 }
