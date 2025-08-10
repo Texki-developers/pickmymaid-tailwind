@@ -36,7 +36,7 @@ export default function FAQ() {
                   <span className="text-[0.9rem] text-left flex-[10] sm:text-[1rem] md:text-[1.3rem]">
                     {faq.question}
                   </span>
-                  {open ? (
+                  {!open ? (
                     <RiAddCircleLine className=" w-[3rem] text-primary-300" />
                   ) : (
                     <RiIndeterminateCircleLine className=" w-[3rem] text-primary-300" />

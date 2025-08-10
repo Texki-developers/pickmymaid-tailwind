@@ -36,7 +36,7 @@ export default function BottomNav() {
 
   return (
     <div className="overflow-hidden block sm:hidden">
-      <div className="grid border-white grid-cols-5 justify-center p-2 px-1 fixed w-[100%] z-[996] bottom-0 left-0 gap-3 shadow-[0px_-5px_10px_rgba(0,0,0,0.1)] bg-primary-300 text-white h-[4rem]">
+      <div className="grid border-white grid-cols-5 justify-center p-2 px-1 fixed w-[100%] z-[1001] bottom-0 left-0 gap-3 shadow-[0px_-5px_10px_rgba(0,0,0,0.1)] bg-primary-300 text-white h-[4rem]">
         <BottomNavButton
           label="Home"
           path=""
@@ -90,7 +90,7 @@ export default function BottomNav() {
 
       <div
         className={clsx(
-          "h-[100%] absolute bottom-0 transition-[opacity_0.3s_ease] left-0 w-[100%] bg-[rgba(0,0,0,0.3)] z-[100]",
+          "h-[100%] fixed bottom-0 transition-[opacity_0.3s_ease] z-[1000] left-0 w-[100%] bg-[rgba(0,0,0,0.3)] z-[100]",
           navOpened ? "opacity-100 block" : "opacity-0 pointer-events-none none"
         )}
         id="backdrop"

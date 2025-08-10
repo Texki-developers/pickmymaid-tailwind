@@ -51,21 +51,5 @@ export const FAQData: IFAQAccordionData[] = [
         { title: "Al Ain", link: "/search/hire-nannies-full-time-part-time-al-ain" }
       ],
       answer2: "Whether you reside in the vibrant city of Dubai, the capital city of Abu Dhabi, or any other emirate in the UAE, PickMyMaid is dedicated to offering reliable and professional nanny services to meet your family's needs. If you have any questions regarding our service coverage or need assistance in selecting the right nanny for your requirements, please don't hesitate to reach out to us."
-    },
-    {
-      id: crypto.randomUUID(),
-      question: "What are the regions of UAE where you provide maid services?",
-      answer: "We provide maid services across all seven emirates of the United Arab Emirates (UAE). Our coverage includes:",
-      links: [
-        { title: "Abu Dhabi", link: "/search/hire-housemaids-full-time-part-time-abudhabi" },
-        { title: "Dubai", link: "/search/hire-housemaids-full-time-part-time-dubai" },
-        { title: "Sharjah", link: "/search/hire-housemaids-full-time-part-time-sharjah" },
-        { title: "Ajman", link: "/search/hire-housemaids-full-time-part-time-ajman" },
-        { title: "Umm Al Quwain", link: "/search/hire-housemaids-full-time-part-time-umm-al-quwain" },
-        { title: "Ras Al Khaimah", link: "/search/hire-housemaids-full-time-part-time-ras-al-khaima" },
-        { title: "Fujairah", link: "/search/hire-housemaids-full-time-part-time-fujairah" },
-        { title: "Al Ain", link: "/search/hire-housemaids-full-time-part-time-al-ain" }
-      ],
-      answer2: "Whether you reside in the bustling city of Dubai, the serene coastal areas of Fujairah, or any other emirate in the UAE, PickMyMaid is committed to offering reliable and professional maid services to meet your household needs. If you have any inquiries regarding our service coverage or need assistance in selecting the right maid for your requirements, please feel free to contact us."
     }
   ];
