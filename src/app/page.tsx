@@ -8,6 +8,7 @@ import TestimonialSliderWrapper from "@/components/molecules/Home/HomeSections/W
 import ZigZagWrapper from "@/components/molecules/Home/HomeSections/Wrappers/ZigZagWrapper";
 import FeaturedMaidsWrapper from "@/components/molecules/Home/HomeSections/Featured Maids/FeaturedMaidsWrapper";
 import { axiosInstance } from "@/lib/axiosInstance";
+import MeetTheTeamWrapper from "@/components/atoms/MeetTheTeam/MeetTheTeamWrapper";
 
 export default async function Home() {
   const countsResponse = await axiosInstance.get("job/counts");
@@ -23,8 +24,9 @@ export default async function Home() {
         <NewsSection />
       </div>
       <TrustAndSafety />
-      <FeaturedMaidsWrapper counts={counts[0]} featuredMaids={featuredMaids} />
+      {/* <FeaturedMaidsWrapper counts={counts[0]} featuredMaids={featuredMaids} /> */}
       <WhyUAETrust />
+      <MeetTheTeamWrapper />
       <HowItWorksHome />
       <TestimonialSliderWrapper />
       <ZigZagWrapper
