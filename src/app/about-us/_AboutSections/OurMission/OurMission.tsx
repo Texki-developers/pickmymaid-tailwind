@@ -7,7 +7,7 @@ const OurMission = () => {
   return (
     <div className="flex flex-col gap-[80px] py-[50px]">
       <div className="flex flex-col md:flex-row items-start gap-[50px]">
-        <h2 className="heading-primary whitespace-nowrap text-left text-primary-300">
+        <h2 className=" whitespace-nowrap text-left text-primary-300 text font-[800] text-[1.6rem] sm:text-[2.5rem] xl:text-[2.9rem] leading-[33px] sm:leading-[54px]">
           Our Mission and Values
         </h2>
         <p className="text-description">Our mission is to present a reliable and efficient platform for UAE families to find trusted and skilled maids and nannies. Our values center around integrity, professionalism, and transparency. We prioritize the safety and well-being of families through rigorous screening and background checks. We foster strong relationships built on trust and respect between families and helpers. We aim to make a positive impact on households by facilitating long-lasting matches that contribute to harmonious and nurturing environments for both families and household helpers.</p>
