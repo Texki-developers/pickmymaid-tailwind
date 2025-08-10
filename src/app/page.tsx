@@ -16,6 +16,7 @@ export default async function Home() {
   );
   const counts: ICounts[] = countsResponse?.data?.message;
   const featuredMaids: IFeaturedMaidCard[] = featuredMaidResponse?.data?.data;
+  console.log(featuredMaids);
   return (
     <div className="flex flex-col items-center gap-[50px] sm:gap-[80px] md:gap-[100px]">
       <div className="w-[100%]">

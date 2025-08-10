@@ -25,6 +25,7 @@ export default function FAQ() {
       <div className="w-full divide-y divide-white/5 rounded-xl bg-white/5">
         {FAQData.map((faq: any) => (
           <Disclosure
+            key={faq.id}
             as="div"
             className="border-t-none border-b-[1px] border-b-[rgba(0,0,0,0.1)] w-[100%]"
             defaultOpen={false}

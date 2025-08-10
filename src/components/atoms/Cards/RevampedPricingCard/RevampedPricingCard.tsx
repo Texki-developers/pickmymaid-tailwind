@@ -20,7 +20,6 @@ import VStack from "@/components/ui/VStack";
 import clsx from "clsx";
 import HStack from "@/components/ui/HStack";
 import Button from "@/components/ui/Button";
-import { div } from "framer-motion/m";
 import { RiCloseFill, TiTick } from "../../Icons/Icons";
 
 export default function RevampedPricingCard({
@@ -69,15 +68,33 @@ export default function RevampedPricingCard({
   return (
     <VStack
       className={clsx(
-        "items-center bg-white p-[1rem] pb-[1.5rem] items-start gap-[1rem] rounded-[25px] border-[1px] border-[#855FFF] relative overflow-hidden"
+        "items-center bg-white p-[1rem] pb-[1.5rem] items-start gap-[1rem] rounded-[25px] border-[1px] border-[#855FFF] relative overflow-hidden",
+        paymentDetails?.subscriptionStatus === 1 &&
+          paymentDetails?.subscribedPlan === data.type &&
+          `
+        relative
+        before:content-['Active']
+        before:absolute
+        before:right-0
+        before:top-0
+        before:font-[600]
+        before:text-white
+        before:bg-[#855fff]
+        before:px-[3rem]
+        before:translate-x-[30%]
+        before:translate-y-[100%]
+        before:rotate-[45deg]
+        before:origin-center
+        befor:z-[100]
+        `
       )}
     >
-      <HStack className="w-[100%] justify-between items-center">
+      <HStack className="w-[100%] justify-between items-center relative">
         <p className="text-sub-title">{data.name}</p>
         {data.type == 1 &&
           !(
             paymentDetails?.subscriptionStatus === 1 &&
-            paymentDetails?.subscribedPlan === data.type
+            paymentDetails?.subscribedPlan !== data.type
           ) && (
             <p className="text-description bg-[#f9cd65] uppercase p-[2px] rounded-[5px] px-[5px] text-black transform-[scale(0.8)]">
               Best Choice
