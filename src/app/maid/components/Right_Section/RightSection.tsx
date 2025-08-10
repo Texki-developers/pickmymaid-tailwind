@@ -122,11 +122,11 @@ const RightSection = ({ data, contactRef }: any) => {
   return (
     <div>
       <div className="grid gap-[20px]">
-        <div className="hidden lg:block">
+        <div >
           <div className="gap-[10px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
             <h2 className="text-[1.2rem] font-bold text-primary-300">About Me</h2>
             <div
-              className="text-[0.9rem] sm:text-[1rem] text-black-600 xl:text-[1.2rem]"
+              className="text-[0.9rem] mt-2 sm:text-[1rem] text-black-600"
               dangerouslySetInnerHTML={{ __html: data?.notes }}
             />
           </div>
@@ -264,7 +264,7 @@ const RightSection = ({ data, contactRef }: any) => {
           </div>
         </div>
 
-        <div className="block sm:block">
+        {/* <div className="hidden sm:block">
           <div className="gap-[10px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
             <h2 className="text-[1.2rem] font-bold text-primary-300">About Me</h2>
             <div
@@ -272,7 +272,7 @@ const RightSection = ({ data, contactRef }: any) => {
               dangerouslySetInnerHTML={{ __html: data?.notes }}
             />
           </div>
-        </div>
+        </div> */}
 
         <div className="grid gap-[10px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
           <h2 className="text-[1.2rem] font-bold text-primary-300">
@@ -333,7 +333,7 @@ const RightSection = ({ data, contactRef }: any) => {
         <div className="grid gap-[10px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
           <h2 className="text-[1.2rem] font-bold text-primary-300">Skills</h2>
           <div className="flex gap-[25px] flex-wrap">
-            {alternateSort(data.skills).map((item) => (
+            {data?.skills && alternateSort(data?.skills).map((item) => (
               <SkillsLanguages key={item} text={item} />
             ))}
           </div>

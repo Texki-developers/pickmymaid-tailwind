@@ -145,7 +145,7 @@ const LeftSection = ({ data, setScroll }: { data: any; setScroll?: React.Dispatc
   };
   return (
     <div>
-      <div className="grid gap-[20px]">
+      <div className="grid lg:gap-[20px] gap-[0px]">
         <div className="rounded-[15px] gap-[10px] p-[30px_0] bg-white">
           {!flag ? (
             <div className="flex items-center relative justify-center w-[80%] max-w-[250px] aspect-[1/1] mx-auto rounded-[0_25px_0_25px] overflow-hidden">
@@ -219,7 +219,7 @@ const LeftSection = ({ data, setScroll }: { data: any; setScroll?: React.Dispatc
                   <p className="text-[16px] md:text-[18px]">{item.value}</p>
                 </div>
               ))}
-              {data.references && (
+              {data?.references && (
                 <div className="bg-[#bee3f8] p-[0.5rem] mt-3 rounded-[8px] flex items-center gap-[0.5rem]">
                   <Image
                     src={referenceIcon.src}

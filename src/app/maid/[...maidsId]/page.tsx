@@ -1,23 +1,39 @@
-import LeftSection from "@/app/maid/components/Left_Section/LeftSection";
+"use client";
+
+// import LeftSection from "@/app/maid/components/Left_Section/LeftSection";
 import bannerBackground from "@/assets/images/About/banner-background.webp";
-import RightSection from "../components/Right_Section/RightSection";
+// import RightSection from "../components/Right_Section/RightSection";
 import Image from "next/image";
 import verifiedImage from "@/assets/images/verified_image.png";
 import { axiosInstance } from "@/lib/axiosInstance";
-import { notFound } from "next/navigation";
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+const RightSection = dynamic(() => import("../components/Right_Section/RightSection"), { ssr: false });
+const LeftSection = dynamic(() => import("../components/Left_Section/LeftSection"), { ssr: false });
 
 const getMaidDataById = async (maidsId: string) => {
     const response = await axiosInstance.post(`/job/id/`, { id: maidsId });
     return response.data;
-}
+};
 
-const MaidPage = async ({ params }: any) => {
-    const { maidsId } = await params
-    const response = await getMaidDataById(maidsId[1] ? maidsId[1] : maidsId[0])
-    const data = response?.data
-    if (!data) {
-        notFound()
-    }
+const MaidPage = ({ params }: any) => {
+    const [data, setData] = useState<any>(null);
+    // const { maidsId } = await params
+    // const response = await getMaidDataById(maidsId[1] ? maidsId[1] : maidsId[0])
+    // const data = response?.data
+    // if (!data) {
+    //     notFound()
+    // }
+    const { maidsId }: { maidsId: string } = useParams();
+    const getData = async (maidsId: string) => {
+        const response = await getMaidDataById(maidsId);
+        setData(response?.data);
+    };
+    useEffect(() => {
+        getData(maidsId[1] ? maidsId[1] : maidsId[0]);
+    }, [maidsId]);
+
     return (
         <>
             <div className="pb-[30px] bg-soft-gray">
@@ -33,16 +49,11 @@ const MaidPage = async ({ params }: any) => {
                 </div>
 
                 <div className="grid lg:grid-cols-[2fr_4fr] max-w-[1240px] mx-auto grid-cols-1 gap-[30px] bg-soft-gray px-[1rem]">
-                    <LeftSection
-                        data={data?.jobApplication}
-                    />
-                    <RightSection
-                        data={data?.jobApplication}
-                    />
+                    <LeftSection data={data?.jobApplication} />
+                    <RightSection data={data?.jobApplication} />
                 </div>
 
-                <div
-                    className="flex justify-center items-center py-[1rem] sm:py-[2rem] px-[1rem]">
+                <div className="flex justify-center items-center py-[1rem] sm:py-[2rem] px-[1rem]">
                     <div
                         className="text-description flex items-center gap-[5px]"
                         style={{
@@ -52,7 +63,12 @@ const MaidPage = async ({ params }: any) => {
                             borderRadius: "10px",
                         }}>
                         <div className="w-[2rem] h-[2rem] aspect-square">
-                            <Image src={verifiedImage.src} width={25} height={25} alt="verified" />
+                            <Image
+                                src={verifiedImage.src}
+                                width={25}
+                                height={25}
+                                alt="verified"
+                            />
                         </div>
                         This profile has been created and verified by Pickmymaid Team
                     </div>
