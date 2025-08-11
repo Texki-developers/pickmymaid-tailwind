@@ -72,7 +72,7 @@ export default function RootLayout({
           {children}
           <BottomNav />
           <FooterWrapper />
-          {/* <WhatsappButton /> */}
+          <WhatsappButton />
           <Suspense>
             <AuthModalWrapper />
           </Suspense>

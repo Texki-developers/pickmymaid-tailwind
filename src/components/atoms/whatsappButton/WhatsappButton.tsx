@@ -7,11 +7,11 @@ const WhatsappButton = () => {
   const pathname = usePathname();
   return (
     <div>
-      {pathname.split("/")[2] !== "maid" && (
+      {pathname.split("/")[1] !== "maid" && (
         <button
           className="rounded-[10px_10px_0_10px] p-[0.8rem] w-[max-content] right-[0.5rem] z-[997]  bg-white border-white shadow-[0px_0px_15px_rgba(0,0,0,0.2)] fixed aspect-square h-auto "
           style={{
-            bottom: pathname.includes("search") ? "5rem" : "4rem",
+            bottom: '5rem',
             right: "0.5rem",
             zIndex: 997,
           }}
