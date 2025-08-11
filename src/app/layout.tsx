@@ -8,6 +8,7 @@ import AuthModalWrapper from "@/components/molecules/Home/HomeSections/Wrappers/
 import { Suspense } from "react";
 import ToastContainerComponent from "@/components/atoms/toast-container/ToastContainer";
 import FooterWrapper from "@/components/atoms/Footer/FooterWrapper";
+import WhatsappButton from "@/components/atoms/whatsappButton/WhatsappButton";
 
 const notoSansNewTaiLue = Noto_Sans_New_Tai_Lue({
   variable: "--font-noto-sans-new-tai-lue",
@@ -46,8 +47,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Hire Maids and Nannies in UAE | Pick My Maid UAE",
-    description:
-      "Find reliable Maids and Nannies for hire in the UAE. Trusted domestic staff ready to assist your family.",
+    description: "Find reliable Maids and Nannies for hire in the UAE. Trusted domestic staff ready to assist your family.",
     images: [
       {
         url: "/logo.webp",
@@ -74,6 +74,7 @@ export default function RootLayout({
           {children}
           <BottomNav />
           <FooterWrapper />
+          {/* <WhatsappButton /> */}
           <Suspense>
             <AuthModalWrapper />
           </Suspense>

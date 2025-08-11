@@ -60,6 +60,7 @@ export default function BottomNav() {
           OutlineIcon={RiHome5Line}
           FillIcon={RiHome5Fill}
           pathname={pathname}
+          onClick={() => router.push("/")}
         />
         <BottomNavButton
           label="Favorites"
@@ -67,6 +68,7 @@ export default function BottomNav() {
           OutlineIcon={PiHeartStraight}
           FillIcon={PiHeartFill}
           pathname={pathname}
+          onClick={() => router.push("/favorites")}
         />
         <VStack
           className="gap-1 user-select-none outline-none justify-between items-center"
@@ -81,6 +83,9 @@ export default function BottomNav() {
           path="tel:+971566369736"
           OutlineIcon={IoCallOutline}
           FillIcon={IoCallOutline}
+          onClick={() => {
+            window.location.href = "tel:+971566369736";
+          }}
         />
         {/* Auth Button */}
         {!user?.first_name ? (
@@ -105,7 +110,7 @@ export default function BottomNav() {
 
       <div
         className={clsx(
-          "h-[100%] fixed bottom-0 transition-[opacity_0.3s_ease] z-[1000] left-0 w-[100%] bg-[rgba(0,0,0,0.3)] z-[100]",
+          "h-[100%] fixed bottom-0 transition-[opacity_0.3s_ease] z-[1000] left-0 w-[100%] bg-[rgba(0,0,0,0.3)] ",
           navOpened ? "opacity-100 block" : "opacity-0 pointer-events-none none"
         )}
         onClick={handleBackdropClick}
