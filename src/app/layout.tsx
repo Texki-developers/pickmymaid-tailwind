@@ -8,6 +8,7 @@ import AuthModalWrapper from "@/components/molecules/Home/HomeSections/Wrappers/
 import { Suspense } from "react";
 import ToastContainerComponent from "@/components/atoms/toast-container/ToastContainer";
 import FooterWrapper from "@/components/atoms/Footer/FooterWrapper";
+import Script from "next/script";
 import WhatsappButton from "@/components/atoms/whatsappButton/WhatsappButton";
 
 const notoSansNewTaiLue = Noto_Sans_New_Tai_Lue({
@@ -78,6 +79,29 @@ export default function RootLayout({
           <ToastContainerComponent />
         </StoreProvider>
       </body>
+      <>
+        <Script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=AW-11255924314`}
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-11255924314');
+  `}
+        </Script>
+        <Script id="clarity-script" strategy="afterInteractive">
+          {`
+              (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "i7ztkf13tk");
+          `}
+        </Script>
+      </>
     </html>
   );
 }
