@@ -19,7 +19,7 @@ export default function page() {
           backgroundImage: `url('${bannerBackground.src}')`,
         }}
       >
-        <h1 className="heading-primary text-primary-400">How it works?</h1>
+        <h1 className="heading-primary !text-primary-400">How it works?</h1>
         <div className="hidden md:block absolute bottom-0 md:right-[10%] xl:[15vw] 2xl:[18vw]">
           <Image
             src={lady.src}

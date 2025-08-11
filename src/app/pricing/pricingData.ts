@@ -33,7 +33,7 @@ export const pricingData: IPricingCardData[] = [
     id: crypto.randomUUID(),
     type: 0,
     name: 'Basic Plan',
-    price: '395',
+    price: '350',
     validity: '1 Month',
     highlightColor: '#FF4D62',
     buttonGradient: ['45f298','c1fdc9'],
