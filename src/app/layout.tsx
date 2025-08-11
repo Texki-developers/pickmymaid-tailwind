@@ -55,9 +55,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  robots: {
-    index: false,
-  },
   metadataBase: new URL("https://www.pickmymaid.com/"), // update to your actual domain
 };
 
