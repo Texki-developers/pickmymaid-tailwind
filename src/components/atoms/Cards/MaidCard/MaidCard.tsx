@@ -211,7 +211,7 @@ function MaidCard({
               <p className=" font-medium text-description text-xs">
                 Desired monthly salary
               </p>
-              <p className="text-md font-semibold text-text-black-600">
+              <p className="text-md font-[500] text-text-black-600">
                 {salary?.from === 0 && salary.to === 0
                   ? "Negotiable"
                   : `${salary?.from || "0"}-${salary?.to || "0"} AED`}
@@ -221,7 +221,7 @@ function MaidCard({
               <p className=" font-medium text-description text-sm">
                 Desired job
               </p>
-              <p className="text-md font-semibold text-text-black-600">
+              <p className="text-md font-[500] text-text-black-600">
                 {option?.replace("And", "&") || ""}
               </p>
             </div>
