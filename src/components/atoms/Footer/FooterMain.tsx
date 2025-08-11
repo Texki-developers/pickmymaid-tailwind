@@ -65,7 +65,7 @@ export default function FooterMain() {
             <h3 className="heading-footer-title mb-4">Support</h3>
             <VStack>
               <p className="text-footer font-[500] text-white">
-                Whatsapp:{" "}
+                Call Us:{" "}
                 <Link
                   href="tel:+971566369736"
                   className="text-footer text-white"

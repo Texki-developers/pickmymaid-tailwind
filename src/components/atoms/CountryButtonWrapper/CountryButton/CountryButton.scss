@@ -15,7 +15,9 @@
   height: auto;
   width: calc(50% - 0.5rem);
   opacity: 1;
-
+  .country-button__country{
+    font-weight: 600;
+  }
   &:hover {
     border: 2px solid $brand-primary-200;
     background-color: $brand-primary-50;

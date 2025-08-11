@@ -36,7 +36,7 @@ export default function BannerV2() {
       <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-[10%] h=[23rem] sm:h-auto">
         <VStack className="items-start justify-between sm:justify-center h-[100%] static z-[20] flex-shrink-[2] gap-[0.5rem] sm:gap-[1rem]">
           <VStack className="gap-[0.5rem] items-center sm:items-start text-center sm:text-left">
-            <h1 className="min-h-[2rem] heading-primary !text-black-700 w-[100%] !font-[800] max-w-[45rem]">
+            <h1 className="min-h-[2rem] heading-primary !text-black-700 w-[100%] !font-[800] max-w-[45rem] leading-[30px] sm:leading-[55px]">
               Are you looking for a Maid or Nanny in UAE?
             </h1>
             <p className="text-[1rem] text-black-900 max-h-max">

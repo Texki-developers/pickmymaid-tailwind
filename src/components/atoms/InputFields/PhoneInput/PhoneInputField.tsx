@@ -27,7 +27,7 @@ export default function PhoneInputField({
   });
 
   const handlePhoneChange = (phone: string) => {
-    onChange(phone);
+    onChange(phone?.replace("+", ""));
   };
 
   return (

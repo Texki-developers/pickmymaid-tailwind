@@ -40,7 +40,7 @@ export default function ContactUs({ hideImage }: { hideImage?: boolean }) {
           />
           <ContactDetailsCard
             key={4}
-            title="WhatsApp"
+            title="Call Us"
             link="tel:+971566369736"
             text="+971 566369736"
           />
