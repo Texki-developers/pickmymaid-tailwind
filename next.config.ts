@@ -3,9 +3,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   experimental: {
-    optimizeCss: true,
+    optimizeCss: true,         // Merge CSS chunks & inline critical CSS
     optimizeServerReact: true,
     optimizeRouterScrolling: true,
+    nextScriptWorkers: true,   // Helps reduce main thread blocking
   },
   images: {
     remotePatterns: [
@@ -15,14 +16,13 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '8080',
-        pathname: '/api/images/**',
+        protocol: "http",
+        hostname: "localhost",
+        port: "8080",
+        pathname: "/api/images/**",
       },
     ],
   },
 };
 
-// Wrap and export
 export default nextConfig;
