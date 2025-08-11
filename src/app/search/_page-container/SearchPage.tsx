@@ -116,7 +116,7 @@ const SearchMaid = () => {
                             ref={statusHeading}>
                             <h1 className="font-weight-500 text-text-black-700 text-lg ">
                                 <span className="text-brand-primary-300">
-                                    Found <span className="font-[600]">{maidsCount}</span> result
+                                    Found <span className="font-[600]">{maidsCount}</span> results
                                 </span>{" "}
                                 according to your requirement
                             </h1>
