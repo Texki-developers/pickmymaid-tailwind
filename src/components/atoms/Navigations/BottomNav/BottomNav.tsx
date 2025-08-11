@@ -49,6 +49,7 @@ export default function BottomNav() {
     await dispatch(logoutUser());
     setNavOpen(false);
     setLogoutProcess(false);
+    window.location.reload();
   };
   return (
     <div className="overflow-hidden block sm:hidden">
@@ -107,6 +108,7 @@ export default function BottomNav() {
           "h-[100%] fixed bottom-0 transition-[opacity_0.3s_ease] z-[1000] left-0 w-[100%] bg-[rgba(0,0,0,0.3)] z-[100]",
           navOpened ? "opacity-100 block" : "opacity-0 pointer-events-none none"
         )}
+        onClick={handleBackdropClick}
         id="backdrop">
         <div
           className={clsx(
@@ -146,8 +148,22 @@ export default function BottomNav() {
               </button>
             ) : (
               <>
-                <button className="btn-solid">Login</button>
-                <button className="btn-solid">Register</button>
+                <button
+                  onClick={() => {
+                    dispatch(setAuthModal("login"));
+                    setNavOpen(false);
+                  }}
+                  className="btn-solid">
+                  Login
+                </button>
+                <button
+                  onClick={() => {
+                    dispatch(setAuthModal("signup"));
+                    setNavOpen(false);
+                  }}
+                  className="btn-solid">
+                  Register
+                </button>
               </>
             )}
           </HStack>
