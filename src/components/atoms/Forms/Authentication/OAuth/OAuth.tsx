@@ -33,15 +33,14 @@ export default function OAuth({ setCustom }: any) {
   const handleOAuth = (type: string, link: string) => {
     const baseURL: string =
       process.env.NEXT_PUBLIC_CUSTOM_MODE === "PROD" ? (process.env.NEXT_PUBLIC_API_URL_PROD as string) : (process.env.NEXT_PUBLIC_API_URL as string);
-
     if (type === "email") {
       setCustom(type);
       return true;
     }
 
     setCustom(type);
-    console.log(`${baseURL}v2/${link}?redirect=${encodeURIComponent(location.href)}`);
-    // window.location.href = `${baseURL}v2/${link}?redirect=${encodeURIComponent(location.href)}`;
+    // console.log(`${baseURL}v2/${link}?redirect=${encodeURIComponent(location.href)}`);
+    window.location.href = `${baseURL}v2/${link}?redirect=${encodeURIComponent(location.href)}`;
   };
   return (
     <VStack className="items-center gap-6 w-full">
