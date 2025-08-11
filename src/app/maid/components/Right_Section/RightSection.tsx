@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import ForPremium from "@/components/atoms/ForPremiumOnly/ForPremium";
 import { MdLocationOn, MdOutlineMail, MdOutlineVideoCall, MdPhone, RiWhatsappFill } from "@/components/atoms/Icons/Icons";
 import PremiumButton from "@/components/atoms/PremiumButton/PremiumButton";
@@ -8,16 +8,17 @@ import { fetchMaidDataById } from "@/lib/features/maid/maidAction";
 import { addRedirection } from "@/lib/features/utilSlice/utileSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import SkillsLanguages from "../SkillsLanguages";
 import Accordian from "../accordian/Accordian";
 import ExperienceAccordian from "../experienceAccordian";
 import { IEmploymentHistory } from "../Left_Section/LeftSection";
 
-const RightSection = ({ data, contactRef }: any) => {
+const RightSection = ({ data }: any) => {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const { user } = useAppSelector((state) => state.auth);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   const [flag, setFlag] = useState(false);
   const languageLevel: Record<number, string> = {
@@ -71,6 +72,12 @@ const RightSection = ({ data, contactRef }: any) => {
     }
   };
 
+  useLayoutEffect(() => {
+    if (contactRef.current) {
+      localStorage.setItem("contactSection", contactRef.current?.getBoundingClientRect().top.toString());
+    }
+  }, []);
+
   function alternateSort(skills: string[]): string[] {
     // Sort skills in ascending order of length
     const sortedSkills = [...skills].sort((a, b) => a.length - b.length);
@@ -122,7 +129,7 @@ const RightSection = ({ data, contactRef }: any) => {
   return (
     <div>
       <div className="grid gap-[20px]">
-        <div >
+        <div>
           <div className="gap-[10px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
             <h2 className="text-[1.2rem] font-bold text-primary-300">About Me</h2>
             <div
@@ -275,19 +282,20 @@ const RightSection = ({ data, contactRef }: any) => {
         </div> */}
 
         <div className="grid gap-[10px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
-          <h2 className="text-[1.2rem] font-bold text-primary-300">
-            Visa Details
-          </h2>
-          {data?.visa_status && <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr]">
-            <h2 className="text-[1rem] font-semibold">Visa status</h2>
-            <p>{data?.visa_status}</p>
-          </div>}
-          {data?.visa_expire && <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr]">
-            <h2 className="text-[1rem] font-semibold">Visa Expiry</h2>
-            <p>{data?.visa_expire?.split("-").reverse().join("-")}</p>
-          </div>}
+          <h2 className="text-[1.2rem] font-bold text-primary-300">Visa Details</h2>
+          {data?.visa_status && (
+            <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr]">
+              <h2 className="text-[1rem] font-semibold">Visa status</h2>
+              <p>{data?.visa_status}</p>
+            </div>
+          )}
+          {data?.visa_expire && (
+            <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr]">
+              <h2 className="text-[1rem] font-semibold">Visa Expiry</h2>
+              <p>{data?.visa_expire?.split("-").reverse().join("-")}</p>
+            </div>
+          )}
         </div>
-
 
         <div className="block lg:hidden">
           <div className="gap-[15px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
@@ -314,8 +322,7 @@ const RightSection = ({ data, contactRef }: any) => {
         {/* yoututbe video  */}
         <div className="hidden lg:block">
           {flag && getEmbedUrl(data?.youtube_link) && (
-            <div
-              className="gap-[15px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
+            <div className="gap-[15px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
               <h2 className="text-[1.2rem] font-bold text-primary-300">Proposal Video</h2>
               <div className="w-full aspect-[4/3]">
                 <iframe
@@ -333,9 +340,13 @@ const RightSection = ({ data, contactRef }: any) => {
         <div className="grid gap-[10px] p-[15px] md:p-[30px] bg-white rounded-[15px]">
           <h2 className="text-[1.2rem] font-bold text-primary-300">Skills</h2>
           <div className="flex gap-[25px] flex-wrap">
-            {data?.skills && alternateSort(data?.skills).map((item) => (
-              <SkillsLanguages key={item} text={item} />
-            ))}
+            {data?.skills &&
+              alternateSort(data?.skills).map((item) => (
+                <SkillsLanguages
+                  key={item}
+                  text={item}
+                />
+              ))}
           </div>
         </div>
 
@@ -344,10 +355,12 @@ const RightSection = ({ data, contactRef }: any) => {
           <h2 className="text-[1.2rem] font-bold text-primary-300">Language</h2>
           <div className="flex gap-[15px] flex-wrap">
             {data?.language?.map((item: any) => (
-              <div key={item?.name} className="grid p-[10px] border rounded-[10px] border-primary-300">
+              <div
+                key={item?.name}
+                className="grid p-[10px] border rounded-[10px] border-primary-300">
                 <h2 className="font-semibold text-[1rem]">{item?.name}</h2>
                 <div className="flex gap-[5px] align-center">
-                  <h2 >Read :</h2>
+                  <h2>Read :</h2>
                   <h2>{languageLevel[item?.read]}</h2>
                 </div>
                 <div className="flex gap-[5px] align-center">
@@ -363,7 +376,8 @@ const RightSection = ({ data, contactRef }: any) => {
           </div>
         </div>
         {paymentDetails?.subscriptionStatus !== 1 && (
-          <button className="w-full bg-primary-300 hover:bg-primary-400 transition-all duration-300 text-[1rem] font-semibold text-white p-[15px] rounded-[10px]"
+          <button
+            className="w-full bg-primary-300 hover:bg-primary-400 transition-all duration-300 text-[1rem] font-semibold text-white p-[15px] rounded-[10px]"
             onClick={handleHire}>
             Hire Now
           </button>

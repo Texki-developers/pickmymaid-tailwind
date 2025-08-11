@@ -82,6 +82,10 @@ const LeftSection = ({ data, setScroll }: { data: any; setScroll?: React.Dispatc
     } else if (paymentDetails?.subscriptionStatus === 1) {
       localStorage.setItem("scroll", "contact");
       setScroll?.((prev) => prev + 1);
+      window?.scrollTo({
+        top: Number(localStorage.getItem("contactSection")) || 0,
+        behavior: "smooth",
+      })
     } else {
       router.push("/pricing");
     }
@@ -187,8 +191,7 @@ const LeftSection = ({ data, setScroll }: { data: any; setScroll?: React.Dispatc
             </div>
             <div className="flex items-center justify-center gap-[20px]">
               <h2
-                className="text-center font-bold leading-[1.2]"
-                style={{ fontSize: "1.872rem" }}>
+                className="text-center font-bold text-xl leading-[1.2]">
                 {data?.name}
               </h2>
             </div>

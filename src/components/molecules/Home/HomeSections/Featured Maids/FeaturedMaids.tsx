@@ -14,6 +14,7 @@ export default function FeaturedMaids({
   counts: ICounts;
   featuredMaids: IFeaturedMaidCard[];
 }) {
+  console.log({ featuredMaids })
   return (
     <VStack className="items-center w-[100%] gap-2 sm:gap-10 bg-white common-padding">
       <VStack className="items-center">

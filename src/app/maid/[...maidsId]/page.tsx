@@ -9,7 +9,7 @@ import { axiosInstance } from "@/lib/axiosInstance";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import useCustomToast from "@/lib/hooks/useCustomToast";
+import Loading from "@/app/loading";
 const RightSection = dynamic(() => import("../components/Right_Section/RightSection"), { ssr: false });
 const LeftSection = dynamic(() => import("../components/Left_Section/LeftSection"), { ssr: false });
 
@@ -20,6 +20,7 @@ const getMaidDataById = async (maidsId: string) => {
 
 const MaidPage = ({ params }: any) => {
     const [data, setData] = useState<any>(null);
+    const [loading, setLoading] = useState(false);
     // const { maidsId } = await params
     // const response = await getMaidDataById(maidsId[1] ? maidsId[1] : maidsId[0])
     // const data = response?.data
@@ -28,8 +29,10 @@ const MaidPage = ({ params }: any) => {
     // }
     const { maidsId }: { maidsId: string } = useParams();
     const getData = async (maidsId: string) => {
+        setLoading(true);
         const response = await getMaidDataById(maidsId);
         setData(response?.data);
+        setLoading(false);
     };
     useEffect(() => {
         getData(maidsId[1] ? maidsId[1] : maidsId[0]);
@@ -38,7 +41,7 @@ const MaidPage = ({ params }: any) => {
     return (
         <>
             <div className="pb-[30px] bg-soft-gray">
-                {/* {loading && <Loading />} */}
+                {loading && <Loading />}
                 <div className="hidden lg:block">
                     <div
                         style={{ backgroundImage: `url(${bannerBackground.src})` }}
