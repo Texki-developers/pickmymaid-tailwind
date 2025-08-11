@@ -127,7 +127,7 @@ const SearchMaid = () => {
                                 />
                             </div>
                         </div>
-                        <div className="flex md:hidden text-[16px] justify-center items-center fixed bottom-[100px] z-10 md:left-0 left-1/2 translate-x-[-50%]">
+                        <div className="flex md:hidden text-[16px] justify-center items-center fixed bottom-[85px] z-10 md:left-0 left-1/2 translate-x-[-50%]">
                             <div className="flex">
                                 <button
                                     className="bg-white flex gap-1 items-center hover:bg-primary-300 hover:text-white text-primary-400 rounded-tl-[10px] px-2 py-1 border-[1px] border-primary-400 border-r-0"
