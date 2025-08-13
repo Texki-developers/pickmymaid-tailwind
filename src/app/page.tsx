@@ -8,16 +8,25 @@ import ZigZagWrapper from "@/components/molecules/Home/HomeSections/Wrappers/Zig
 import { axiosInstance } from "@/lib/axiosInstance";
 import FeaturedMaidsWrapper from "@/components/molecules/Home/HomeSections/Featured Maids/FeaturedMaidsWrapper";
 import FAQWrapper from "@/components/molecules/Home/HomeSections/FAQs/FAQWrapper";
+import { cache } from "react";
 
 export const revalidate = 3600;
 
+const getCounts = cache(async () => {
+  const res = await axiosInstance.get("job/counts");
+  return res.data.message;
+});
+
+const getFeaturedMaids = cache(async () => {
+  const res = await axiosInstance.get(`job/featured?from=${null}`);
+  return res.data.data;
+});
+
 export default async function Home() {
-  const countsResponse = await axiosInstance.get("job/counts");
-  const featuredMaidResponse = await axiosInstance.get(
-    `job/featured?from=${null}`
-  );
-  const counts: ICounts[] = countsResponse?.data?.message;
-  const featuredMaids: IFeaturedMaidCard[] = featuredMaidResponse?.data?.data;
+  const counts = await getCounts();
+  const featuredMaids = await getFeaturedMaids();
+  // const counts: ICounts[] = countsResponse?.data?.message;
+  // const featuredMaids: IFeaturedMaidCard[] = featuredMaidResponse?.data?.data;
   console.log(featuredMaids);
   return (
     <div className="flex flex-col items-center gap-[50px] sm:gap-[80px] md:gap-[100px]">
