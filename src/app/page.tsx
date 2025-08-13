@@ -10,7 +10,7 @@ import FeaturedMaidsWrapper from "@/components/molecules/Home/HomeSections/Featu
 import FAQWrapper from "@/components/molecules/Home/HomeSections/FAQs/FAQWrapper";
 import { cache } from "react";
 
-export const revalidate = 3600;
+export const revalidate = 60;
 
 const getCounts = cache(async () => {
   const res = await axiosInstance.get("job/counts");
