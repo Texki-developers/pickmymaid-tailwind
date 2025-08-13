@@ -9,6 +9,8 @@ import { axiosInstance } from "@/lib/axiosInstance";
 import FeaturedMaidsWrapper from "@/components/molecules/Home/HomeSections/Featured Maids/FeaturedMaidsWrapper";
 import FAQWrapper from "@/components/molecules/Home/HomeSections/FAQs/FAQWrapper";
 
+export const revalidate = 3600;a
+
 export default async function Home() {
   const countsResponse = await axiosInstance.get("job/counts");
   const featuredMaidResponse = await axiosInstance.get(
