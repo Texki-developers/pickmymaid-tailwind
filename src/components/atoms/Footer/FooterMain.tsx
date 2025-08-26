@@ -21,7 +21,7 @@ export default function FooterMain() {
         <VStack>
           <Link href="/">
             <Image
-              src="/logo/logo white.webp"
+              src="/logo/logo-white.webp"
               alt="Pickmymaid logo white"
               width={160}
               height={40}

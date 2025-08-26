@@ -21,7 +21,7 @@ export default function page() {
             <h1 className="heading-section-title max-w-[35rem] text-center">
               Access Plans
             </h1>
-            <p className="text-subtitle">
+            <p className="text-subtitle text-center">
               One time payment with No hidden changes - No automatic renewals.
             </p>
             <Image

@@ -1,7 +1,7 @@
 "use client";
 import Image from "@/components/atoms/NextImageWrapper/Image";
 import React from "react";
-import khaleej from "@/assets/images/Home/Khaleej_latest.webp";
+import khaleej from "@/assets/images/Home/Khaleej_Times_latest_quality.webp";
 import { useRouter } from "next/navigation";
 import VStack from "@/components/ui/VStack";
 import Link from "next/link";

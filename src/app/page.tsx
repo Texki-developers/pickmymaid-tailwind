@@ -35,7 +35,7 @@ export default async function Home() {
         <NewsSection />
       </div>
       <HowItWorksHome />
-      <FeaturedMaidsWrapper counts={counts[0]} featuredMaids={featuredMaids} />
+      {/* <FeaturedMaidsWrapper counts={counts[0]} featuredMaids={featuredMaids} /> */}
       <TrustAndSafety />
       <WhyUAETrust />
       <ZigZagWrapper
