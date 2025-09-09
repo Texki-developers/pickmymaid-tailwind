@@ -94,7 +94,7 @@ export default function RootLayout({
           async
           src={`https://www.googletagmanager.com/gtag/js?id=AW-11255924314`}
         />
-        <Script id="gtag-init" strategy="afterInteractive">
+        <Script id="gtag-init" strategy="lazyOnload">
           {`
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -102,7 +102,7 @@ export default function RootLayout({
     gtag('config', 'AW-11255924314');
   `}
         </Script>
-        <Script id="clarity-script" strategy="afterInteractive">
+        <Script id="clarity-script" strategy="lazyOnload">
           {`
               (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -113,7 +113,7 @@ export default function RootLayout({
         </Script>
 
         {/* Facebook Pixel */}
-        <Script id="facebook-pixel" strategy="afterInteractive">
+        <Script id="facebook-pixel" strategy="lazyOnload">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
