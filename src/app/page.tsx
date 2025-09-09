@@ -10,7 +10,7 @@ import FeaturedMaidsWrapper from "@/components/molecules/Home/HomeSections/Featu
 import FAQWrapper from "@/components/molecules/Home/HomeSections/FAQs/FAQWrapper";
 import { cache } from "react";
 
-export const revalidate = 60;
+export const revalidate = 6000;
 
 const getCounts = cache(async () => {
   const res = await axiosInstance.get("job/counts");
@@ -27,7 +27,6 @@ export default async function Home() {
   const featuredMaids = await getFeaturedMaids();
   // const counts: ICounts[] = countsResponse?.data?.message;
   // const featuredMaids: IFeaturedMaidCard[] = featuredMaidResponse?.data?.data;
-  console.log(featuredMaids);
   return (
     <div className="flex flex-col items-center gap-[50px] sm:gap-[80px] md:gap-[100px]">
       <div className="w-[100%]">
