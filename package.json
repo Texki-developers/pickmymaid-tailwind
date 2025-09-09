@@ -9,21 +9,6 @@
     "lint": "next lint",
     "buildSitemap": "next-sitemap"
   },
-  "browserslist": {
-    "production": [
-      "defaults",
-      "not IE 11",
-      "maintained node versions",
-      "last 2 Chrome versions",
-      "last 2 Firefox versions",
-      "last 2 Safari major versions"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "dependencies": {
     "@headlessui/react": "^2.2.6",
     "@radix-ui/react-dropdown-menu": "^2.1.15",
