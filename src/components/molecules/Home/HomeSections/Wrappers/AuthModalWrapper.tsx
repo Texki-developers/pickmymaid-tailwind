@@ -33,11 +33,6 @@ const AuthModalWrapper = () => {
     dispatch(setAuthModal(null));
   };
 
-  useEffect(() => {
-    if (authModal) {
-      // onOpen();
-    }
-  }, [authModal]);
 
   useEffect(() => {
     if (

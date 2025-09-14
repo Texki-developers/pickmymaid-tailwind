@@ -29,3 +29,5 @@ export default function HowCard({ image, number, head, para }: any) {
     </div>
   );
 }
+
+

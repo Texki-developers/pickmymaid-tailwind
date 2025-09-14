@@ -27,13 +27,9 @@ export default function ForgotPasswordForm() {
 
   const onFormSubmission = (data: IForgetPasswordForm) => {
     dispatch(forgetPassword({ body: data }));
+    dispatch(setAuthModal(null));
+    router.push("/reset-link-sent");
   };
-
-  useMemo(() => {
-    if (status === "success") {
-      router.push("/reset-link-sent");
-    }
-  }, [status]);
 
   return (
     <div className="flex flex-col w-[100%] items-start gap-4">
