@@ -13,6 +13,7 @@ import HStack from "@/components/ui/HStack";
 import VStack from "@/components/ui/VStack";
 import PrimaryInput from "@/components/atoms/InputFields/PrimaryInput/PrimaryInput";
 import Button from "@/components/ui/Button";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
   const {
@@ -22,6 +23,7 @@ export default function LoginForm() {
   } = useForm<ILoginForm>();
 
   const dispatch = useAppDispatch();
+  const router = useRouter();
   const [isCustom, setCustom] = useState<string | null>(null);
 
   const { loading, authModal } = useAppSelector((state) => state.auth);
@@ -96,7 +98,10 @@ export default function LoginForm() {
           </p>
           <p
             className="text-fade cursor-pointer hover:underline"
-            onClick={() => dispatch(setAuthModal("signup"))}
+            onClick={() => {
+              dispatch(setAuthModal(null));
+              router.push("/register");
+            }}
           >
             Don&apos;t have an account?
           </p>

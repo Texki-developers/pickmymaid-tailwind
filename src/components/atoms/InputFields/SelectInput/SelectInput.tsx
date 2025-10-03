@@ -23,7 +23,7 @@ export default function SelectInput({
       <label
         htmlFor={inputId}
         className={clsx(
-          "text-sm font-medium",
+          "label-primary",
           required && "after:content-['*'] after:ml-1 after:text-red-500"
         )}
       >
@@ -34,11 +34,12 @@ export default function SelectInput({
         id={inputId}
         {...register}
         className={clsx(
-          "w-full px-4 py-2 rounded-md border text-sm",
-          "bg-white text-black dark:bg-gray-800 dark:text-white",
+          "w-full px-4 py-2 rounded-md border",
+          "bg-white text-black",
+          "text-input",
           errorMessage
             ? "border-red-500 focus:ring-red-500"
-            : "border-gray-300 dark:border-gray-600 focus:ring-blue-500",
+            : "border-gray-300 focus:ring-blue-500",
           "focus:outline-none focus:ring-2 transition-all duration-200"
         )}
       >

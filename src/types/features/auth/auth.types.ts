@@ -14,11 +14,21 @@ export type IAuthState = IBasicStateStructure & {
 // Declare the type of register body
 export type IRegisterBodyState = {
   first_name: string;
-  last_name: string;
+  last_name?: string;
   email: string;
   phone: string;
   password: string;
   confirm_password: string;
+  emirate_of_residence: string;
+  position_required: string;
+  proposed_salary: string;
+  area: string;
+  number_of_family: string | number;
+  accomodation_type: string;
+  heared_from: string;
+  nationality_preference: string;
+  additional_requirement: string;
+  child_category: string;
 }
 
 // Declare the type of register return

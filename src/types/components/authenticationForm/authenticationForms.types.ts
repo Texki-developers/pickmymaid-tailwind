@@ -8,6 +8,25 @@ export type IRegisterForm = {
   confirmPassword: string;
 }
 
+export type IBasicForm = {
+  firstName: string;
+  email: string;
+  phone: string;
+  password: string;
+  emiratesOfResidance: string;
+  positionRequired: string;
+}
+
+export type IAdditionalDetails = {
+  proposedSalary: string;
+  area: string;
+  numOfFamily: number;
+  accomodationType: string;
+  hearedFrom: string;
+  nationalityPreference: string;
+  additionalRequirement: string
+}
+
 // Declare the type of job application form
 export type IJobApplicationForm = {
   name: string;
