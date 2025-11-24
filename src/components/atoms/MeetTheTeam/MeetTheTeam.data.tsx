@@ -1,40 +1,40 @@
 "use client";
-import angel from "@/assets/images/Teams/Angel photo-comp.webp";
+import shahida from "@/assets/images/Teams/shahida.webp";
 import yasmin from "@/assets/images/Teams/Yasmine-comp.webp";
 import samjhana from "@/assets/images/Teams/Samjhana photo-comp.webp";
 
 const teamDetails = [
   {
-    name: "Angel - HR & Administration Manager | Dedicated Client Support",
+    name: "Samjhana - HR & Administration Manager | Dedicated Client Support",
     details: (
       <span>
-        Angel, our <strong>HR & Administration Manager</strong>, plays a vital
+        Samjana, our <strong>HR & Administration Manager</strong>, plays a vital
         role in managing recruitment, staff coordination, and ensuring smooth
         operations. She carefully selects maids and nannies to meet our high
         service standards.
-        <br /> <br /> In addition to HR, Angel also handles dedicated client
+        <br /> <br /> In addition to HR, Samjhana also handles dedicated client
         support, guiding families through the hiring process and ensuring they
         find the perfect maid or nanny. Her expertise, professionalism, and
         client-focused approach make her an essential part of our team.
       </span>
     ),
-    image: angel?.src,
+    image: samjhana?.src,
   },
   {
-    name: "Samjhana - HR Specialist",
+    name: "Shahida - HR Specialist",
     details: (
       <span>
-        Samjhana, our <strong>HR Specialist</strong>, plays a key role in
+        Shahida, our <strong>HR Specialist</strong>, plays a key role in
         recruiting, screening, and selecting skilled maids and nannies to ensure
         top-quality service for our clients. <br />
         <br /> With expertise in human resources and a keen eye for talent,
-        Samjhana ensures that every candidate meets our high standards of
+        Shahida ensures that every candidate meets our high standards of
         professionalism and reliability. She is dedicated to creating a smooth
         hiring process for both employees and clients, making sure families get
         the best care and support.
       </span>
     ),
-    image: samjhana?.src,
+    image: shahida?.src,
   },
   {
     name: "Yasmin - HR Assistant",
